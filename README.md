@@ -1,0 +1,1 @@
+Bazar.ba is an e-commerce web application, that provides a platform for small businesses and creators to sell their products and manage orders free of charge. This application is a part of my graduation project and will be developed using Spring Boot and React, with a PostgreSQL database.
