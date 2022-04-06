@@ -1,0 +1,23 @@
+.pageLayout {
+    margin-top: 17px;
+}
+
+.pageHeader {
+    color: #000;
+    text-align: start;
+    font-size: 16px;
+    background-color: #FCFCFC;
+    height: 60px;
+    padding: 18px 160px;
+    margin-top: 32px;
+}
+
+.pageHeader p {
+    font-weight: bold;
+    float: left;
+}
+
+.pageContent {
+    max-width: 1440px;
+    margin: auto;
+}
