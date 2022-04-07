@@ -8,6 +8,7 @@ import Register from './pages/Register';
 import Shop from './pages/Shop';
 import Cart from './pages/Cart';
 import Account from './pages/Account';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -51,6 +52,7 @@ function App() {
             </PageLayout>
           </Route>
         </Switch>
+        <Footer />
       </div>
     </Router>
   );
