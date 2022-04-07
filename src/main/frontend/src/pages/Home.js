@@ -1,7 +1,14 @@
+import styles from './Home.module.css';
+import {ReactComponent as ReactLogo} from './Logo.svg';
+import {ReactComponent as HeroImage} from './Handmade.svg';
+
 function Home(){
     return(
         <div>
-            <h1>Home</h1>
+            <div className={styles.heroSection}>
+                <ReactLogo className={styles.logo} />
+                <HeroImage className={styles.image}/>
+            </div>
         </div>
     );
 }
