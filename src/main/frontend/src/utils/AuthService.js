@@ -8,12 +8,12 @@ if (process.env.REACT_APP_API_URL) {
   API_URL = `${ENVIRONMENT.HOST}/api/v1/auth/`;
 }
 
-const register = (name, email, password, phone) => {
+const register = (name, email, password, phoneNumber) => {
   return axios.post(API_URL + "register", {
     name,
     email,
     password,
-    phone,
+    phoneNumber,
   });
 };
 

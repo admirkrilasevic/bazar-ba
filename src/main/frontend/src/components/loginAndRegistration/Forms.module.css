@@ -6,7 +6,8 @@
     padding-bottom: 32px;
     border: 1px solid #852400;
     box-sizing: border-box;
-    margin: 100px auto;
+    margin: 50px auto;
+    margin-bottom: 150px;
     font-size: 18px;
 }
 
@@ -53,7 +54,6 @@
     color: #fff;
     font-weight: bold;
     font-size: 16px;
-    margin-bottom: 50px;
 }
 
 .formSubmitButton:hover {
@@ -61,17 +61,20 @@
 }
 
 .formText {
-    margin-top: 48px;
+    padding: 20px;
 }
 
-.linkToLogin {
-    color: #8367d8;
+.linkToRegister {
+    color: #852400;
     text-decoration: none;
-    margin-left: 32px;
+}
+
+.linkToRegister:hover {
+    color: #DBAC24;
 }
 
 .registerMessage {
-    margin-top: 48px;
+    margin: 40px 0;
 }
 
 .headerMessageSuccess {

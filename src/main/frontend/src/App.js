@@ -33,9 +33,7 @@ function App() {
             <Login />
           </Route>
           <Route path="/register">
-            <PageLayout title="Register">
-              <Register />
-            </PageLayout>
+            <Register />
           </Route>
           <Route path="/shop">
             <PageLayout>

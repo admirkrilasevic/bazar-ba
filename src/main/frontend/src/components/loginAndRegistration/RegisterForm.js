@@ -12,9 +12,9 @@ function RegisterForm() {
   const checkBtn = useRef();
 
   const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
   const [successful, setSuccessful] = useState(false);
   const [message, setMessage] = useState("");
 
@@ -23,9 +23,9 @@ function RegisterForm() {
     setName(name);
   };
 
-  const onChangeSurname = (e) => {
-      const surname = e.target.value;
-      setSurname(surname);
+  const onChangePhone = (e) => {
+      const phone = e.target.value;
+      setPhone(phone);
     };
 
   const onChangeEmail = (e) => {
@@ -47,7 +47,7 @@ function RegisterForm() {
     form.current.validateAll();
   
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(name, surname, email, password).then(
+      AuthService.register(name, email, password, phone).then(
         (response) => {
           setMessage(response.data);
           setSuccessful(true);
@@ -84,17 +84,6 @@ function RegisterForm() {
         />
       </div>
       <div className={styles.formSection}>
-        <p>Last Name</p>
-        <Input 
-          className={styles.formInput}
-          type="text"
-          name="surname"
-          value={surname}
-          onChange={onChangeSurname}
-          validations={[Validations.required, Validations.validName]}
-        />
-      </div>
-      <div className={styles.formSection}>
         <p>Enter Email</p>
         <Input 
           className={styles.formInput}
@@ -116,8 +105,19 @@ function RegisterForm() {
           validations={[Validations.required, Validations.validPassword]}
         />
       </div>
+      <div className={styles.formSection}>
+        <p>Phone number</p>
+        <Input 
+          className={styles.formInput}
+          type="text"
+          name="phone"
+          value={phone}
+          onChange={onChangePhone}
+          validations={[Validations.required]}
+        />
+      </div>
       <CheckButton className={styles.formSubmitButton} ref={checkBtn}> REGISTER </CheckButton>
-      {!successful && (<p className={styles.formText}>Already have an account? <Link className={styles.linkToLogin} to="/login">Login</Link></p>)}
+      {!successful && (<p className={styles.formText}>Already have an account? <Link className={styles.linkToRegister} to="/login">Login</Link></p>)}
       {message && (
         <div className={styles.registerMessage}>
           <div
@@ -126,7 +126,7 @@ function RegisterForm() {
           >
           {message}
           </div>
-          <p className={styles.formText}>You can log in now: <Link className={styles.linkToLogin} to="/login">Login</Link></p>
+          <p className={styles.formText}>You can log in now: <Link className={styles.linkToRegister} to="/login">Login</Link></p>
         </div>
       )}
     </Form>

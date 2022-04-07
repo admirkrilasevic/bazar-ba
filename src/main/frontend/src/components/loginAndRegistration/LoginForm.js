@@ -1,54 +1,108 @@
 import styles from "./Forms.module.css"
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import Validations from "../../utils/Validations";
 import AuthService from "../../utils/AuthService";
-import { useState } from "react";
-import PageLayout from "../PageLayout";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 
 function LoginForm() {
 
+  const form = useRef();
+  const checkBtn = useRef();
+
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
-  const [message, setMessage] = useState();
-  const [messageStyle, setMessageStyle] = useState();
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+  
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
   
   const handleLogin = (e) => {
-    AuthService.login(email, password).then(
-      (response) => {
-        window.location.replace("/home");
-      },
-      (error) => {
-        const resMessage =
-          (error.response &&
-            error.response.data &&
-            error.response.data.message) ||
-          error.message ||
-          error.toString();
-        setMessage(resMessage);
-        setMessageStyle(styles.headerMessageSuccess);
-        window.scrollTo(0,0);
-      }
-    );
+    e.preventDefault();
+
+    setMessage("");
+    setLoading(true);
+
+    form.current.validateAll();
+
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.login(email, password).then(
+        (response) => {
+          setLoading(false);
+          window.location.replace("/home");
+        },
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          setLoading(false);
+          setMessage(resMessage);
+        }
+      );
+    } else {
+      setLoading(false);
+    }
   };
 
   return (
-    <PageLayout message={message} messageStyle={messageStyle}>
-      <div className={styles.formContainer}>
-        <div className={styles.formTitle}>
-          <p>LOGIN</p>
-        </div>
-        <div className={styles.formSection}>
-          <p>Email</p>
-          <input className={styles.formInput} value={email} onChange={(e) => setEmail(e.target.value)}></input>
-        </div>
-        <div className={styles.formSection}>
-          <p>Password</p>
-          <input className={styles.formInput} value={password} onChange={(e) => setPassword(e.target.value)}></input>
-        </div>
-        <div className={styles.buttonsContainer}>
-          <button className={styles.formSubmitButton} onClick={() => handleLogin()}>LOGIN</button>
-        </div>
+    <Form onSubmit={handleLogin} ref={form} className={styles.formContainer}>
+      <div className={styles.formTitle}>
+        <p>LOGIN</p>
       </div>
-    </PageLayout>
+      <div className={styles.formSection}>
+        <p>Enter Email</p>
+        <Input 
+          className={styles.formInput}
+          type="text"
+          name="email"
+          value={email}
+          onChange={onChangeEmail}
+          validations={[Validations.required, Validations.validEmail]}
+        />
+      </div>
+      <div className={styles.formSection}>
+        <p>Password</p>
+        <Input 
+          className={styles.formInput}
+          type="password"
+          name="password"
+          value={password}
+          onChange={onChangePassword}
+          validations={[Validations.required]}
+        />
+      </div>
+      <CheckButton className={styles.formSubmitButton} disabled={loading} ref={checkBtn}>
+        {loading && (
+          <span className="spinner-border spinner-border-sm"></span>
+        )}
+        LOGIN
+      </CheckButton>
+      {message && (
+        <div className="form-group">
+          <div className="alert alert-danger" role="alert">
+            {message}
+          </div>
+        </div>
+      )}
+      <div className={styles.registerMessage}>
+        <span className={styles.formText}>Don't have an account?</span>
+        <Link to={"/register"} className={styles.linkToRegister}>REGISTER</Link>
+      </div>
+    </Form>
   );
 }
 
