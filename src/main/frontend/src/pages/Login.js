@@ -1,8 +1,8 @@
-function Login(){
-    return(
-        <div>
-            <h1>Login</h1>
-        </div>
+import LoginForm from "../components/loginAndRegistration/LoginForm";
+
+function Login() {
+    return (
+        <LoginForm />
     );
 }
 

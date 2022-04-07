@@ -1,8 +1,8 @@
-function Register(){
-    return(
-        <div>
-            <h1>Register</h1>
-        </div>
+import RegisterForm from "../components/loginAndRegistration/RegisterForm";
+
+function Register() {
+    return (
+        <RegisterForm />
     );
 }
 
