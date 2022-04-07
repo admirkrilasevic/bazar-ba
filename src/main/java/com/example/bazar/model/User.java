@@ -29,10 +29,11 @@ public class User implements UserDetails {
     @NonNull
     private String password;
 
-    @Column(name = "phone_no")
+    @Column(name = "phone")
+    @NonNull
     private String phoneNumber;
 
-    public User(Long id, @NonNull String name, @NonNull String email, @NonNull String password, String phoneNumber) {
+    public User(Long id, @NonNull String name, @NonNull String email, @NonNull String password, @NonNull String phoneNumber) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -40,7 +41,7 @@ public class User implements UserDetails {
         this.phoneNumber = phoneNumber;
     }
 
-    public User(@NonNull String name, @NonNull String email, @NonNull String password, String phoneNumber) {
+    public User(@NonNull String name, @NonNull String email, @NonNull String password, @NonNull String phoneNumber) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -94,7 +95,7 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        SimpleGrantedAuthority authority = new SimpleGrantedAuthority(null);
+        SimpleGrantedAuthority authority = new SimpleGrantedAuthority("USER");
         return Collections.singletonList(authority);
     }
 

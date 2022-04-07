@@ -33,6 +33,7 @@ const login = (email, password) => {
 
 const logout = () => {
   localStorage.clear();
+  window.location.replace("/home");
 };
 
 const getCurrentUser = () => {

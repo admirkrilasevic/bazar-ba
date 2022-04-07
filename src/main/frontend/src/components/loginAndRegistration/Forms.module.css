@@ -2,20 +2,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 738px;
+    width: 740px;
     padding-bottom: 32px;
-    border: 1px solid #d8d8d8;
+    border: 1px solid #852400;
     box-sizing: border-box;
-    margin: 16px auto;
+    margin: 100px auto;
+    font-size: 18px;
 }
 
 .formTitle {
-    padding: 23px;
     text-align: center;
+    padding-bottom: 20px;
     font-weight: bold;
     font-size: 24px;
-    height: 75px;
-    width: 100%;
+    height: 60px;
+    width: 738px;
     background-color: #FCFCFC;
 }
 
@@ -23,19 +24,22 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 548px;
-    height: 106px;
+    width: 550px;
+    height: 120px;
     margin-top: 32px;
 }
-
   
 .formInput {
-    border: 1px solid #d8d8d8;
+    border: 1px solid #852400;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
     width: 548px;
     height: 63px;
     background-color: #FCFCFC;
+}
+
+.formInput:hover {
+    border: 1px solid #DBAC24;
 }
   
 .formSubmitButton {
@@ -44,9 +48,16 @@
     align-items: center;
     width: 548px;
     height: 59px;
-    background: #8367d8;
-    border-style: solid;
+    background: #DBAC24;
+    border-style: none;
     color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 50px;
+}
+
+.formSubmitButton:hover {
+    background-color: #852400;
 }
 
 .formText {
@@ -61,4 +72,28 @@
 
 .registerMessage {
     margin-top: 48px;
+}
+
+.headerMessageSuccess {
+    color: #417505;
+    text-align: start;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #F0F3EE;
+    height: 60px;
+    width: 100%;
+    padding: 18px 160px;
+    margin-top: 10px;
+}
+
+.headerMessageError {
+    color: #AB944E;
+    text-align: start;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #F6F2E5;
+    height: 60px;
+    width: 100%;
+    padding: 18px 160px;
+    margin-top: 10px;
 }

@@ -30,9 +30,7 @@ function App() {
             </PageLayout>
           </Route>
           <Route path="/login">
-            <PageLayout title="Login">
-              <Login />
-            </PageLayout>
+            <Login />
           </Route>
           <Route path="/register">
             <PageLayout title="Register">
