@@ -16,16 +16,16 @@ function Footer() {
           </Col>
           <Col>
             <div className={styles.footerColumn}>
-              <p>About Us</p>
-              <p>Contact</p>
-              <p>Impressum</p>
+              <p><Link to="/about">About Us</Link></p>
+              <p><Link to="/contact">Contact</Link></p>
+              <p><Link to="/impressum">Impressum</Link></p>
             </div>
           </Col>
           <Col>
             <div className={styles.footerColumn}>
-              <p>Privacy Policy</p>
-              <p>Terms and Conditions</p>
-              <p>Seller Guidelines</p>
+              <p><Link to="/privacy">Privacy Policy</Link></p>
+              <p><Link to="/terms">Terms and Conditions</Link></p>
+              <p><Link to="/guidelines">Seller Guidelines</Link></p>
             </div>
           </Col>
         </Row>

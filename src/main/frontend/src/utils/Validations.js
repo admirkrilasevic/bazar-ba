@@ -1,4 +1,4 @@
-import { isEmail } from "validator";
+import { isEmail, isMobilePhone } from "validator";
 
 const required = (value) => {
   if (!value) {
@@ -41,9 +41,20 @@ const validName = (value) => {
   }
 };
 
+const validPhone = (value) => {
+  if (!isMobilePhone(value, "bs-BA")) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        Wrong format. Try +387XXXXXXXX.
+     </div>
+    );
+  }
+};
+
 export default {
   required,
   validEmail,
   validPassword,
-  validName
+  validName,
+  validPhone
 };

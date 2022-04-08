@@ -113,7 +113,7 @@ function RegisterForm() {
           name="phone"
           value={phone}
           onChange={onChangePhone}
-          validations={[Validations.required]}
+          validations={[Validations.required, Validations.validPhone]}
         />
       </div>
       <CheckButton className={styles.formSubmitButton} ref={checkBtn}> REGISTER </CheckButton>
