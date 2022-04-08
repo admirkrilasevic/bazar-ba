@@ -64,7 +64,7 @@ function LoginForm() {
         <p>LOGIN</p>
       </div>
       <div className={styles.formSection}>
-        <p>Enter Email</p>
+        <p>Email</p>
         <Input 
           className={styles.formInput}
           type="text"

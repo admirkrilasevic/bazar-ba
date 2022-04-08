@@ -20,6 +20,15 @@
 }
 
 .icons {
-    width: 30px;
+    color: inherit;
+    margin-top: 35px;
+}
+
+.icons:hover {
+    color: #852400;
+}
+
+.icons svg {
     height: 30px;
+    width: 30px;
 }

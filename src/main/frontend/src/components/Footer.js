@@ -9,8 +9,8 @@ function Footer() {
         <Row className={styles.footerContent}>
           <Col>
             <div className={styles.footerColumn}>
-              <p>2022</p>
-              <p>Bazar.ba</p>
+              <p>{new Date().getFullYear()}</p>
+              <p>© Bazar.ba</p>
               <p><Link to="/home"><img src="https://i.ibb.co/D9YW3Kw/Logo-icon-2.png" alt="Logo" className={styles.logoIcon}></img></Link></p>
             </div>
           </Col>

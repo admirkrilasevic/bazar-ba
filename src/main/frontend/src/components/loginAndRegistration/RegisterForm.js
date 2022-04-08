@@ -73,7 +73,7 @@ function RegisterForm() {
         <p>REGISTER</p>
       </div>
       <div className={styles.formSection}>
-        <p>First Name</p>
+        <p>Name</p>
         <Input 
           className={styles.formInput}
           type="text"
@@ -84,7 +84,7 @@ function RegisterForm() {
         />
       </div>
       <div className={styles.formSection}>
-        <p>Enter Email</p>
+        <p>Email</p>
         <Input 
           className={styles.formInput}
           type="text"
