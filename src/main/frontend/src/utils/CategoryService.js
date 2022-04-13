@@ -7,7 +7,7 @@ if (process.env.REACT_APP_API_URL) {
   API_URL = ENVIRONMENT.HOST;
 }
 
-export const fetchItems = async (page, size, sort, direction) => {
-  const items = await fetch(`${API_URL}/api/v1/items/search?page=${page}&size=${size}&sort=${sort}&direction=${direction}`);
+export const fetchMostPopularCategories = async () => {
+  const items = await fetch(`${API_URL}/api/v1/categories/popular`);
   return items.json();
 };

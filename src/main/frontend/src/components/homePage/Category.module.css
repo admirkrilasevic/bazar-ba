@@ -1,0 +1,39 @@
+.categoryContainer {
+    height: 300px;
+}
+
+.photo {
+    width: 262px;
+    height: 262px;
+    object-fit: contain;
+}
+
+.title {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.categoryLink {
+    text-decoration: none;
+    color: inherit;
+    text-align: left;
+}
+
+.categoryLink:hover {
+    color: #852400;
+}
+
+.viewButton {
+    background-color: #DBAC24;
+    text-decoration: none;
+    color: #000;
+    padding: 10px 20px;
+}
+
+.viewButton:hover {
+    background-color: #852400;
+    color: #fff;
+}
