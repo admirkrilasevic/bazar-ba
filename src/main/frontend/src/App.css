@@ -3,6 +3,11 @@
   src: local('Lato'), url(./fonts/Lato-Regular.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Texturina';
+  src: local('Texturina'), url(./fonts/Texturina\ Regular\ 400.ttf) format('truetype');
+}
+
 .App {
   text-align: center;
   font-family: Lato;
