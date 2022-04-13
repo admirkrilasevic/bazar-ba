@@ -20,8 +20,10 @@ function Home(){
     return(
         <div>
             <div className={styles.heroSection}>
-                <ReactLogo className={styles.logo} />
-                <HeroImage className={styles.image}/>
+                <Row className={styles.center}>
+                    <Col><ReactLogo className={styles.logo} /></Col>
+                    <Col><HeroImage className={styles.image}/></Col>
+                </Row>
             </div>
             <div className={styles.pageSection}>
                 <div className={styles.sectionTitle}>Latest Products</div>
