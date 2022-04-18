@@ -51,7 +51,7 @@ function ItemOverview({...item}) {
                         </div>
                         <p className={styles.quantity}>{quantity} remaining</p>
                         <div className={styles.addToCart}>
-                            <button onClick={() => dispatch(incrementByAmount(selectedQuantity))}>Add to Cart</button>
+                            <button onClick={() => dispatch(incrementByAmount(selectedQuantity))}>ADD TO CART</button>
                         </div>
                     </Col>
                 </Row>

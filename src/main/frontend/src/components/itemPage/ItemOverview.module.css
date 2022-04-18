@@ -73,6 +73,7 @@
     background-color: #852400;
     border: none;
     color: #FFF;
+    font-weight: bold;
 }
 
 .addToCart button:hover{
@@ -80,5 +81,5 @@
     height: 50px;
     background-color: #DBAC24;
     border: none;
-    color: #000;
+    color: #FFF;
 }

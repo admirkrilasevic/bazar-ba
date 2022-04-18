@@ -25,7 +25,7 @@ const validPassword = (value) => {
     return (
       <div className="alert alert-danger" role="alert">
         The password must be between 8 and 20 characters.
-     </div>
+      </div>
     );
   }
 };
@@ -36,7 +36,7 @@ const validName = (value) => {
     return (
       <div className="alert alert-danger" role="alert">
         Names cannot contain any special characters.
-     </div>
+      </div>
     );
   }
 };
