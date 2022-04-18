@@ -30,7 +30,7 @@ function InfiniteScrollComponent() {
         <Row>
           {items.map((item) => {
             return (
-              <Col xs={3}>
+              <Col>
                 <Item 
                   key={item.id}
                   id={item.id}

@@ -17,15 +17,11 @@ function Home(){
         setCategories(popularCategories);
     }, []);
 
-    const columnStyle = {
-        padding: "0px"
-    };
-
     return(
         <div>
             <div className={styles.heroSection}>
                 <Row className={styles.center}>
-                    <Col style={columnStyle}><ReactLogo className={styles.logo} /></Col>
+                    <Col><ReactLogo className={styles.logo} /></Col>
                     <Col><HeroImage className={styles.image}/></Col>
                 </Row>
             </div>

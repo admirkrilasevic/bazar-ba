@@ -53,7 +53,6 @@
     font-family: 'Texturina';
     font-style: normal;
     font-size: 36px;
-    line-height: 56px;
     color: #FFF;
     text-align: left;
 }
@@ -94,10 +93,47 @@
     }
     .textSection p {
         margin-left: 1%;
+        font-size: 30px;
+    }
+    .textSection a {
+        font-size: 24px;
     }
     .becomeSellerSection img {
         width: 100%;
         height: auto;
         padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .logo {
+        width: 100%;
+        height: auto;
+        padding-left: 20px;
+    }
+    .image {
+        width: 100%;
+        height: auto;
+    }
+    .becomeSellerSection {
+        padding: 2%;
+    }
+    .textSection p {
+        margin-left: 1%;
+        font-size: 20px;
+    }
+    .textSection a {
+        font-size: 16px;
+    }
+    .becomeSellerSection img {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

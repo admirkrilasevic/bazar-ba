@@ -31,3 +31,15 @@
     width: 58px;
     padding: 10px;
 }
+
+@media only screen and (max-width: 1400px) {
+    .searchBar {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .searchBar {
+        width: 80px;
+    }
+}
