@@ -17,27 +17,16 @@ function Home(){
         setCategories(popularCategories);
     }, []);
 
+    const columnStyle = {
+        padding: "0px"
+    };
+
     return(
         <div>
             <div className={styles.heroSection}>
                 <Row className={styles.center}>
-                    <Col><ReactLogo className={styles.logo} /></Col>
+                    <Col style={columnStyle}><ReactLogo className={styles.logo} /></Col>
                     <Col><HeroImage className={styles.image}/></Col>
-                </Row>
-            </div>
-            <div className={styles.pageSection}>
-                <div className={styles.sectionTitle}>Latest Products</div>
-                <InfiniteScrollComponent />
-            </div>
-            <div className={styles.becomeSellerSection}>
-                <Row>
-                    <Col className={styles.textSection}>
-                        <p>Share your products with hundreds of online customers</p>
-                        <Link to="/sell">Become a Seller -{'>'}</Link>
-                    </Col>
-                    <Col>
-                        <img src='https://i.ibb.co/Zx0sCqW/Sample-image.png' alt=""></img>
-                    </Col>
                 </Row>
             </div>
             <div className={styles.pageSection}>
@@ -57,6 +46,21 @@ function Home(){
                         })}
                     </Row>
                 </div>
+            </div>
+            <div className={styles.becomeSellerSection}>
+                <Row>
+                    <Col className={styles.textSection}>
+                        <p>Share your products with hundreds of online customers</p>
+                        <Link to="/sell">Become a Seller -{'>'}</Link>
+                    </Col>
+                    <Col>
+                        <img src='https://i.ibb.co/Zx0sCqW/Sample-image.png' alt=""></img>
+                    </Col>
+                </Row>
+            </div>
+            <div className={styles.pageSection}>
+                <div className={styles.sectionTitle}>Latest Products</div>
+                <InfiniteScrollComponent />
             </div>
         </div>
     );

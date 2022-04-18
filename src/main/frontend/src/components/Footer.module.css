@@ -1,6 +1,5 @@
 .footer {
     background-color: #852400;
-    text-align: center;
     width: 100%;
     position: relative;
     bottom: 0;
@@ -12,7 +11,7 @@
     font-size: 18px;
     text-align: left;
     height: 300px;
-    width: 1440px;
+    width: 100%;
     margin: auto;
     display: flex;
     justify-content: space-evenly;
