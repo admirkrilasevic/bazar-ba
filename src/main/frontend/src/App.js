@@ -16,80 +16,87 @@ import Impressum from './pages/footer/Impressum';
 import PrivacyPolicy from './pages/footer/PrivacyPolicy';
 import TermsAndConditions from './pages/footer/TermsAndConditions';
 import SellerGuidelines from './pages/footer/SellerGuidelines';
+import ItemPage from './pages/ItemPage';
+import { AuthProvider } from './utils/AuthContext';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route
-              exact
-              path="/"
-              render={() => {
-                  return (
-                      <Redirect to="/home" />
-                  )
-              }}
-          />
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
-          <Route path="/shop">
-            <PageLayout>
-              <Shop />
-            </PageLayout>
-          </Route>
-          <Route path="/cart">
-            <PageLayout>
-              <Cart />
-            </PageLayout>
-          </Route>
-          <Route path="/account">
-            <PageLayout>
-              <Account />
-            </PageLayout>
-          </Route>
-          <Route path="/about">
-            <PageLayout title="About Us">
-              <AboutUs />
-            </PageLayout>
-          </Route>
-          <Route path="/contact">
-            <PageLayout title="Contact">
-              <Contact />
-            </PageLayout>
-          </Route>
-          <Route path="/impressum">
-            <PageLayout title="Impressum">
-              <Impressum />
-            </PageLayout>
-          </Route>
-          <Route path="/privacy">
-            <PageLayout title="Privacy Policy">
-              <PrivacyPolicy />
-            </PageLayout>
-          </Route>
-          <Route path="/terms">
-            <PageLayout title="Terms and Conditions">
-              <TermsAndConditions />
-            </PageLayout>
-          </Route>
-          <Route path="/guidelines">
-            <PageLayout title="Seller Guidelines">
-              <SellerGuidelines />
-            </PageLayout>
-          </Route>
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          <Switch>
+            <Route
+                exact
+                path="/"
+                render={() => {
+                    return (
+                        <Redirect to="/home" />
+                    )
+                }}
+            />
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/register">
+              <Register />
+            </Route>
+            <Route path="/shop">
+              <PageLayout>
+                <Shop />
+              </PageLayout>
+            </Route>
+            <Route path="/cart">
+              <PageLayout>
+                <Cart />
+              </PageLayout>
+            </Route>
+            <Route path="/account">
+              <PageLayout>
+                <Account />
+              </PageLayout>
+            </Route>
+            <Route path="/about">
+              <PageLayout title="About Us">
+                <AboutUs />
+              </PageLayout>
+            </Route>
+            <Route path="/contact">
+              <PageLayout title="Contact">
+                <Contact />
+              </PageLayout>
+            </Route>
+            <Route path="/impressum">
+              <PageLayout title="Impressum">
+                <Impressum />
+              </PageLayout>
+            </Route>
+            <Route path="/privacy">
+              <PageLayout title="Privacy Policy">
+                <PrivacyPolicy />
+              </PageLayout>
+            </Route>
+            <Route path="/terms">
+              <PageLayout title="Terms and Conditions">
+                <TermsAndConditions />
+              </PageLayout>
+            </Route>
+            <Route path="/guidelines">
+              <PageLayout title="Seller Guidelines">
+                <SellerGuidelines />
+              </PageLayout>
+            </Route>
+            <Route path="/items/:itemId">
+              <ItemPage />
+            </Route>
+          </Switch>
+          <Footer />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

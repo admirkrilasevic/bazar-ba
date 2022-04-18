@@ -1,0 +1,42 @@
+.coverImage {
+    width: 453px;
+    height: 662px;
+    object-fit: contain;
+    margin-top: 32px;
+}
+
+.itemInfoContainer {
+    text-align: left;
+    margin-left: 117px;
+    margin-top: 32px;
+}
+
+.imagesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100px;
+    margin-top: 32px;
+    margin-bottom: 100px;
+}
+
+.optionalImage {
+    width: 70px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.recommendedProductsTitle {
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid #D8D8D8;
+    margin-bottom: 20px;
+}
+
+.recommendedProductsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+    margin-top: 32px;
+}
