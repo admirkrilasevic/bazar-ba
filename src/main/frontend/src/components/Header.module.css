@@ -22,6 +22,7 @@
 .icons {
     color: inherit;
     margin-top: 35px;
+    text-decoration: none;
 }
 
 .icons:hover {
@@ -31,4 +32,12 @@
 .icons svg {
     height: 30px;
     width: 30px;
+}
+
+.icons span {
+    background-color: #852400;
+    vertical-align: super;
+    border-radius: 50%;
+    padding: 1px 5px;
+    color: white;
 }

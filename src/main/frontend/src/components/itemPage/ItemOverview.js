@@ -4,34 +4,31 @@ import "../../App.css";
 import PageLayout from '../PageLayout';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../utils/AuthContext';
-import { getRecommendedProducts } from '../../utils/ItemService';
 import AuthService from '../../utils/AuthService';
-import Item from '../homePage/Item';
+import RecommendedProducts from './RecommendedProducts';
+import { incrementByAmount } from '../../utils/CartSlice.js';
+import { useDispatch } from 'react-redux';
+import { calculateTimeInterval } from '../../utils/TimeInterval';
+import { QuantityPicker } from 'react-qty-picker';
 
 function ItemOverview({...item}) {
 
     const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded } = item;
+    const [selectedQuantity, setSelectedQuantity] = useState(1);
 
     const { token, loggedIn } = useContext(AuthContext);
+
+    const dispatch = useDispatch();
 
     const imagesArray =  photos ? photos.split(",") : [];
     const [currentImage, setCurrentImage] = useState(imagesArray[0]);
 
-    const [recommendedProducts, setRecommendedProducts] = useState([]);
-
     const user = AuthService.getCurrentUser();
-
-    useEffect(async () => {
-        if (categoryId) {
-            const recommended = await getRecommendedProducts(categoryId, name);
-            setRecommendedProducts(recommended);
-        }
-    }, [categoryId]);
 
     useEffect(() => {
         setCurrentImage(imagesArray[0]);
     }, [photos]);
-  
+
     return (
         <PageLayout title={name} >
             <Container>
@@ -45,33 +42,21 @@ function ItemOverview({...item}) {
                         </div>
                     </Col>
                     <Col className={styles.itemInfoContainer}>
-                        <h3>{name}</h3>
-                        <p>{description}</p>
-                        <p>Price: {price}</p>
-                        <p>Quantity: {quantity}</p>
-                        <p>Seller: {sellerId}</p>
-                        <p>Date Added: {dateAdded}</p>
+                        <h3 className={styles.name}>{name}</h3>
+                        <p className={styles.date}>Added {calculateTimeInterval(dateAdded)} ago</p>
+                        <p className={styles.description}>{description}</p>
+                        <div className={styles.quantityContainer}>
+                            <p className={styles.price}>{price} KM</p>
+                            <QuantityPicker min={1} max={quantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
+                        </div>
+                        <p className={styles.quantity}>{quantity} remaining</p>
+                        <div className={styles.addToCart}>
+                            <button onClick={() => dispatch(incrementByAmount(selectedQuantity))}>Add to Cart</button>
+                        </div>
                     </Col>
                 </Row>
-                {loggedIn && (sellerId === (user && user.id)) && <div>MANAGEMENT SECTION</div>}
-                {(sellerId !== (user && user.id)) && recommendedProducts &&
-                    <div>
-                        <div className={styles.recommendedProductsTitle}>Recommended Products</div>
-                        <div className={styles.recommendedProductsContainer}>
-                            {console.log(recommendedProducts)}
-                            {recommendedProducts.map((item) => {
-                                return (
-                                        <Item 
-                                            key={item.id}
-                                            id={item.id}
-                                            photo={item.photos}
-                                            name={item.name}
-                                            price={item.price}
-                                        />
-                                );
-                            })}
-                        </div>
-                    </div>}
+                {loggedIn && (sellerId === (user && user.id)) && <div>List of orders placed for this item</div>}
+                {(sellerId !== (user && user.id)) && <RecommendedProducts categoryId={categoryId} name={name} />}
             </Container>
         </PageLayout>
     );
