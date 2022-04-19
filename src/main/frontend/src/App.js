@@ -20,6 +20,7 @@ import ItemPage from './pages/ItemPage';
 import { AuthProvider } from './utils/AuthContext';
 import store from './app/store'
 import { Provider } from 'react-redux'
+import SellPage from './pages/SellPage';
 
 function App() {
   return (
@@ -94,6 +95,9 @@ function App() {
               </Route>
               <Route path="/items/:itemId">
                 <ItemPage />
+              </Route>
+              <Route path="/sell">
+                <SellPage />
               </Route>
             </Switch>
             <Footer />
