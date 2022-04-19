@@ -24,7 +24,7 @@ export const cartSlice = createSlice({
       state.items.push(action.payload)
     },
     updateQuantity: (state, action) => {
-      state.items[action.payload.index].selectedQuantity = action.payload.value
+      state.items[action.payload.index].selectedQuantity += action.payload.value
     },
   },
 })

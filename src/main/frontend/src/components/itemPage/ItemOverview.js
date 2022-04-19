@@ -35,7 +35,11 @@ function ItemOverview({...item}) {
         item.selectedQuantity = selectedQuantity;
         if (cartItems.map(cartItem => cartItem.id).includes(item.id)) {
             const index = cartItems.map(cartItem => cartItem.id).indexOf(item.id);
-            dispatch(updateQuantity(index, selectedQuantity));
+            const payload = {
+                index: index,
+                value: selectedQuantity
+            }
+            dispatch(updateQuantity(payload));
         } else {
             dispatch(addItem(item));
         }

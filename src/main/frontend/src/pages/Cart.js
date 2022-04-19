@@ -14,7 +14,13 @@ function Cart() {
         <div>
             <h1>Cart</h1>
             <button onClick={() => handleClear()}>Empty Cart</button>
-            {console.log(cartItems)}
+            {JSON.parse(JSON.stringify(cartItems)).map((item) => (
+                <div>
+                    <h3>{item.name}</h3>
+                    <p>Price: {item.price}</p>
+                    <p>Quantity: {item.selectedQuantity}</p>
+                </div>
+            ))}
         </div>
     );
 }
