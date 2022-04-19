@@ -1,14 +1,13 @@
 .coverImage {
-    width: 453px;
-    height: 662px;
-    object-fit: contain;
     margin-top: 32px;
+    object-fit: contain;
+    max-width: 500px;
 }
 
 .itemInfoContainer {
     text-align: left;
-    margin-left: 117px;
     margin-top: 32px;
+    padding: 15px;
 }
 
 .imagesContainer {
@@ -21,8 +20,6 @@
 }
 
 .optionalImage {
-    width: 70px;
-    height: 100px;
     object-fit: contain;
 }
 
@@ -74,6 +71,7 @@
     border: none;
     color: #FFF;
     font-weight: bold;
+    margin-bottom: 100px;
 }
 
 .addToCart button:hover{
@@ -82,4 +80,16 @@
     background-color: #DBAC24;
     border: none;
     color: #FFF;
+}
+
+@media only screen and (max-width: 850px) {
+    .coverImage {
+        max-width: 400px;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    .coverImage {
+        max-width: 300px;
+    }
 }

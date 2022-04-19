@@ -31,33 +31,31 @@ function ItemOverview({...item}) {
 
     return (
         <PageLayout title={name} >
-            <Container>
-                <Row>
-                    <Col>
-                        <img className={styles.coverImage} src={currentImage}></img>
-                        <div className={styles.imagesContainer}>
-                            {imagesArray.map((image) => (
-                                <img className={styles.optionalImage} src={image} onClick={() => setCurrentImage(image)}/>
-                            ))}
-                        </div>
-                    </Col>
-                    <Col className={styles.itemInfoContainer}>
-                        <h3 className={styles.name}>{name}</h3>
-                        <p className={styles.date}>Added {calculateTimeInterval(dateAdded)} ago</p>
-                        <p className={styles.description}>{description}</p>
-                        <div className={styles.quantityContainer}>
-                            <p className={styles.price}>{price} KM</p>
-                            <QuantityPicker min={1} max={quantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
-                        </div>
-                        <p className={styles.quantity}>{quantity} remaining</p>
-                        <div className={styles.addToCart}>
-                            <button onClick={() => dispatch(incrementByAmount(selectedQuantity))}>ADD TO CART</button>
-                        </div>
-                    </Col>
-                </Row>
-                {loggedIn && (sellerId === (user && user.id)) && <div>List of orders placed for this item</div>}
-                {(sellerId !== (user && user.id)) && <RecommendedProducts categoryId={categoryId} name={name} />}
-            </Container>
+            <Row className={styles.container}>
+                <Col>
+                    <img className={styles.coverImage} src={currentImage}></img>
+                    <div className={styles.imagesContainer}>
+                        {imagesArray.map((image) => (
+                            <img className={styles.optionalImage} src={image} onClick={() => setCurrentImage(image)}/>
+                        ))}
+                    </div>
+                </Col>
+                <Col className={styles.itemInfoContainer}>
+                    <h3 className={styles.name}>{name}</h3>
+                    <p className={styles.date}>Added {calculateTimeInterval(dateAdded)} ago</p>
+                    <p className={styles.description}>{description}</p>
+                    <div className={styles.quantityContainer}>
+                        <p className={styles.price}>{price} KM</p>
+                        <QuantityPicker min={1} max={quantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
+                    </div>
+                    <p className={styles.quantity}>{quantity} remaining</p>
+                    <div className={styles.addToCart}>
+                        <button onClick={() => dispatch(incrementByAmount(selectedQuantity))}>ADD TO CART</button>
+                    </div>
+                </Col>
+            </Row>
+            {loggedIn && (sellerId === (user && user.id)) && <div>List of orders placed for this item</div>}
+            {(sellerId !== (user && user.id)) && <RecommendedProducts categoryId={categoryId} name={name} />}
         </PageLayout>
     );
   }

@@ -6,7 +6,7 @@ function PageLayout({title, message, messageStyle, children}) {
         <div>
             { title &&
             <div className={styles.pageHeader}>
-                <p>{title}</p>
+                <span>{title}</span>
             </div>
             }
             { message &&
