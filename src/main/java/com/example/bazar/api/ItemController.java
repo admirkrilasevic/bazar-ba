@@ -2,12 +2,15 @@ package com.example.bazar.api;
 
 import com.example.bazar.enumeration.ItemSort;
 import com.example.bazar.model.Item;
+import com.example.bazar.payload.AddItemRequest;
 import com.example.bazar.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @CrossOrigin
@@ -31,6 +34,11 @@ public class ItemController {
     @GetMapping("/recommended/{categoryId}/{name}")
     public List<Item> getRecommendedProducts(@PathVariable("categoryId") Long categoryId, @PathVariable("name") String name) {
         return itemService.getRecommendedProducts(categoryId, name);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<?> addItem(HttpServletRequest httpServletRequest, @RequestBody AddItemRequest addItemRequest) {
+        return itemService.addItem(httpServletRequest, addItemRequest);
     }
 
 }

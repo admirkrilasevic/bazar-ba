@@ -49,6 +49,10 @@ public class Item {
     @Column(name = "date_added")
     private LocalDate dateAdded;
 
+    @NotNull
+    @Column(name = "address_id")
+    private Long addressId;
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     private Address address;
@@ -65,6 +69,19 @@ public class Item {
         this.sellerId = sellerId;
         this.dateAdded = dateAdded;
         this.address = address;
+    }
+
+    public Item(String name, String description, Double price, Long categoryId, Long subcategoryId, String photos, int quantity, Long sellerId, LocalDate dateAdded, Long addressId) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.categoryId = categoryId;
+        this.subcategoryId = subcategoryId;
+        this.photos = photos;
+        this.quantity = quantity;
+        this.sellerId = sellerId;
+        this.dateAdded = dateAdded;
+        this.addressId = addressId;
     }
 
     public Item() {
