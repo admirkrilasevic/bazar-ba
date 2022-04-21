@@ -21,15 +21,13 @@ const LocationAndShipping = ({setCurrentSection,
             <div className={formStyles.formTitle}>
                 <p>SET ITEM LOCATION</p>
             </div>
-            <div className={formStyles.twoInSameRowDiv}>
-                <span className={formStyles.twoInSameRowNoMargin}>
-                    <p>City</p>
-                    <p>Zip Code</p>
-                </span>
-                <span className={formStyles.twoInSameRowNoMargin}>
-                    <input className={formStyles.mediumInputField} placeholder="City" value={city} onChange={(e) => setCity(e.target.value)}/>
-                    <input className={formStyles.mediumInputField} placeholder="Zip Code" value={zipCode} onChange={(e) => setZipCode(e.target.value)}/>
-                </span>
+            <div className={formStyles.formSection}>
+                <p>City</p>
+                <input className={formStyles.mediumInputField} placeholder="City" value={city} onChange={(e) => setCity(e.target.value)}/>
+            </div>
+            <div className={formStyles.formSection}>
+                <p>Zip Code</p>
+                <input className={formStyles.mediumInputField} placeholder="Zip Code" value={zipCode} onChange={(e) => setZipCode(e.target.value)}/>
             </div>
             <div className={formStyles.formSection}>
                 <p>State</p>
