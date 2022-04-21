@@ -46,7 +46,8 @@ public class AuthService {
                 user.getId(),
                 user.getName(),
                 user.getEmail(),
-                user.getPhoneNumber());
+                user.getPhoneNumber(),
+                user.getAddress());
         return response;
     }
 

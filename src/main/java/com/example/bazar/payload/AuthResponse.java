@@ -1,6 +1,6 @@
 package com.example.bazar.payload;
 
-import java.time.LocalDate;
+import com.example.bazar.model.Address;
 
 public class AuthResponse {
     private String token;
@@ -8,13 +8,15 @@ public class AuthResponse {
     private String name;
     private String email;
     private String phoneNumber;
+    private Address address;
 
-    public AuthResponse(String token, Long id, String name, String email, String phoneNumber) {
+    public AuthResponse(String token, Long id, String name, String email, String phoneNumber, Address address) {
         this.token = token;
         this.id = id;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public String getToken() {
@@ -57,4 +59,11 @@ public class AuthResponse {
         this.phoneNumber = phoneNumber;
     }
 
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 }

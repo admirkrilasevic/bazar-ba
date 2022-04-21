@@ -33,12 +33,17 @@ public class User implements UserDetails {
     @NonNull
     private String phoneNumber;
 
-    public User(Long id, @NonNull String name, @NonNull String email, @NonNull String password, @NonNull String phoneNumber) {
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private Address address;
+
+    public User(Long id, @NonNull String name, @NonNull String email, @NonNull String password, @NonNull String phoneNumber, Address address) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
+        this.address = address;
     }
 
     public User(@NonNull String name, @NonNull String email, @NonNull String password, @NonNull String phoneNumber) {
@@ -58,6 +63,14 @@ public class User implements UserDetails {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     public Long getId() {

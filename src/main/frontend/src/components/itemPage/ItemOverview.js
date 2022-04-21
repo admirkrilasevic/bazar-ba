@@ -13,7 +13,7 @@ import { QuantityPicker } from 'react-qty-picker';
 
 function ItemOverview({...item}) {
 
-    const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded } = item;
+    const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, address } = item;
     const [selectedQuantity, setSelectedQuantity] = useState(1);
 
     const { loggedIn } = useContext(AuthContext);
@@ -58,7 +58,8 @@ function ItemOverview({...item}) {
                 </Col>
                 <Col className={styles.itemInfoContainer}>
                     <h3 className={styles.name}>{name}</h3>
-                    <p className={styles.date}>Added {calculateTimeInterval(dateAdded)} ago</p>
+                    <span className={styles.date}>Added {calculateTimeInterval(dateAdded)} ago</span>
+                    <p className={styles.location}>Located in {address && address.city}</p>
                     <p className={styles.description}>{description}</p>
                     <div className={styles.quantityContainer}>
                         <p className={styles.price}>{price} KM</p>
