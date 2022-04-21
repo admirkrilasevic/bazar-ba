@@ -11,3 +11,8 @@ export const fetchMostPopularCategories = async () => {
   const items = await fetch(`${API_URL}/api/v1/categories/popular`);
   return items.json();
 };
+
+export const fetchAllCategories = async () => {
+  const items = await fetch(`${API_URL}/api/v1/categories/all`);
+  return items.json();
+};

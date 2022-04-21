@@ -10,11 +10,13 @@ import { incrementByAmount, addItem, updateQuantity } from '../../utils/CartSlic
 import { useDispatch, useSelector } from 'react-redux';
 import { calculateTimeInterval } from '../../utils/TimeInterval';
 import { QuantityPicker } from 'react-qty-picker';
+import { fetchAddressById } from '../../utils/AddressService';
 
 function ItemOverview({...item}) {
 
-    const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, address } = item;
+    const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, addressId } = item;
     const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [address, setAddress] = useState();
 
     const { loggedIn } = useContext(AuthContext);
 
@@ -29,6 +31,11 @@ function ItemOverview({...item}) {
     useEffect(() => {
         setCurrentImage(imagesArray[0]);
     }, [photos]);
+
+    useEffect(async () => {
+        const addressFromServer = await fetchAddressById(addressId);
+        setAddress(addressFromServer);
+    }, [addressId]);
 
     const handleAddToCart = (selectedQuantity) => {
         dispatch(incrementByAmount(selectedQuantity));

@@ -53,11 +53,7 @@ public class Item {
     @Column(name = "address_id")
     private Long addressId;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
-    private Address address;
-
-    public Item(Long id, String name, String description, Double price, Long categoryId, Long subcategoryId, String photos, int quantity, Long sellerId, LocalDate dateAdded, Address address) {
+    public Item(Long id, String name, String description, Double price, Long categoryId, Long subcategoryId, String photos, int quantity, Long sellerId, LocalDate dateAdded, Long addressId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -68,7 +64,7 @@ public class Item {
         this.quantity = quantity;
         this.sellerId = sellerId;
         this.dateAdded = dateAdded;
-        this.address = address;
+        this.addressId = addressId;
     }
 
     public Item(String name, String description, Double price, Long categoryId, Long subcategoryId, String photos, int quantity, Long sellerId, LocalDate dateAdded, Long addressId) {

@@ -1,7 +1,7 @@
 import styles from "./Message.module.css";
 
-export const validateLocation = (street, city, zipCode, state, country, setMessage, setMessageStyle) => {
-    const locationComplete = street && city && zipCode && state && country;
+export const validateLocation = (city, zipCode, state, country, setMessage, setMessageStyle) => {
+    const locationComplete = city && zipCode && state && country;
 
     if (!locationComplete) {
         setMessage("Please fill in all the fields");
@@ -30,36 +30,21 @@ export const validatePrice = (price, setMessage, setMessageStyle) => {
     }
 }
 
-export const validateDate = (startDate, endDate, setMessage, setMessageStyle) => {
-    const validDateFormat = new RegExp("\\d{2}\/\\d{2}\/\\d{4}");
+export const validateQuantity = (quantity, setMessage, setMessageStyle) => {
+    const validQuantity = new RegExp("^\\d+$");
 
-    if (!(startDate && endDate)) {
+    if (!quantity) {
         setMessage("Please fill in all the fields");
         setMessageStyle(styles.headerMessageError);
         window.scrollTo(0, 0);
-    } else if (!validDateFormat.test(startDate) || !validDateFormat.test(endDate)){
-        setMessage("Date has an invalid format, make sure to follow the given example");
-        setMessageStyle(styles.headerMessageError);
-        window.scrollTo(0, 0);
-    } else if (!validateDateValues(startDate) || !validateDateValues(endDate)){
-        setMessage("Date is out of normal range");
+    } else if (!validQuantity.test(quantity)){
+        setMessage("Quantity has an invalid format, make sure to follow the given example");
         setMessageStyle(styles.headerMessageError);
         window.scrollTo(0, 0);
     } else {
         setMessage();
         setMessageStyle();
         return true;
-    }
-}
-
-const validateDateValues = (date) => {
-    const day = date.substr(0,2);
-    const month = date.substr(3,2);
-    const year = date.substr(6,4);
-    if (day > 0 && day < 32 && month > 0 && month < 13 && year >= 2022) {
-        return true;
-    } else {
-        return false;
     }
 }
 

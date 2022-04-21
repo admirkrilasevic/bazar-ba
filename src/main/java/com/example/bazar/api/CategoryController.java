@@ -23,4 +23,9 @@ public class CategoryController {
         return categoryService.getMostPopularCategories();
     }
 
+    @GetMapping("/all")
+    public List<Category> getAllCategories() {
+        return categoryService.getAllCategories();
+    }
+
 }

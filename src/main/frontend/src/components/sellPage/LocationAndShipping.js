@@ -3,7 +3,6 @@ import formStyles from "./SectionForms.module.css";
 import { validateLocation } from "../../utils/AddItemValidations";
 
 const LocationAndShipping = ({setCurrentSection, 
-    street, setStreet, 
     city, setCity, 
     zipCode, setZipCode, 
     state, setState, 
@@ -12,7 +11,7 @@ const LocationAndShipping = ({setCurrentSection,
     saveItem}) => {
 
     const onDoneClick = () => {
-        if (validateLocation(street, city, zipCode, state, country, setMessage, setMessageStyle)) {
+        if (validateLocation(city, zipCode, state, country, setMessage, setMessageStyle)) {
             saveItem();
         }
     }
@@ -20,11 +19,7 @@ const LocationAndShipping = ({setCurrentSection,
     return (
         <div className={formStyles.formContainer}>
             <div className={formStyles.formTitle}>
-                <p>LOCATION AND SHIPPING</p>
-            </div>
-            <div className={formStyles.formSection}>
-                <p>Street</p>
-                <input className={formStyles.formInput} placeholder="Street" value={street} onChange={(e) => setStreet(e.target.value)}/>
+                <p>ITEM LOCATION</p>
             </div>
             <div className={formStyles.twoInSameRowDiv}>
                 <span className={formStyles.twoInSameRowNoMargin}>
@@ -44,7 +39,7 @@ const LocationAndShipping = ({setCurrentSection,
                 <p>Country</p>
                 <select className={formStyles.countrySelect} value={country} onChange={(e) => setCountry(e.target.value)}>
                     <option disabled selected hidden>Country</option>
-                    {countryCodes.map((country) => <option value={country.code}>{country.name}</option>)}
+                    {countryCodes.map((country) => <option value={country.name}>{country.name}</option>)}
                 </select>
             </div>
             <div className={formStyles.buttonsContainer}>

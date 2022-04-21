@@ -15,6 +15,10 @@ public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
 
+    public List<Category> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
     public List<Category> getMostPopularCategories() {
         List<Category> categories = categoryRepository.getCategories();
         return categories.stream()

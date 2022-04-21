@@ -26,3 +26,32 @@ export const getRecommendedProducts = async (categoryId, name) => {
     return res.data;
   })
 };
+
+export const addItem = async (token, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, addressId, city, zipCode, state, country ) => {
+  return axios.post(`${API_URL}/api/v1/items/add`, {
+    name,
+    description,
+    price,
+    categoryId,
+    subcategoryId,
+    photos,
+    quantity,
+    sellerId, 
+    dateAdded,
+    addressId,
+    city,
+    zipCode,
+    state,
+    country
+  }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  })
+  .then((res) => {
+    return res.data;
+  })
+  .catch((error) => {
+    return error.response;
+  });
+}
