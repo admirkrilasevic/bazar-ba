@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 738px;
+    width: 50%;
     padding-bottom: 32px;
     border: 1px solid #d8d8d8;
     box-sizing: border-box;
@@ -14,25 +14,29 @@
     padding: 23px;
     text-align: center;
     font-weight: bold;
-    font-size: 24px;
-    height: 75px;
+    font-size: 26px;
+    height: wrap-content;
     width: 100%;
     background-color: #FCFCFC;
+    font-family: Texturina;
 }
 
 .formSection {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 548px;
+    width: 70%;
     margin-top: 32px;
+}
+
+.formSection p {
+    text-align: left;
 }
   
 .formInput {
     border: 1px solid #852400;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 548px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
 }
@@ -41,7 +45,7 @@
     border: 1px solid #DBAC24;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 548px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
 }
@@ -50,7 +54,7 @@
     border: 1px solid #852400;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 262px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
 }
@@ -59,7 +63,7 @@
     border: 1px solid #DBAC24;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 262px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
 }
@@ -68,7 +72,7 @@
     border: 1px solid #852400;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 548px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
     color: #9B9B9B;
@@ -78,7 +82,7 @@
     border: 1px solid #DBAC24;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 548px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
     color: #9B9B9B;
@@ -88,7 +92,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 548px;
+    width: 70%;
     margin-top: 32px;
 }
 
@@ -96,19 +100,20 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 548px;
+    width: 100%;
 }
 
 .twoInSameRowDiv {
     text-align: left;
     margin-top: 32px;
+    width: 70%;
 }
 
 .formSelect {
     border: 1px solid #852400;
     box-sizing: border-box;
     padding: 10px 20px;
-    width: 260px;
+    width: 100%;
     height: 50px;
 }
 
@@ -116,7 +121,7 @@
     border: 1px solid #DBAC24;
     box-sizing: border-box;
     padding: 10px 20px;
-    width: 260px;
+    width: 100%;
     height: 50px;
 }
 
@@ -124,7 +129,7 @@
     border: 1px solid #852400;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 548px;
+    width: 100%;
     height: 369px;
     background-color: #FCFCFC;
 }
@@ -133,7 +138,7 @@
     border: 1px solid #DBAC24;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 548px;
+    width: 100%;
     height: 369px;
     background-color: #FCFCFC;
 }
@@ -146,7 +151,7 @@
 }
 
 .photoUpload {
-    width: 548px;
+    width: 70%;
     height: 392px;
     background-color: #FCFCFC;
     border: 1px solid #852400;
@@ -155,7 +160,7 @@
 }
 
 .photoUpload:hover {
-    width: 548px;
+    width: 70%;
     height: 392px;
     background-color: #FCFCFC;
     border: 1px solid #DBAC24;
@@ -189,6 +194,7 @@
 
 .clearButton {
     cursor: pointer;
+    text-align: center;
 }
 
 input[type="file"] {
@@ -205,7 +211,6 @@ input[type="file"] {
 .inputWithIcon {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
 }
 
 .inputWithIcon span {
@@ -232,7 +237,7 @@ input[type="file"] {
     border: 1px solid #852400;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 484px;
+    width: 100%;
     height: 64px;
     background-color: #FCFCFC;
 }
@@ -241,7 +246,7 @@ input[type="file"] {
     border: 1px solid #DBAC24;
     box-sizing: border-box;
     padding: 18px 42px 18px 24px;
-    width: 484px;
+    width: 100%;
     height: 64px;
     background-color: #FCFCFC;
 }
@@ -260,7 +265,7 @@ input[type="file"] {
     text-decoration: none;
     background-color: #DBAC24;
     border: none;
-    padding: 12px 100px;
+    padding: 12px 40px;
     font-weight: bold;
     font-size: 18px;
     color: #FFF;
@@ -274,7 +279,7 @@ input[type="file"] {
     text-decoration: none;
     background-color: #852400;
     border: none;
-    padding: 12px 100px;
+    padding: 12px 40px;
     font-weight: bold;
     font-size: 18px;
     color: #FFF;
@@ -288,7 +293,7 @@ input[type="file"] {
     text-decoration: none;
     border: none;
     background-color: #852400;
-    padding: 12px 100px;
+    padding: 12px 40px;
     font-weight: bold;
     font-size: 18px;
     color: #FFF;
@@ -302,7 +307,7 @@ input[type="file"] {
     text-decoration: none;
     border: none;
     background-color: #DBAC24;
-    padding: 12px 100px;
+    padding: 12px 40px;
     font-weight: bold;
     font-size: 18px;
     color: #FFF;
@@ -316,7 +321,7 @@ input[type="file"] {
     text-decoration: none;
     border: none;
     background-color: #DBAC24;
-    padding: 12px 100px;
+    padding: 12px 40px;
     font-weight: bold;
     font-size: 18px;
     color: #FFF;
@@ -330,7 +335,7 @@ input[type="file"] {
     text-decoration: none;
     border: none;
     background-color: #852400;
-    padding: 12px 100px;
+    padding: 12px 40px;
     font-weight: bold;
     font-size: 18px;
     color: #FFF;
@@ -348,11 +353,38 @@ input[type="file"] {
     margin: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    width: 70%;
 }
 
 .imagesContainer img {
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     object-fit: contain;
+}
+
+@media screen and (max-width: 800px) {
+    .formContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        padding-bottom: 32px;
+        border: 1px solid #852400;
+        box-sizing: border-box;
+        margin: 50px auto;
+        margin-bottom: 150px;
+        font-size: 18px;
+    }
+    .imagesContainer {
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+        width: 50%;
+    }
+    
+    .imagesContainer img {
+        width: 50%;
+        height: 50%;
+        object-fit: contain;
+    }
 }

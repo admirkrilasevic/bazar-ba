@@ -19,7 +19,7 @@ const LocationAndShipping = ({setCurrentSection,
     return (
         <div className={formStyles.formContainer}>
             <div className={formStyles.formTitle}>
-                <p>ITEM LOCATION</p>
+                <p>SET ITEM LOCATION</p>
             </div>
             <div className={formStyles.twoInSameRowDiv}>
                 <span className={formStyles.twoInSameRowNoMargin}>
