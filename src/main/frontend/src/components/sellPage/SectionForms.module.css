@@ -4,7 +4,7 @@
     align-items: center;
     width: 50%;
     padding-bottom: 32px;
-    border: 1px solid #d8d8d8;
+    border: 1px solid #852400;
     box-sizing: border-box;
     margin: 16px auto;
     margin-top: 40px;
@@ -24,7 +24,7 @@
 .formSection {
     display: flex;
     flex-direction: column;
-    width: 70%;
+    width: 80%;
     margin-top: 32px;
 }
 
@@ -341,7 +341,7 @@ input[type="file"] {
     object-fit: contain;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
     .formContainer {
         display: flex;
         flex-direction: column;
@@ -354,13 +354,18 @@ input[type="file"] {
         margin-bottom: 150px;
         font-size: 18px;
     }
+    .formSection {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-top: 32px;
+    }
     .imagesContainer {
         margin: 20px;
         display: flex;
         flex-direction: row;
         width: 50%;
     }
-    
     .imagesContainer img {
         width: 50%;
         height: 50%;
