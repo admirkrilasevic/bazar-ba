@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getRecommendedProducts } from '../../utils/ItemService';
 import Item from '../homePage/Item';
 import styles from './RecommendedProducts.module.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function RecommendedProducts({categoryId, name}) {
 
@@ -17,9 +18,11 @@ function RecommendedProducts({categoryId, name}) {
     return(
         <div>
             <div className={styles.recommendedProductsTitle}>Recommended Products</div>
-            <div className={styles.recommendedProductsContainer}>
+            <Container className={"no-gutters"}>
+            <Row className={styles.recommendedProductsContainer}>
                 {recommendedProducts.map((item) => {
                     return (
+                        <Col>
                             <Item 
                                 key={item.id}
                                 id={item.id}
@@ -27,9 +30,11 @@ function RecommendedProducts({categoryId, name}) {
                                 name={item.name}
                                 price={item.price}
                             />
+                        </Col>
                     );
                 })}
-            </div>
+            </Row>
+            </Container>
         </div>
     );
 }

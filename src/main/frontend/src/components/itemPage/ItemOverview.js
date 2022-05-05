@@ -1,4 +1,4 @@
-import { Col, Row } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 import styles from "./ItemOverview.module.css";
 import "../../App.css";
 import PageLayout from '../PageLayout';
@@ -50,10 +50,12 @@ function ItemOverview({...item}) {
         } else {
             dispatch(addItem(item));
         }
+        window.scrollTo(0, 0);
     }
 
     return (
         <PageLayout title={name} >
+            <Container className={"no-gutters"}>
             <Row className={styles.container}>
                 <Col>
                     <img className={styles.coverImage} src={currentImage} alt=""></img>
@@ -78,6 +80,7 @@ function ItemOverview({...item}) {
                     </div>
                 </Col>
             </Row>
+            </Container>
             {loggedIn && (sellerId === (user && user.id)) && <div>List of orders placed for this item</div>}
             {(sellerId !== (user && user.id)) && <RecommendedProducts categoryId={categoryId} name={name} />}
         </PageLayout>
