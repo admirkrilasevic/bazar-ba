@@ -10,8 +10,8 @@ function ItemPage() {
   
     useEffect(async () => {
       const returnedItem = await fetchItemById(itemId);
-  
       setItem(returnedItem);
+      window.scrollTo(0,0);
     }, [itemId]);
 
     return (

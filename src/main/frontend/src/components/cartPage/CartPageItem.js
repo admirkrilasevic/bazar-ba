@@ -1,8 +1,13 @@
 import styles from "./CartPageItem.module.css";
 import { Link } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
+import { useDispatch } from "react-redux";
+import { remove } from "../../utils/CartSlice";
 
 function CartPageItem({ id, photo, name, price, selectedQuantity }) {
+
+  const dispatch = useDispatch();
+  
   return (
     <Container>
       <Row className={styles.itemContainer}>
@@ -20,7 +25,9 @@ function CartPageItem({ id, photo, name, price, selectedQuantity }) {
           ${price}
         </Col>
         <Col xs={3}>
-          Quantity: <span className={styles.quantity}>{selectedQuantity}</span>
+          Quantity:
+          <span className={styles.quantity}> {selectedQuantity}</span>
+          <span className={styles.removeButton} onClick={() => dispatch(remove(id))}>x</span>
         </Col>
       </Row>
     </Container>

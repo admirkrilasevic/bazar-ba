@@ -36,4 +36,17 @@
 .quantity {
     font-weight: bold;
 }
+
+.removeButton {
+    color: #DBAC24;
+    font-weight: bold;
+    margin-left: 25px;
+}
+
+.removeButton:hover {
+    color: #852400;
+    font-weight: bold;
+    margin-left: 25px;
+    cursor: pointer;
+}
   

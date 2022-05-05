@@ -26,9 +26,13 @@ export const cartSlice = createSlice({
     updateQuantity: (state, action) => {
       state.items[action.payload.index].selectedQuantity += action.payload.value
     },
+    remove: (state, action) => {
+      state.items.splice(action.payload, 1)
+      state.value -= 1
+    }
   },
 })
 
-export const { increment, decrement, incrementByAmount, clear, addItem, updateQuantity } = cartSlice.actions
+export const { increment, decrement, incrementByAmount, clear, addItem, updateQuantity, remove } = cartSlice.actions
 
 export default cartSlice.reducer
