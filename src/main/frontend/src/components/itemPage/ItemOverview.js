@@ -16,6 +16,7 @@ function ItemOverview({...item}) {
 
     const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, addressId } = item;
     const [selectedQuantity, setSelectedQuantity] = useState(1);
+    const [tempQuantity, setTempQuantity] = useState(quantity && quantity); // used to temporarily store quantity when user is adding item to cart
     const [address, setAddress] = useState();
 
     const { loggedIn } = useContext(AuthContext);
@@ -37,6 +38,10 @@ function ItemOverview({...item}) {
         setAddress(addressFromServer);
     }, [addressId]);
 
+    useEffect(() => {
+        setTempQuantity(quantity);
+    }, [quantity]);
+
     const handleAddToCart = (selectedQuantity) => {
         dispatch(incrementByAmount(selectedQuantity));
         item.selectedQuantity = selectedQuantity;
@@ -50,6 +55,7 @@ function ItemOverview({...item}) {
         } else {
             dispatch(addItem(item));
         }
+        setTempQuantity(tempQuantity - selectedQuantity);
         window.scrollTo(0, 0);
     }
 
@@ -74,7 +80,7 @@ function ItemOverview({...item}) {
                         <p className={styles.price}>{price} KM</p>
                         <QuantityPicker min={1} max={quantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
                     </div>
-                    <p className={styles.quantity}>{quantity} remaining</p>
+                    <p className={styles.quantity}>{tempQuantity} remaining</p>
                     <div className={styles.addToCart}>
                         <button onClick={() => handleAddToCart(selectedQuantity)}>ADD TO CART</button>
                     </div>
