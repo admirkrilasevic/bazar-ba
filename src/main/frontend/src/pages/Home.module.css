@@ -48,14 +48,14 @@
     width: 100%;
     background-color: #852400;
     margin: 50px 0px;
-    padding: 0px 30px;
+    padding: 30px;
 }
 
 .becomeSellerButtonMobile {
-    width: 95%;
+    width: 93%;
     height: wrap-content;
     background-color: #852400;
-    margin: 10px 0px;
+    margin-bottom: 20px;
 }
 
 .becomeSellerSection img {

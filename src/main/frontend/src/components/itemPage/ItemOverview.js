@@ -60,7 +60,7 @@ function ItemOverview({...item}) {
     }
 
     return (
-        <PageLayout title={name} >
+        <PageLayout title={name}>
             <Container className={"no-gutters"}>
             <Row className={styles.container}>
                 <Col>
@@ -78,7 +78,7 @@ function ItemOverview({...item}) {
                     <p className={styles.description}>{description}</p>
                     <div className={styles.quantityContainer}>
                         <p className={styles.price}>{price} KM</p>
-                        <QuantityPicker min={1} max={quantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
+                        <QuantityPicker min={0} max={tempQuantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
                     </div>
                     <p className={styles.quantity}>{tempQuantity} remaining</p>
                     <div className={styles.addToCart}>
