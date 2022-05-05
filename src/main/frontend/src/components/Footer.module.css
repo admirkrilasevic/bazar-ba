@@ -45,3 +45,17 @@
     width: 50px;
     height: 50px;
 }
+
+.mobileFooter {
+    background-color: #852400;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    color: #fff;
+    padding: 50px 0px;
+}
+
+.mobileFooter a {
+    text-decoration: none;
+    color: inherit;
+}

@@ -1,9 +1,18 @@
 import styles from "./Footer.module.css";
 import { Container, Col, Row } from 'react-bootstrap';
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Footer() {
+
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+      window.addEventListener('resize', () => setWidth(window.innerWidth));
+  }, []);
+
   return (
+    width >= 768 ?
     <div className={styles.footer}>
       <Container className={"no-gutters"}>
         <Row className={styles.footerContent}>
@@ -29,6 +38,20 @@ function Footer() {
             </div>
           </Col>
         </Row>
+      </Container>    
+    </div> : 
+    <div className={styles.mobileFooter}>
+      <Container className={"no-gutters"}>
+        <Col>
+          <p>{new Date().getFullYear()} &ensp; © Bazar.ba</p>
+          <p><Link to="/home"><img src="https://i.ibb.co/D9YW3Kw/Logo-icon-2.png" alt="Logo" className={styles.logoIcon}></img></Link></p>
+          <p><Link to="/about">About Us</Link></p>
+          <p><Link to="/contact">Contact</Link></p>
+          <p><Link to="/impressum">Impressum</Link></p>
+          <p><Link to="/privacy">Privacy Policy</Link></p>
+          <p><Link to="/terms">Terms and Conditions</Link></p>
+          <p><Link to="/guidelines">Seller Guidelines</Link></p>
+        </Col>
       </Container>    
     </div>
   );
