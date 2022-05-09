@@ -64,7 +64,7 @@ function App() {
                   </PageLayout>
                 </Route>
                 <Route path="/cart">
-                  <PageLayout>
+                  <PageLayout title="My Cart">
                     <Cart />
                   </PageLayout>
                 </Route>
@@ -110,7 +110,9 @@ function App() {
                   <SellPage />
                 </Route>
                 <Route path="/checkout">
-                  <Checkout />
+                  <PageLayout title="Checkout" >
+                    <Checkout />
+                  </PageLayout>
                 </Route>
                 <Route path="/payment">
                   <Payment />

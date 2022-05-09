@@ -7,12 +7,12 @@ function AddressSection() {
 
     const user = AuthService.getCurrentUser();
 
-    const [addressId, setAddressId] = useState(user.address ? user.address.id : null);
-    const [street, setStreet] = useState(user.address ? user.address.street : "");
-    const [city, setCity] = useState(user.address ? user.address.city : "");
-    const [zipCode, setZipCode] = useState(user.address ? user.address.zipCode : "");
-    const [country, setCountry] = useState(user.address ? user.address.country : null);
-    const [state, setState] = useState(user.address ? user.address.state : "");
+    const [addressId, setAddressId] = useState(user && user.address ? user.address.id : null);
+    const [street, setStreet] = useState(user && user.address ? user.address.street : "");
+    const [city, setCity] = useState(user && user.address ? user.address.city : "");
+    const [zipCode, setZipCode] = useState(user && user.address ? user.address.zipCode : "");
+    const [country, setCountry] = useState(user && user.address ? user.address.country : null);
+    const [state, setState] = useState(user && user.address ? user.address.state : "");
 
     const [selectedAddress, setSelectedAddress] = useState(addressId != null ? addressId : null);
     
