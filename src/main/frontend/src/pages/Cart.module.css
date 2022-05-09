@@ -8,10 +8,11 @@
 
 .itemsContainer {
     text-align: left;
+    padding: 10px;
 }
 
 .tableHeader { 
-    width: 60%;
+    width: 100%;
 }
 
 .emptyCartButton {
@@ -21,8 +22,8 @@
     padding: 10px 50px;
     border: none;
     margin-top: 50px;
-    margin-bottom: 100px;
     font-weight: bold;
+    width: 50%;
 }
 
 .emptyCartButton:hover {
@@ -32,16 +33,17 @@
     padding: 10px 50px;
     border: none;
     margin-top: 50px;
-    margin-bottom: 100px;
     font-weight: bold;
 }
 
 .subtotalContainer { 
-    height: 150px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    text-align: right;
+    padding: 10px;
 }
 
 .subtotalTitle {
@@ -56,6 +58,9 @@
     padding: 10px 50px;
     border: none;
     font-weight: bold;
+    margin-bottom: 100px;
+    width: 50%;
+    text-align: center;
 }
 
 .checkoutButton:hover {
@@ -74,14 +79,21 @@
 }
 
 .tableTitles {
-    width: 60%;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-left: 0px;
     border-bottom: 1px solid #DBAC24;
     padding: 10px 0px;
+    padding-left: 10px;
     font-weight: bold;
     background-color: #FCFCFC;
+}
+
+@media screen and (max-width: 768px) {
+    .emptyCartButton {
+        width: 100%;
+    }
+    .checkoutButton {
+        width: 80%;
+    }
 }

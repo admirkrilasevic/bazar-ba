@@ -1,17 +1,17 @@
 .itemContainer {
-    width: 60%;
+    width: 100%;
     align-items: center;
     margin: 20px 0px;
+    text-align: left;
 }
 
 .photo {
-    width: 200px;
-    height: 200px;
+    width: 100%;
     object-fit: cover;
 }
 
 .title {
-    text-align: center;
+    text-align: left;
     margin-top: 10px;
     font-weight: 600;
     font-size: 20px;
