@@ -1,0 +1,25 @@
+.placeOrderButton {
+    margin-bottom: 100px;
+}
+
+.placeOrderButton a{
+    background-color: #DBAC24;
+    text-decoration: none;
+    color: #FFF;
+    padding: 10px 50px;
+    border: none;
+    margin-top: 50px;
+    font-weight: bold;
+    width: 50%;
+}
+
+.placeOrderButton a:hover {
+    background-color: #852400;
+    text-decoration: none;
+    color: #FFF;
+    padding: 10px 50px;
+    border: none;
+    margin-top: 50px;
+    font-weight: bold;
+    width: 50%;
+}

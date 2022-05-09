@@ -1,0 +1,31 @@
+.addressSection {
+    margin: 50px;
+    text-align: left;
+    border: 1px solid #852400;
+}
+
+.selectAddress {
+    padding: 10px;
+}
+
+.selectAddress p {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.addressContainer {
+    padding: 30px;
+    width: 30%;
+}
+
+.addressTitle {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.selectAddressButton {
+    accent-color: #852400;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

@@ -21,6 +21,7 @@ import { AuthProvider } from './utils/AuthContext';
 import store from './app/store'
 import { Provider } from 'react-redux'
 import SellPage from './pages/SellPage';
+import Checkout from './pages/Checkout';
 
 function App() {
   return (
@@ -98,6 +99,9 @@ function App() {
               </Route>
               <Route path="/sell">
                 <SellPage />
+              </Route>
+              <Route>
+                <Checkout />
               </Route>
             </Switch>
             <Footer />

@@ -1,0 +1,22 @@
+.paymentSection {
+    margin: 50px;
+    text-align: left;
+    border: 1px solid #852400;
+}
+
+.selectPayment {
+    padding: 10px;
+}
+
+.selectPayment p {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.radioButton {
+    padding: 30px;
+}
+
+.radioButton input{
+    accent-color: #852400;
+}
