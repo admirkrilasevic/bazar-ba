@@ -71,7 +71,6 @@ function Cart() {
                 </Row>
             </Container> :
             <Row>
-                <h3 className={styles.cartTitle}>My Cart</h3>
                 <span className={styles.emptyCart}>The cart is currently empty</span>
             </Row> }
         </PageLayout>
