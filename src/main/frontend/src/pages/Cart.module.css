@@ -1,14 +1,6 @@
-.cartTitle {
-    font-weight: bold;
-    text-align: left;
-    width: 100%;
-    margin: 40px 0px;
-    border-bottom: 1px solid #852400;
-}
-
 .itemsContainer {
     text-align: left;
-    padding: 10px;
+    margin: 40px auto;
 }
 
 .tableHeader { 
@@ -43,7 +35,7 @@
     align-items: flex-end;
     justify-content: space-evenly;
     text-align: right;
-    padding: 10px;
+    margin: 10px auto;
 }
 
 .subtotalTitle {

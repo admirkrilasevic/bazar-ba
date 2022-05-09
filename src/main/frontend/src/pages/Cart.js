@@ -5,6 +5,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import CartPageItem from '../components/cartPage/CartPageItem.js';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import PageLayout from '../components/PageLayout.js';
 
 function Cart() {
 
@@ -28,53 +29,52 @@ function Cart() {
     }, [cartItems]);
 
     return(
-        cartItems.length > 0 ?
-        <Container className={"no-gutters"}>
-            <div className={styles.cartTitle}>
-                <h3>My Cart</h3>
-            </div>
-            <Row className={styles.itemsContainer}>
-                <Container className={"no-gutters"}>
-                    <Row className={styles.tableTitles}>
-                        <Col>
-                            Image
-                        </Col>
-                        <Col>
-                            Name
-                        </Col>
-                        <Col className={styles.price}>
-                            Price
-                        </Col>
-                        <Col> 
-                            Quantity
-                        </Col>
-                        <Col>
-                        </Col>
-                    </Row>
-                </Container>
-                {cartItems.map((item) => (
-                    <CartPageItem 
-                        key={item.id}
-                        photo={item.photos}
-                        name={item.name}
-                        price={item.price}
-                        selectedQuantity={item.selectedQuantity}
-                    />
-                ))}
-                <button onClick={() => handleClear()} className={styles.emptyCartButton}>EMPTY CART</button>
-            </Row>
-            <Row className={styles.subtotalContainer}>
-                <span>
-                    <span className={styles.subtotalTitle}>Subtotal: </span>
-                    ${itemTotals.reduce((previous, item) => previous + item.total, 0)}
-                </span>
-                { itemTotals.length > 0 && <Link className={styles.checkoutButton} to={'/checkout'}>PROCEED TO CHECKOUT</Link> }
-            </Row>
-        </Container> :
-        <Row>
-            <h3 className={styles.cartTitle}>My Cart</h3>
-            <span className={styles.emptyCart}>The cart is currently empty</span>
-        </Row> 
+        <PageLayout title="My Cart">
+            { cartItems.length > 0 ?
+            <Container className={"no-gutters"}>
+                <Row className={styles.itemsContainer}>
+                    <Container className={"no-gutters"}>
+                        <Row className={styles.tableTitles}>
+                            <Col>
+                                Image
+                            </Col>
+                            <Col>
+                                Name
+                            </Col>
+                            <Col className={styles.price}>
+                                Price
+                            </Col>
+                            <Col> 
+                                Quantity
+                            </Col>
+                            <Col>
+                            </Col>
+                        </Row>
+                    </Container>
+                    {cartItems.map((item) => (
+                        <CartPageItem 
+                            key={item.id}
+                            photo={item.photos}
+                            name={item.name}
+                            price={item.price}
+                            selectedQuantity={item.selectedQuantity}
+                        />
+                    ))}
+                    <button onClick={() => handleClear()} className={styles.emptyCartButton}>EMPTY CART</button>
+                </Row>
+                <Row className={styles.subtotalContainer}>
+                    <span>
+                        <span className={styles.subtotalTitle}>Subtotal: </span>
+                        ${itemTotals.reduce((previous, item) => previous + item.total, 0)}
+                    </span>
+                    { itemTotals.length > 0 && <Link className={styles.checkoutButton} to={'/checkout'}>PROCEED TO CHECKOUT</Link> }
+                </Row>
+            </Container> :
+            <Row>
+                <h3 className={styles.cartTitle}>My Cart</h3>
+                <span className={styles.emptyCart}>The cart is currently empty</span>
+            </Row> }
+        </PageLayout>
     );
 }
 

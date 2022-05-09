@@ -120,6 +120,9 @@
     .textSection a {
         font-size: 24px;
     }
+    .textSection a:hover {
+        font-size: 24px;
+    }
     .becomeSellerSection img {
         width: 100%;
         height: auto;
