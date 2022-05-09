@@ -30,9 +30,9 @@ function Cart() {
     return(
         cartItems.length > 0 ?
         <Container className={"no-gutters"}>
-            <Row>
-                <h3 className={styles.cartTitle}>My Cart</h3>
-            </Row>
+            <div className={styles.cartTitle}>
+                <h3>My Cart</h3>
+            </div>
             <Row className={styles.itemsContainer}>
                 <Container className={"no-gutters"}>
                     <Row className={styles.tableTitles}>

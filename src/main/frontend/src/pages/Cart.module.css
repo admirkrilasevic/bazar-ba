@@ -1,7 +1,7 @@
 .cartTitle {
     font-weight: bold;
     text-align: left;
-    padding: 10px;
+    width: 100%;
     margin: 40px 0px;
     border-bottom: 1px solid #852400;
 }
