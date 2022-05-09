@@ -22,93 +22,106 @@ import store from './app/store'
 import { Provider } from 'react-redux'
 import SellPage from './pages/SellPage';
 import Checkout from './pages/Checkout';
+import Payment from './pages/Payment';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import { STRIPE } from './constants.js';
+
 
 function App() {
+
+  const stripePromise = loadStripe(STRIPE.PUBLIC_KEY);
+
   return (
-    <Provider store={store}>
-      <AuthProvider>
-        <Router>
-          <div className="App">
-            <Header />
-            <Switch>
-              <Route
-                  exact
-                  path="/"
-                  render={() => {
-                      return (
-                          <Redirect to="/home" />
-                      )
-                  }}
-              />
-              <Route path="/home">
-                <Home />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <Route path="/register">
-                <Register />
-              </Route>
-              <Route path="/shop">
-                <PageLayout>
-                  <Shop />
-                </PageLayout>
-              </Route>
-              <Route path="/cart">
-                <PageLayout>
-                  <Cart />
-                </PageLayout>
-              </Route>
-              <Route path="/account">
-                <PageLayout>
-                  <Account />
-                </PageLayout>
-              </Route>
-              <Route path="/about">
-                <PageLayout title="About Us">
-                  <AboutUs />
-                </PageLayout>
-              </Route>
-              <Route path="/contact">
-                <PageLayout title="Contact">
-                  <Contact />
-                </PageLayout>
-              </Route>
-              <Route path="/impressum">
-                <PageLayout title="Impressum">
-                  <Impressum />
-                </PageLayout>
-              </Route>
-              <Route path="/privacy">
-                <PageLayout title="Privacy Policy">
-                  <PrivacyPolicy />
-                </PageLayout>
-              </Route>
-              <Route path="/terms">
-                <PageLayout title="Terms and Conditions">
-                  <TermsAndConditions />
-                </PageLayout>
-              </Route>
-              <Route path="/guidelines">
-                <PageLayout title="Seller Guidelines">
-                  <SellerGuidelines />
-                </PageLayout>
-              </Route>
-              <Route path="/items/:itemId">
-                <ItemPage />
-              </Route>
-              <Route path="/sell">
-                <SellPage />
-              </Route>
-              <Route>
-                <Checkout />
-              </Route>
-            </Switch>
-            <Footer />
-          </div>
-        </Router>
-      </AuthProvider>
-    </Provider>
+    <Elements stripe={stripePromise}>
+      <Provider store={store}>
+        <AuthProvider>
+          <Router>
+            <div className="App">
+              <Header />
+              <Switch>
+                <Route
+                    exact
+                    path="/"
+                    render={() => {
+                        return (
+                            <Redirect to="/home" />
+                        )
+                    }}
+                />
+                <Route path="/home">
+                  <Home />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <Route path="/register">
+                  <Register />
+                </Route>
+                <Route path="/shop">
+                  <PageLayout>
+                    <Shop />
+                  </PageLayout>
+                </Route>
+                <Route path="/cart">
+                  <PageLayout>
+                    <Cart />
+                  </PageLayout>
+                </Route>
+                <Route path="/account">
+                  <PageLayout>
+                    <Account />
+                  </PageLayout>
+                </Route>
+                <Route path="/about">
+                  <PageLayout title="About Us">
+                    <AboutUs />
+                  </PageLayout>
+                </Route>
+                <Route path="/contact">
+                  <PageLayout title="Contact">
+                    <Contact />
+                  </PageLayout>
+                </Route>
+                <Route path="/impressum">
+                  <PageLayout title="Impressum">
+                    <Impressum />
+                  </PageLayout>
+                </Route>
+                <Route path="/privacy">
+                  <PageLayout title="Privacy Policy">
+                    <PrivacyPolicy />
+                  </PageLayout>
+                </Route>
+                <Route path="/terms">
+                  <PageLayout title="Terms and Conditions">
+                    <TermsAndConditions />
+                  </PageLayout>
+                </Route>
+                <Route path="/guidelines">
+                  <PageLayout title="Seller Guidelines">
+                    <SellerGuidelines />
+                  </PageLayout>
+                </Route>
+                <Route path="/items/:itemId">
+                  <ItemPage />
+                </Route>
+                <Route path="/sell">
+                  <SellPage />
+                </Route>
+                <Route path="/checkout">
+                  <Checkout />
+                </Route>
+                <Route path="/payment">
+                  <Payment />
+                </Route>
+              </Switch>
+              <Footer />
+            </div>
+          </Router>
+        </AuthProvider>
+      </Provider>
+    </Elements>
   );
 }
 

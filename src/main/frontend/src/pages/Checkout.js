@@ -9,7 +9,7 @@ function Checkout() {
             <AddressSection />
             <PaymentSection />
             <div className={styles.placeOrderButton}>
-                <Link to={"/pay"}> PLACE ORDER </Link>
+                <Link to={"/payment"}> PLACE ORDER </Link>
             </div>
         </div>
     );

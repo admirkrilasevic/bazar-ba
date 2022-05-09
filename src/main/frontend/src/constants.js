@@ -275,3 +275,7 @@ export const countryCodes = [
     { "code": "ZM", "name": "Zambia" },
     { "code": "ZW", "name": "Zimbabwe" }
 ];
+
+export const STRIPE = {
+    PUBLIC_KEY: "pk_test_51KJwtoIUCUcIjRQux8a2az6fPG0dTXtzedTm0FMMwKiykTAjluVccryP63GxK8bTc5mAQZR7snrrEwAGnoHbHUT300i4FjQdrW"
+}

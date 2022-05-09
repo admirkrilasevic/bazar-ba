@@ -1,0 +1,19 @@
+.cardComponent {
+    outline: none;
+    border: 1px solid #852400;
+    box-sizing: border-box;
+    padding: 22px 42px 18px 24px;
+    width: 262px;
+    height: 63px;
+    background-color: #FCFCFC;
+}
+
+.cardComponent:hover {
+    outline: none;
+    border: 1px solid #DBAC24;
+    box-sizing: border-box;
+    padding: 22px 42px 18px 24px;
+    width: 262px;
+    height: 63px;
+    background-color: #FCFCFC;
+}
