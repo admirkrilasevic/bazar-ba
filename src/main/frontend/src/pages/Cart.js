@@ -5,6 +5,7 @@ import { Container, Col, Row } from 'react-bootstrap';
 import CartPageItem from '../components/cartPage/CartPageItem.js';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import AuthService from '../utils/AuthService.js';
 
 function Cart() {
 
