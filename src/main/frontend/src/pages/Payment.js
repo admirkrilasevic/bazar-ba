@@ -7,11 +7,18 @@ import { processPayment } from "../utils/PaymentService";
 import { CardCvcElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import messageStyles from "../utils/Message.module.css";
 import PageLayout from "../components/PageLayout";
+import { useSelector, useDispatch } from "react-redux";
 
 function Payment() {
     
     const elements = useElements();
     const stripe = useStripe();
+
+    const dispatch = useDispatch();
+    const selectedPaymentMethod = useSelector((state) => state.cart.paymentMethod);
+    const cartItems = useSelector((state) => state.cart.items);
+    const selectedAddress = useSelector((state) => state.cart.addressId);
+
 
     const user = AuthService.getCurrentUser();
 
@@ -26,6 +33,14 @@ function Payment() {
     const [messageStyle, setMessageStyle] = useState();
 
     const [buttonDisabled, setButtonDisabled] = useState(false);
+
+    const itemTotals = cartItems.map((item) => {
+        return {
+            id: item.id,
+            total: item.price * item.selectedQuantity
+        }
+    });
+    const total = itemTotals.reduce((previous, item) => previous + item.total, 0);
 
     const onDoneClick = async () => {
         if(validateLocation(city, zipCode, state, country, setMessage, setMessageStyle) && name) {
@@ -49,7 +64,7 @@ function Payment() {
             })
 
             if (paymentMethodResponse) {
-                const paymentResponse = await processPayment(user.token, 1, 1, paymentMethodResponse.paymentMethod.id)
+                const paymentResponse = await processPayment(user.token, 1, total, paymentMethodResponse.paymentMethod.id)
                 if (paymentResponse === "succeeded") {
                     setMessage("Payment successful!");
                     setMessageStyle(messageStyles.headerMessageSuccess);
@@ -64,8 +79,14 @@ function Payment() {
         }
     }
 
+    const onUnderstandClick = () => {
+        //mark order as placed
+        window.location.replace("/");
+    }
+
     return (
         <PageLayout message={message} messageStyle={messageStyle}>
+            { selectedPaymentMethod === "card" ?
             <div className={formStyles.formContainer}>
                 <div className={formStyles.formTitle}>
                     <p>PAYMENT</p>
@@ -89,8 +110,21 @@ function Payment() {
                 <div>
                     <button disabled={buttonDisabled} className={formStyles.doneButton} onClick={() => onDoneClick()}>PAY</button>
                 </div>
-        </div>
-    </PageLayout>
+            </div> :
+            <div>
+                <div className={formStyles.formContainer}>
+                    <div className={formStyles.formTitle}>
+                        <p>PAYMENT</p>
+                    </div>
+                    <div className={formStyles.formSection}>
+                        <p>You have successfully placed your order and you will pay the courier upon delivery!</p>
+                    </div>
+                    <div>
+                        <button className={formStyles.doneButton} onClick={() => onUnderstandClick()}>I UNDERSTAND</button>
+                    </div>
+                </div>
+            </div>}
+        </PageLayout>
     );
 }
 

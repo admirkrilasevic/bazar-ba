@@ -5,6 +5,8 @@ export const cartSlice = createSlice({
   initialState: {
     value: 0,
     items: [],
+    addressId: 0,
+    paymentMethod: "",
   },
   reducers: {
     increment: (state) => {
@@ -29,10 +31,16 @@ export const cartSlice = createSlice({
     remove: (state, action) => {
       state.items.splice(action.payload, 1)
       state.value -= 1
-    }
+    },
+    setAddress: (state, action) => {
+      state.addressId = action.payload
+    },
+    setPaymentMethod: (state, action) => {
+      state.paymentMethod = action.payload
+    },
   },
 })
 
-export const { increment, decrement, incrementByAmount, clear, addItem, updateQuantity, remove } = cartSlice.actions
+export const { increment, decrement, incrementByAmount, clear, addItem, updateQuantity, remove, setAddress, setPaymentMethod } = cartSlice.actions
 
 export default cartSlice.reducer

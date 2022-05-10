@@ -1,25 +1,38 @@
-.placeOrderButton {
+.totalContainer {
     margin-bottom: 100px;
+    text-align: center;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
 }
 
-.placeOrderButton a{
+.totalContainer span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.total {
+    font-size: 24px;
+}
+
+.totalContainer a{
     background-color: #DBAC24;
     text-decoration: none;
     color: #FFF;
     padding: 10px 50px;
     border: none;
-    margin-top: 50px;
     font-weight: bold;
     width: 50%;
 }
 
-.placeOrderButton a:hover {
+.totalContainer a:hover {
     background-color: #852400;
     text-decoration: none;
     color: #FFF;
     padding: 10px 50px;
     border: none;
-    margin-top: 50px;
     font-weight: bold;
     width: 50%;
 }

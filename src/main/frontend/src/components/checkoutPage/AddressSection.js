@@ -2,6 +2,8 @@ import { useState } from "react";
 import AuthService from "../../utils/AuthService";
 import styles from "./AddressSection.module.css";
 import { Container, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { setAddress } from "../../utils/CartSlice";
 
 function AddressSection() {
 
@@ -14,7 +16,8 @@ function AddressSection() {
     const [country, setCountry] = useState(user && user.address ? user.address.country : null);
     const [state, setState] = useState(user && user.address ? user.address.state : "");
 
-    const [selectedAddress, setSelectedAddress] = useState(addressId != null ? addressId : null);
+    const dispatch = useDispatch();
+    const selectedAddress = useSelector((state) => state.cart.addressId);
     
     return (
         <div className={styles.addressSection}>
@@ -28,7 +31,7 @@ function AddressSection() {
                     </Row>
                     <Row className={styles.addressContent}>
                         <Col className={styles.selectAddressButton}>
-                            <input type="radio" name="address" value={addressId} onChange={() => setSelectedAddress(addressId)} checked={selectedAddress === addressId} />
+                            <input type="radio" name="address" value={addressId} onChange={() => dispatch(setAddress(addressId))} />
                         </Col>
                         <Col className={styles.addressLine}>
                             <p>{street}</p>

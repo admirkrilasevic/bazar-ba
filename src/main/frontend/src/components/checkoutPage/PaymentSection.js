@@ -1,9 +1,11 @@
-import { useState } from "react";
 import styles from "./PaymentSection.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setPaymentMethod } from "../../utils/CartSlice";
 
 function PaymentSection() {
 
-    const [paymentMethod, setPaymentMethod] = useState("card");
+    const dispatch = useDispatch();
+    const selectedPaymentMethod = useSelector((state) => state.cart.paymentMethod);
     
     return (
         <div className={styles.paymentSection}>
@@ -11,11 +13,12 @@ function PaymentSection() {
                 <p>Select payment method:</p>
             </div>
             <div className={styles.radioButton}>
-                <input checked={paymentMethod === "cash"} type="radio" value="cash" name="cash" onChange={() => setPaymentMethod("paypal")}/> &ensp; Cash on delivery
+                <input checked={selectedPaymentMethod === "cash"} type="radio" value="cash" name="cash" onChange={() => dispatch(setPaymentMethod("cash"))}/> &ensp; Cash on delivery
             </div>
             <div className={styles.radioButton}>
-                <input checked={paymentMethod === "card"} type="radio" value="card" name="card" onChange={() => setPaymentMethod("card")}/> &ensp; Credit card
+                <input checked={selectedPaymentMethod === "card"} type="radio" value="card" name="card" onChange={() => dispatch(setPaymentMethod("card"))}/> &ensp; Credit card
             </div>
+            {console.log(selectedPaymentMethod)}
         </div>
     );
 }
