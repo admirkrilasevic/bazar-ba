@@ -27,6 +27,8 @@ function Cart() {
         setItemTotals(itemTotals);
     }, [cartItems]);
 
+    const loggedIn = !!AuthService.getCurrentUser();
+
     return(
         cartItems.length > 0 ?
         <Container className={"no-gutters"}>
@@ -65,7 +67,7 @@ function Cart() {
                     <span className={styles.subtotalTitle}>Subtotal: </span>
                     ${itemTotals.reduce((previous, item) => previous + item.total, 0)}
                 </span>
-                { itemTotals.length > 0 && <Link className={styles.checkoutButton} to={'/checkout'}>PROCEED TO CHECKOUT</Link> }
+                { itemTotals.length > 0 && <Link className={styles.checkoutButton} to={loggedIn ? '/checkout' : '/login'}>PROCEED TO CHECKOUT</Link> }
             </Row>
         </Container> :
         <Row>
