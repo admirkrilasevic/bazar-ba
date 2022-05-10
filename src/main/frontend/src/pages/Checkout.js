@@ -2,9 +2,10 @@ import AddressSection from "../components/checkoutPage/AddressSection";
 import PaymentSection from "../components/checkoutPage/PaymentSection";
 import styles from "./Checkout.module.css";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addOrder } from "../utils/OrderService";
 import AuthService from "../utils/AuthService";
+import { setOrderId } from "../utils/CartSlice";
 
 function Checkout() {
 
@@ -22,9 +23,11 @@ function Checkout() {
     });
     const total = itemTotals.reduce((previous, item) => previous + item.total, 0);
 
+    const dispatch = useDispatch();
+
     const handlePlaceOrder = async () => {
         const response = await addOrder(user.token, user.id, selectedAddress, total, selectedPaymentMethod);
-        console.log(response);
+        dispatch(setOrderId(response));
     }
 
     return (

@@ -18,6 +18,7 @@ function Payment() {
     const selectedPaymentMethod = useSelector((state) => state.cart.paymentMethod);
     const cartItems = useSelector((state) => state.cart.items);
     const selectedAddress = useSelector((state) => state.cart.addressId);
+    const orderId = useSelector((state) => state.cart.orderId);
 
 
     const user = AuthService.getCurrentUser();
@@ -64,7 +65,7 @@ function Payment() {
             })
 
             if (paymentMethodResponse) {
-                const paymentResponse = await processPayment(user.token, 1, total, paymentMethodResponse.paymentMethod.id)
+                const paymentResponse = await processPayment(user.token, orderId, total, paymentMethodResponse.paymentMethod.id)
                 if (paymentResponse === "succeeded") {
                     setMessage("Payment successful!");
                     setMessageStyle(messageStyles.headerMessageSuccess);
@@ -80,7 +81,6 @@ function Payment() {
     }
 
     const onUnderstandClick = () => {
-        //mark order as placed
         window.location.replace("/");
     }
 

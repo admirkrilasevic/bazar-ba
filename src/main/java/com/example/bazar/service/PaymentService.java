@@ -5,6 +5,7 @@ import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.PaymentIntent;
 import com.stripe.param.PaymentIntentCreateParams;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -21,10 +22,13 @@ public class PaymentService {
         Stripe.apiKey = secretKey;
     }
 
+    @Autowired
+    private OrderService orderService;
+
     public String processPayment(PaymentRequest paymentRequest) {
         try {
             PaymentIntent paymentIntent = createPaymentIntent(paymentRequest.getAmount(), paymentRequest.getPaymentMethod());
-            //orderService.markOrderAsPaid(paymentRequest.getOrderId());
+            orderService.updateOrderStatus(paymentRequest.getOrderId(), "paid");
             return paymentIntent.getStatus();
         } catch (StripeException e) {
             return e.getMessage();

@@ -31,6 +31,12 @@ public class OrderService {
                 addOrderRequest.getPaymentMethod()
         );
         Order savedOrder = orderRepository.save(order);
-        return ResponseEntity.ok().body("Order with id " + savedOrder.getId() + " created successfully");
+        return ResponseEntity.ok().body(savedOrder.getId());
+    }
+
+    public void updateOrderStatus(Long orderId, String status) {
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new RuntimeException("Order not found"));
+        order.setStatus(status);
+        orderRepository.save(order);
     }
 }

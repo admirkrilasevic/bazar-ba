@@ -7,6 +7,7 @@ export const cartSlice = createSlice({
     items: [],
     addressId: 0,
     paymentMethod: "",
+    orderId: 0,
   },
   reducers: {
     increment: (state) => {
@@ -38,9 +39,12 @@ export const cartSlice = createSlice({
     setPaymentMethod: (state, action) => {
       state.paymentMethod = action.payload
     },
+    setOrderId: (state, action) => {
+      state.orderId = action.payload
+    },
   },
 })
 
-export const { increment, decrement, incrementByAmount, clear, addItem, updateQuantity, remove, setAddress, setPaymentMethod } = cartSlice.actions
+export const { increment, decrement, incrementByAmount, clear, addItem, updateQuantity, remove, setAddress, setPaymentMethod, setOrderId } = cartSlice.actions
 
 export default cartSlice.reducer
