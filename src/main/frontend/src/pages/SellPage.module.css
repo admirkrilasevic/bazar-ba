@@ -29,6 +29,10 @@
     margin-top: 10px;
 }
 
+.headerMessageSuccess p {
+    margin: 0px;
+}
+
 .headerMessageError {
     color: #AB944E;
     text-align: start;
@@ -38,4 +42,8 @@
     width: 100%;
     padding: 18px 160px;
     margin-top: 10px;
+}
+
+.headerMessageError p {
+    margin: 0px;
 }

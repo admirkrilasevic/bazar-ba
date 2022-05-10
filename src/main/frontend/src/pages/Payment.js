@@ -1,9 +1,7 @@
-import { useParams } from "react-router";
 import styles from "./Payment.module.css";
 import formStyles from "../components/Forms.module.css"
 import AuthService from "../utils/AuthService";
 import { useState } from "react";
-import { countryCodes } from "../constants";
 import { validateLocation } from "../utils/AddItemValidations";
 import { processPayment } from "../utils/PaymentService";
 import { CardCvcElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';
@@ -89,7 +87,7 @@ function Payment() {
                         <CardCvcElement className={styles.cardComponent}/>
                 </div>
                 <div>
-                    <button disabled={buttonDisabled} className={formStyles.doneButton} onClick={() => onDoneClick()}>DONE</button>
+                    <button disabled={buttonDisabled} className={formStyles.doneButton} onClick={() => onDoneClick()}>PAY</button>
                 </div>
         </div>
     </PageLayout>
