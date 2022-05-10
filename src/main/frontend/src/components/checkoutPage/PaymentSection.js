@@ -11,10 +11,10 @@ function PaymentSection() {
                 <p>Select payment method:</p>
             </div>
             <div className={styles.radioButton}>
-                <input checked={paymentMethod === "paypal"} type="radio" value="paypal" name="paypal" onChange={() => setPaymentMethod("paypal")}/> &ensp; PayPal
+                <input checked={paymentMethod === "cash"} type="radio" value="cash" name="cash" onChange={() => setPaymentMethod("paypal")}/> &ensp; Cash on delivery
             </div>
             <div className={styles.radioButton}>
-                <input checked={paymentMethod === "card"} type="radio" value="card" name="card" onChange={() => setPaymentMethod("card")}/> &ensp; Credit Card
+                <input checked={paymentMethod === "card"} type="radio" value="card" name="card" onChange={() => setPaymentMethod("card")}/> &ensp; Credit card
             </div>
         </div>
     );

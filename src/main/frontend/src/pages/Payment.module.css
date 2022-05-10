@@ -3,7 +3,7 @@
     border: 1px solid #852400;
     box-sizing: border-box;
     padding: 22px 42px 18px 24px;
-    width: 262px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
 }
@@ -13,7 +13,7 @@
     border: 1px solid #DBAC24;
     box-sizing: border-box;
     padding: 22px 42px 18px 24px;
-    width: 262px;
+    width: 100%;
     height: 63px;
     background-color: #FCFCFC;
 }

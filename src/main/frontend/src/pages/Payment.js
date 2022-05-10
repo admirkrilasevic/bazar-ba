@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import styles from "./Payment.module.css";
-import formStyles from "./Forms.module.css"
+import formStyles from "../components/Forms.module.css"
 import AuthService from "../utils/AuthService";
 import { useState } from "react";
 import { countryCodes } from "../constants";
@@ -72,27 +72,23 @@ function Payment() {
                 <div className={formStyles.formTitle}>
                     <p>PAYMENT</p>
                 </div>
-                <div className={formStyles.twoInSameRowDiv}>
-                    <span className={formStyles.twoInSameRowNoMargin}>
+                <div className={formStyles.formSection}>
                         <p>Name on card</p>
+                        <input className={formStyles.formInput} placeholder="Name on card" value={name} onChange={(e) => setName(e.target.value)}/>
+                </div>
+                <div className={formStyles.formSection}>
                         <p>Card number</p>
-                    </span>
-                    <span className={formStyles.twoInSameRowNoMargin}>
-                        <input className={formStyles.mediumInputField} placeholder="Name on card" value={name} onChange={(e) => setName(e.target.value)}/>
                         <CardNumberElement className={styles.cardComponent}/>
-                    </span>
                 </div>
-                <div className={formStyles.twoInSameRowDiv}>
-                    <span className={formStyles.twoInSameRowNoMargin}>
-                        <p>Expiration date</p>
-                        <p>CVC/CV</p>
-                    </span>
-                    <span className={formStyles.twoInSameRowNoMargin}>
+                <div className={formStyles.formSection}>
+                        <p>Expiration Date</p>
                         <CardExpiryElement className={styles.cardComponent}/>
-                        <CardCvcElement className={styles.cardComponent}/>
-                    </span>
                 </div>
-                <div className={formStyles.buttonsContainer}>
+                <div className={formStyles.formSection}>
+                        <p>CVC/CV</p>
+                        <CardCvcElement className={styles.cardComponent}/>
+                </div>
+                <div>
                     <button disabled={buttonDisabled} className={formStyles.doneButton} onClick={() => onDoneClick()}>DONE</button>
                 </div>
         </div>
