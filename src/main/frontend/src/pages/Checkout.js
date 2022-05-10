@@ -3,10 +3,16 @@ import PaymentSection from "../components/checkoutPage/PaymentSection";
 import styles from "./Checkout.module.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { addOrder } from "../utils/OrderService";
+import AuthService from "../utils/AuthService";
 
 function Checkout() {
 
+    const user = AuthService.getCurrentUser();
+
     const cartItems = useSelector((state) => state.cart.items);
+    const selectedAddress = useSelector((state) => state.cart.addressId);
+    const selectedPaymentMethod = useSelector((state) => state.cart.paymentMethod);
 
     const itemTotals = cartItems.map((item) => {
         return {
@@ -16,6 +22,11 @@ function Checkout() {
     });
     const total = itemTotals.reduce((previous, item) => previous + item.total, 0);
 
+    const handlePlaceOrder = async () => {
+        const response = await addOrder(user.token, user.id, selectedAddress, total, selectedPaymentMethod);
+        console.log(response);
+    }
+
     return (
         <div className={styles.checkoutContainer}>
             <AddressSection />
@@ -24,7 +35,7 @@ function Checkout() {
                 <div className={styles.total}>
                     <span>Total: </span>${total}
                 </div>
-                <Link to={"/payment"}> PLACE ORDER </Link>
+                <Link to={"/payment"} onClick={() => handlePlaceOrder()}> PLACE ORDER </Link>
             </div>
         </div>
     );

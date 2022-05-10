@@ -6,10 +6,12 @@ import org.springframework.lang.NonNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 import java.io.Serializable;
 
 @Entity
 @Data
+@IdClass(OrderDetailPK.class)
 public class OrderDetail implements Serializable {
 
     @Id
@@ -28,4 +30,7 @@ public class OrderDetail implements Serializable {
     @Column
     private int quantity;
 
+    public OrderDetail() {
+
+    }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Table(schema = "public")
 public class Order {
 
     @Id
@@ -39,12 +40,16 @@ public class Order {
     @Column(name = "payment_method")
     private String paymentMethod;
 
-    @OneToMany(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name = "item_id"
-    )
-    private List<Item> orderItems;
+    public Order() {
 
+    }
+
+    public Order(int buyerId, int buyerAddressId, double totalAmount, @NonNull LocalDate date, @NonNull String status, @NonNull String paymentMethod) {
+        this.buyerId = buyerId;
+        this.buyerAddressId = buyerAddressId;
+        this.totalAmount = totalAmount;
+        this.date = date;
+        this.status = status;
+        this.paymentMethod = paymentMethod;
+    }
 }
