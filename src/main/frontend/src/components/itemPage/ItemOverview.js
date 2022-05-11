@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { calculateTimeInterval } from '../../utils/TimeInterval';
 import { QuantityPicker } from 'react-qty-picker';
 import { fetchAddressById } from '../../utils/AddressService';
+import ItemOrders from './ItemOrders';
 
 function ItemOverview({...item}) {
 
@@ -87,7 +88,7 @@ function ItemOverview({...item}) {
                 </Col>
             </Row>
             </Container>
-            {loggedIn && (sellerId === (user && user.id)) && <div>List of orders placed for this item</div>}
+            {loggedIn && (sellerId === (user && user.id)) && <ItemOrders itemId={id} />}
             {(sellerId !== (user && user.id)) && <RecommendedProducts categoryId={categoryId} name={name} />}
         </PageLayout>
     );

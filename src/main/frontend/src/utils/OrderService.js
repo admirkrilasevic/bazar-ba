@@ -45,4 +45,15 @@ export const addOrderDetail = async (token, orderId, itemId, price, quantity) =>
     return error.response;
   });
 }
+
+export const fetchOrderDetailsByItemId = async (token, itemId) => {
+  return axios.get(`${API_URL}/api/v1/orders/getOrderDetailsByItemId/${itemId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  })
+  .then((res) => {
+    return res.data;
+  })
+};
   

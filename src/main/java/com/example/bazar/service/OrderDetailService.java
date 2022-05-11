@@ -33,4 +33,8 @@ public class OrderDetailService {
         OrderDetail savedOrderDetail = orderDetailRepository.save(orderDetail);
         return ResponseEntity.ok().body("Order: " + savedOrderDetail.getOrderId() + " Item: " + savedOrderDetail.getItemId());
     }
+
+    public List<OrderDetail> getOrderDetailsByItemId(long itemId) {
+        return orderDetailRepository.findByItemId(itemId);
+    }
 }

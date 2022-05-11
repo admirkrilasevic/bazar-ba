@@ -1,6 +1,7 @@
 package com.example.bazar.api;
 
 import com.example.bazar.model.Order;
+import com.example.bazar.model.OrderDetail;
 import com.example.bazar.payload.AddOrderDetailRequest;
 import com.example.bazar.payload.AddOrderRequest;
 import com.example.bazar.service.OrderDetailService;
@@ -36,5 +37,10 @@ public class OrderController {
     @PostMapping("/addOrderDetail")
     public ResponseEntity<?> addOrderDetail(HttpServletRequest httpServletRequest, @RequestBody AddOrderDetailRequest addOrderDetailRequest) {
         return orderDetailService.addOrderDetail(httpServletRequest, addOrderDetailRequest);
+    }
+
+    @GetMapping("/getOrderDetailsByItemId/{id}")
+    public List<OrderDetail> getOrderDetailsByItemId(@PathVariable long id) {
+        return orderDetailService.getOrderDetailsByItemId(id);
     }
 }

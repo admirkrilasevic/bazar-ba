@@ -1,0 +1,30 @@
+.orderDetailsTitle {
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 1px solid #D8D8D8;
+    margin-bottom: 20px;
+}
+
+.orderDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-bottom: 100px;
+    margin-top: 32px;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.tableHeader {
+    font-weight: bold;
+    background-color: #D8D8D8;
+    padding: 10px 0px;
+}
+
+.tableContent {
+    padding: 10px;
+}
+
+.tableCol {
+    padding: 0px;
+}
