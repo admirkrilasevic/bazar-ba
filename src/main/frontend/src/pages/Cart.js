@@ -66,7 +66,7 @@ function Cart() {
             <Row className={styles.subtotalContainer}>
                 <span>
                     <span className={styles.subtotalTitle}>Subtotal: </span>
-                    ${itemTotals.reduce((previous, item) => previous + item.total, 0)}
+                    {itemTotals.reduce((previous, item) => previous + item.total, 0)} KM
                 </span>
                 { itemTotals.length > 0 && <Link className={styles.checkoutButton} to={loggedIn ? '/checkout' : '/login'}>PROCEED TO CHECKOUT</Link> }
             </Row>

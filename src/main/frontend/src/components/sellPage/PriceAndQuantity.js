@@ -21,7 +21,7 @@ const PriceAndQuantity = ({setCurrentSection,
             <div className={formStyles.formSection}>
                 <p>Item price</p>
                 <div className={formStyles.inputWithIcon}>
-                    <span>$</span>
+                    <span>KM</span>
                     <input value={price} placeholder="eg. 10.5, 5, 20.23" onChange={(e) => setPrice(e.target.value)}></input>
                 </div>
             </div>

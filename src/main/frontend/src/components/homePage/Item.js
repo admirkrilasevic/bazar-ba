@@ -11,7 +11,7 @@ function Item({ id, photo, name, price }) {
             <h3 className={styles.title}>{name}</h3>
         </Link> 
         <div className={styles.price} >
-          ${price}
+          {price} KM
         </div>
         <Link to={`/items/${id}`} className={styles.viewButton}>
             View

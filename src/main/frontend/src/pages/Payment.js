@@ -108,7 +108,7 @@ function Payment() {
                         <CardCvcElement className={styles.cardComponent}/>
                 </div>
                 <div>
-                    <button disabled={buttonDisabled} className={formStyles.doneButton} onClick={() => onDoneClick()}>PAY</button>
+                    <button disabled={buttonDisabled} className={formStyles.doneButton} onClick={() => onDoneClick()}>PAY {total} KM</button>
                 </div>
             </div> :
             <div>
@@ -117,7 +117,7 @@ function Payment() {
                         <p>PAYMENT</p>
                     </div>
                     <div className={formStyles.formSection}>
-                        <p>You have successfully placed your order and you will pay the courier upon delivery!</p>
+                        <p>You have successfully placed your order and you will pay the courier {total} KM upon delivery!</p>
                     </div>
                     <div>
                         <button className={formStyles.doneButton} onClick={() => onUnderstandClick()}>I UNDERSTAND</button>

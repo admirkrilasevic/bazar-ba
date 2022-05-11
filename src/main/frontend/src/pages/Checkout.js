@@ -36,7 +36,7 @@ function Checkout() {
             <PaymentSection />
             <div className={styles.totalContainer}>
                 <div className={styles.total}>
-                    <span>Total: </span>${total}
+                    <span>Total: </span>{total} KM
                 </div>
                 <Link to={"/payment"} onClick={() => handlePlaceOrder()}> PLACE ORDER </Link>
             </div>
