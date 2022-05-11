@@ -67,3 +67,10 @@ export const fetchAllCategories = async () => {
     return res.data;
   })
 };
+
+export const getSearchSuggestions = async (searchText) => {
+  return axios.get(`${API_URL}/api/v1/items/suggestions/${searchText}`)
+  .then((res) => {
+    return res.data;
+  })
+};

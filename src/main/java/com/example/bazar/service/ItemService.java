@@ -15,13 +15,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.jline.utils.Levenshtein;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ItemService {
@@ -41,6 +40,9 @@ public class ItemService {
     @Autowired
     AddressRepository addressRepository;
 
+    public List<Item> getAllItems() {
+        return itemRepository.findAll();
+    }
 
     public Page<Item> getItems(int page, int size, ItemSort sort, Sort.Direction direction) {
         PageRequest pageable = PageRequest.of(page, size, Sort.by(direction, sort.toString()));
@@ -112,5 +114,21 @@ public class ItemService {
         } else {
             return itemRepository.getFilteredItemsWithSearch(search.toLowerCase(), categoryIds, subcategoryIds, minPrice, maxPrice, pageable);
         }
+    }
+
+    public Set<String> getSearchSuggestions(String searchText) {
+        List<Item> allItems = getAllItems();
+        Set<String> suggestions = allItems.stream()
+                .map(item -> item.getName())
+                .filter(names -> Arrays.stream(names.split(" "))
+                        .anyMatch(name -> isSimilarName(name, searchText)))
+                .limit(3)
+                .collect(Collectors.toSet());
+        return suggestions;
+    }
+
+    private boolean isSimilarName(String name, String searchString) {
+        int distance = Levenshtein.distance(name.toLowerCase(), searchString.toLowerCase());
+        return distance > 0 && distance < 2;
     }
 }

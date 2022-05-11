@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Set;
 
 @CrossOrigin
 @RequestMapping("api/v1/items")
@@ -54,5 +55,10 @@ public class ItemController {
             @RequestParam("maxPrice") double maxPrice){
         return itemService.getFilteredItems(search, page, size, sort, direction, categoryIds, subcategoryIds, minPrice, maxPrice);
     }
+    @GetMapping("/suggestions/{searchText}")
+    public Set<String> getSearchSuggestions(@PathVariable("searchText") String searchText){
+        return itemService.getSearchSuggestions(searchText);
+    }
+
 
 }

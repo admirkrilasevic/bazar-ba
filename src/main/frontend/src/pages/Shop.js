@@ -1,17 +1,17 @@
 import CategoriesMenu from "../components/shopPage/CategoriesMenu";
 import styles from "./Shop.module.css";
 import ShopPageItems from "../components/shopPage/ShopPageItems";
-import { useHistory, useLocation } from "react-router";
-import { useParams } from "react-router-dom";    
+import { useHistory } from "react-router";
+import { useParams, useLocation } from "react-router-dom";    
 import { useState, useEffect } from "react";
 import PriceMenu from "../components/shopPage/PriceMenu";
 import { PRICE_RANGE } from "../constants";
 import PageLayout from "../components/PageLayout";
-import { fetchAllCategories } from "../utils/ItemService";
+import { fetchAllCategories, getSearchSuggestions } from "../utils/ItemService";
 
 function Shop(){
 
-    // const search = new URLSearchParams(useLocation().search).get("searchText");
+    const search = new URLSearchParams(useLocation().search).get("searchText");
     const [suggestions, setSuggestions] = useState([]);
     const { categoryId } = useParams();
     const [items, setItems] = useState([]);
@@ -26,8 +26,8 @@ function Shop(){
 
     useEffect(async () => {
         setCategoriesList(await fetchAllCategories());
-        // const searchSuggestions = await getSearchSuggestions(search);
-        // setSuggestions(searchSuggestions);
+        const searchSuggestions = await getSearchSuggestions(search);
+        setSuggestions(searchSuggestions);
     }, []);
 
     const isSelected = (selectedCategory) => {
