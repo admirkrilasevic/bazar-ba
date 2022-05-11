@@ -3,7 +3,7 @@ import PaymentSection from "../components/checkoutPage/PaymentSection";
 import styles from "./Checkout.module.css";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { addOrder } from "../utils/OrderService";
+import { addOrder, addOrderDetail } from "../utils/OrderService";
 import AuthService from "../utils/AuthService";
 import { setOrderId } from "../utils/CartSlice";
 
@@ -28,6 +28,10 @@ function Checkout() {
     const handlePlaceOrder = async () => {
         const response = await addOrder(user.token, user.id, selectedAddress, total, selectedPaymentMethod);
         dispatch(setOrderId(response));
+        cartItems.forEach(async (item) => {
+            const detailResponse = await addOrderDetail(user.token, response, item.id, item.price, item.selectedQuantity);
+            console.log(detailResponse);
+        });
     }
 
     return (

@@ -1,7 +1,9 @@
 package com.example.bazar.api;
 
 import com.example.bazar.model.Order;
+import com.example.bazar.payload.AddOrderDetailRequest;
 import com.example.bazar.payload.AddOrderRequest;
+import com.example.bazar.service.OrderDetailService;
 import com.example.bazar.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +20,9 @@ public class OrderController {
     @Autowired
     OrderService orderService;
 
+    @Autowired
+    OrderDetailService orderDetailService;
+
     @GetMapping("/getAllOrders")
     public List<Order> getAddressById() {
         return orderService.getAllOrders();
@@ -26,5 +31,10 @@ public class OrderController {
     @PostMapping("/addOrder")
     public ResponseEntity<?> addOrder(HttpServletRequest httpServletRequest, @RequestBody AddOrderRequest addOrderRequest) {
         return orderService.addOrder(httpServletRequest, addOrderRequest);
+    }
+
+    @PostMapping("/addOrderDetail")
+    public ResponseEntity<?> addOrderDetail(HttpServletRequest httpServletRequest, @RequestBody AddOrderDetailRequest addOrderDetailRequest) {
+        return orderDetailService.addOrderDetail(httpServletRequest, addOrderDetailRequest);
     }
 }
