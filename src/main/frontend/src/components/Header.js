@@ -25,7 +25,7 @@ function Header() {
         width >= 768 ?
         <div className={styles.header}>
             <NavLink to={"/home"} className={styles.headerLinks} activeStyle={{color: '#852400'}}>Home</NavLink>
-            <NavLink to={"/shop"} className={styles.headerLinks} activeStyle={{color: '#852400'}}>Shop</NavLink>
+            <NavLink to={"/shop/0"} className={styles.headerLinks} activeStyle={{color: '#852400'}}>Shop</NavLink>
             <SearchBar id={'searchBar'} />
             <NavLink to={"/cart"} className={styles.icons} activeStyle={{color: '#852400'}}>
                 <Cart />

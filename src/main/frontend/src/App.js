@@ -58,10 +58,8 @@ function App() {
                 <Route path="/register">
                   <Register />
                 </Route>
-                <Route path="/shop">
-                  <PageLayout>
-                    <Shop />
-                  </PageLayout>
+                <Route path="/shop/:categoryId">
+                  <Shop />
                 </Route>
                 <Route path="/cart">
                   <PageLayout title="My Cart">

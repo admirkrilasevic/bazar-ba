@@ -41,4 +41,18 @@ public class ItemController {
         return itemService.addItem(httpServletRequest, addItemRequest);
     }
 
+    @GetMapping("/filtered")
+    public Page<Item> getFilteredItems(
+            @RequestParam("search") String search,
+            @RequestParam("page") int page,
+            @RequestParam("size") int size,
+            @RequestParam("sort") ItemSort sort,
+            @RequestParam("direction") Sort.Direction direction,
+            @RequestParam("categoryIds") Long[] categoryIds,
+            @RequestParam("subcategoryIds") long[] subcategoryIds,
+            @RequestParam("minPrice") double minPrice,
+            @RequestParam("maxPrice") double maxPrice){
+        return itemService.getFilteredItems(search, page, size, sort, direction, categoryIds, subcategoryIds, minPrice, maxPrice);
+    }
+
 }

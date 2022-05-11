@@ -279,3 +279,21 @@ export const countryCodes = [
 export const STRIPE = {
     PUBLIC_KEY: "pk_test_51KJwtoIUCUcIjRQux8a2az6fPG0dTXtzedTm0FMMwKiykTAjluVccryP63GxK8bTc5mAQZR7snrrEwAGnoHbHUT300i4FjQdrW"
 }
+
+export const SHOP_PAGE_ITEMS = {
+    PAGE_SIZE: 6
+}
+
+export const PRICE_RANGE = {
+    MIN: 0,
+    MAX: 200
+}
+
+export const PAGE_VALUES = {
+    INITIAL: 0
+}
+
+export const VIEWS = {
+    GRID: "Grid",
+    LIST: "List"
+}

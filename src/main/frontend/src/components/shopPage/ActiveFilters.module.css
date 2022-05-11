@@ -1,0 +1,66 @@
+.allFiltersContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 24px;
+}
+
+.filterTitle {
+    color: #9B9B9B;
+    font-size: 14px;
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.filter {
+    background-color: #FFF;
+    border: none;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+}
+
+.filter:hover {
+    background-color: #FFF;
+    border: none;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+    color: #852400;
+}
+
+.removeIcon {
+    margin-left: 12px;
+    color: #9B9B9B;
+    margin-right: 20px;
+}
+
+.filter:hover .removeIcon {
+    margin-left: 12px;
+    color: #852400;
+    margin-right: 20px;
+}
+
+.clearAllButton {
+    margin-right: 0px;
+    margin-left: auto;
+    background-color: #FFF;
+    border: 1px solid #852400;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+    color: #000;
+    padding: 8px 16px;
+}
+
+.clearAllButton:hover {
+    margin-right: 0px;
+    margin-left: auto;
+    background-color: #FFF;
+    border: 1px solid #DBAC24;
+    padding: 0;
+    font-size: 16px;
+    text-align: left;
+    color: #000;
+    font-weight: bold;
+    padding: 8px 16px;
+}

@@ -1,0 +1,6 @@
+.shopPageElementsContainer {
+    margin-top: 32px;
+    display: flex;
+    align-items: flex-start;
+    padding: 0px 30px;
+}

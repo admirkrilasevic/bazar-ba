@@ -1,0 +1,72 @@
+.exploreMoreButton {
+    width: 256px;
+    height: 59px;
+    background-color: #852400;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    margin: 100px 0px;
+}
+
+.exploreMoreButton:hover {
+    width: 256px;
+    height: 59px;
+    background-color: #DBAC24;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    margin: 100px 0px;
+}
+
+.sortAndViewContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 32px;
+}
+
+.sortDropdown {
+    padding: 10px;
+    padding-right: 0px;
+    font-size: 16px;
+    border: 1px solid #852400;
+    cursor: pointer;
+}
+
+.sortDropdown:hover {
+    padding: 10px;
+    padding-right: 0px;
+    font-size: 16px;
+    border: 1px solid #DBAC24;
+    cursor: pointer;
+}
+
+.gridListSwitch {
+    margin-right: 0px;
+    margin-left: auto;
+    margin-top: 10px;
+}
+
+.gridListButton{
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #FFF;
+}
+
+.gridListButton:hover{
+    color: #DBAC24;
+}
+
+.gridListButtonActive{
+    border: none;
+    text-decoration: none;
+    font-size: 16px;
+    background-color: #FFF;
+    color: #852400;
+}
+
+.reactIcons {
+    margin-bottom: 3px;
+}

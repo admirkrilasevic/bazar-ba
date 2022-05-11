@@ -1,0 +1,60 @@
+.priceMenuContainer {
+    border: 1px solid #852400;
+    width: 262px;
+    margin-top: 32px;
+    padding: 24px;
+}
+
+.menuTitle {
+    font-size: 16px;
+    font-weight: bold;
+    color: #DBAC24;
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+.priceInputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.minPriceInput {
+    border: 2px solid #9B9B9B;
+    max-width: 80px;
+    height: 40px;
+    text-align: center;
+}
+
+.minPriceInput:hover {
+    border: 2px solid #DBAC24;
+    max-width: 80px;
+    height: 40px;
+    text-align: center;
+}
+
+.maxPriceInput {
+    border: 2px solid #9B9B9B;
+    max-width: 80px;
+    height: 40px;
+    text-align: center;
+}
+
+.maxPriceInput:hover {
+    border: 2px solid #DBAC24;
+    max-width: 80px;
+    height: 40px;
+    text-align: center;
+}
+
+.priceRange {
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.priceAverage {
+    text-align: left;
+    font-size: 16px;
+    color: #9B9B9B;
+}
