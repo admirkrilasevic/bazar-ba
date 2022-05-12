@@ -19,3 +19,9 @@
 .collapsibleCategoriesContainer {
     background-color: #FFF;
 }
+
+@media screen and (max-width: 768px) {
+    .menusContainer {
+        margin-right: 0px;
+    }
+}
