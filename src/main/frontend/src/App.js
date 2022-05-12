@@ -62,7 +62,7 @@ function App() {
                   <Shop />
                 </Route>
                 <Route path="/cart">
-                  <PageLayout title="My Cart">
+                  <PageLayout>
                     <Cart />
                   </PageLayout>
                 </Route>
