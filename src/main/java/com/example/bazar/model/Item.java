@@ -2,6 +2,7 @@ package com.example.bazar.model;
 
 import com.sun.istack.NotNull;
 import lombok.Data;
+import org.hibernate.annotations.Formula;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -52,6 +53,9 @@ public class Item {
     @NotNull
     @Column(name = "address_id")
     private Long addressId;
+
+    @Formula(value = "(select u.name from public.user u where u.id = seller_id)")
+    private String sellerName;
 
     public Item(Long id, String name, String description, Double price, Long categoryId, Long subcategoryId, String photos, int quantity, Long sellerId, LocalDate dateAdded, Long addressId) {
         this.id = id;

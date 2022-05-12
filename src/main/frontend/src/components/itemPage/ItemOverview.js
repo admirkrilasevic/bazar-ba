@@ -15,7 +15,7 @@ import ItemOrders from './ItemOrders';
 
 function ItemOverview({...item}) {
 
-    const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, addressId } = item;
+    const { id, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, addressId, sellerName } = item;
     const [selectedQuantity, setSelectedQuantity] = useState(1);
     const [tempQuantity, setTempQuantity] = useState(quantity && quantity); // used to temporarily store quantity when user is adding item to cart
     const [address, setAddress] = useState();
@@ -74,8 +74,11 @@ function ItemOverview({...item}) {
                 </Col>
                 <Col className={styles.itemInfoContainer}>
                     <h3 className={styles.name}>{name}</h3>
-                    <span className={styles.date}>Added {calculateTimeInterval(dateAdded)} ago</span>
-                    <p className={styles.location}>Located in {address && address.city}</p>
+                    <span className={styles.info}>Added {calculateTimeInterval(dateAdded)} ago</span>
+                    <br/>
+                    <span className={styles.info}>Located in {address && address.city}</span>
+                    <br/>
+                    <p className={styles.info}>Sold by {sellerName}</p>
                     <p className={styles.description}>{description}</p>
                     <div className={styles.quantityContainer}>
                         <p className={styles.price}>{price} KM</p>
@@ -92,6 +95,6 @@ function ItemOverview({...item}) {
             {(sellerId !== (user && user.id)) && <RecommendedProducts categoryId={categoryId} name={name} />}
         </PageLayout>
     );
-  }
+}
   
-  export default ItemOverview;
+export default ItemOverview;
