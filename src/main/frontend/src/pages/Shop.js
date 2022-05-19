@@ -1,7 +1,6 @@
 import CategoriesMenu from "../components/shopPage/CategoriesMenu";
 import styles from "./Shop.module.css";
 import ShopPageItems from "../components/shopPage/ShopPageItems";
-import { useHistory } from "react-router";
 import { useParams, useLocation } from "react-router-dom";    
 import { useState, useEffect } from "react";
 import PriceMenu from "../components/shopPage/PriceMenu";
@@ -22,7 +21,6 @@ function Shop(){
         min: PRICE_RANGE.MIN,
         max: PRICE_RANGE.MAX
     });
-    const history = useHistory();
 
     useEffect(async () => {
         setCategoriesList(await fetchAllCategories());
@@ -35,13 +33,15 @@ function Shop(){
 	}
 
     const isChecked = (subcategoryId) => {
-        console.log(selectedSubcategories)
 		return selectedSubcategories.some((subcategory) => subcategory.id === subcategoryId);
 	}
 
     const onCategoryClick = (clickedCategory) => {
-        if (!selectedCategories.find((category) => category == clickedCategory))
-            setSelectedCategories([...selectedCategories, clickedCategory]);
+        if (!selectedCategories.find((category) => category == clickedCategory)) {
+            if (!selectedSubcategories.find((subcategory) => subcategory.parentCategoryId == clickedCategory)){
+                setSelectedCategories([...selectedCategories, clickedCategory]);
+            }
+        }
 	}
 
     const onSubcategoryClick = (clickedSubcategory) => {
@@ -59,8 +59,8 @@ function Shop(){
     const onRemoveCategoryClick = (clickedCategory) => {
         const updatedCategories = selectedCategories.filter((category) => category != clickedCategory);
         setSelectedCategories(updatedCategories);
-        if (updatedCategories.length == 0)
-            history.push("/shop/0");
+/*         if (updatedCategories.length == 0)
+            window.location.replace("/shop/0"); */
     }
 
     const onRemoveSubcategoryClick = (clickedSubcategory) => {
@@ -81,7 +81,7 @@ function Shop(){
             min: PRICE_RANGE.MIN,
             max: PRICE_RANGE.MAX
         });
-        history.push("/shop/0");
+        //window.location.replace("/shop/0");
     }
 
     return (
