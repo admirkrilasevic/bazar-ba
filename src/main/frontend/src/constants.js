@@ -286,7 +286,7 @@ export const SHOP_PAGE_ITEMS = {
 
 export const PRICE_RANGE = {
     MIN: 0,
-    MAX: 200
+    MAX: 2000
 }
 
 export const PAGE_VALUES = {
