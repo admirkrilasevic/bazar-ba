@@ -83,6 +83,15 @@
     color: #FFF;
 }
 
+.outOfStock {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Texturina;
+    color: #852400;
+}
+
 @media only screen and (max-width: 850px) {
     .coverImage {
         max-width: 400px;

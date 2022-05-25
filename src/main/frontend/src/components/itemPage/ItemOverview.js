@@ -80,14 +80,16 @@ function ItemOverview({...item}) {
                     <br/>
                     <p className={styles.info}>Sold by {sellerName}</p>
                     <p className={styles.description}>{description}</p>
-                    <div className={styles.quantityContainer}>
-                        <p className={styles.price}>{price} KM</p>
-                        <QuantityPicker min={0} max={tempQuantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
-                    </div>
-                    <p className={styles.quantity}>{tempQuantity} remaining</p>
-                    <div className={styles.addToCart}>
-                        <button onClick={() => handleAddToCart(selectedQuantity)}>ADD TO CART</button>
-                    </div>
+                    {quantity > 0 ? <div>
+                        <div className={styles.quantityContainer}>
+                            <p className={styles.price}>{price} KM</p>
+                            <QuantityPicker min={0} max={tempQuantity} value={selectedQuantity} onChange={(value) => setSelectedQuantity(value)} />
+                        </div>
+                        <p className={styles.quantity}>{tempQuantity} remaining</p>
+                        <div className={styles.addToCart}>
+                            <button onClick={() => handleAddToCart(selectedQuantity)}>ADD TO CART</button>
+                        </div>
+                    </div> : <p className={styles.outOfStock}>Out of Stock</p>}
                 </Col>
             </Row>
             </Container>
