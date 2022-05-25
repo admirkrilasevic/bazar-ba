@@ -6,10 +6,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { addOrder, addOrderDetail } from "../utils/OrderService";
 import AuthService from "../utils/AuthService";
 import { setOrderId } from "../utils/CartSlice";
+import { useEffect } from "react";
 
 function Checkout() {
 
     const user = AuthService.getCurrentUser();
+
+    useEffect(() => {
+        if (!user) {
+            window.location.replace("/login");
+        }
+    }, [user]);
 
     const cartItems = useSelector((state) => state.cart.items);
     const selectedAddress = useSelector((state) => state.cart.addressId);

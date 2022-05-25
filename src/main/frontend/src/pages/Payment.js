@@ -23,6 +23,12 @@ function Payment() {
 
     const user = AuthService.getCurrentUser();
 
+    useEffect(() => {
+        if (!user) {
+            window.location.replace("/login");
+        }
+    }, [user]);
+
     const [street, setStreet] = useState(user ? user.address.street : null);
     const [city, setCity] = useState(user ? user.address.city : null);
     const [zipCode, setZipCode] = useState(user ? user.address.zipCode : null);

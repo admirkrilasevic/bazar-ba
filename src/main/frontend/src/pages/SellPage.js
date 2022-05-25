@@ -14,6 +14,13 @@ function SellPage(){
     const [currentSection, setCurrentSection] = useState(SELL_PAGE_SECTIONS.ITEM);
 
     const user = AuthService.getCurrentUser();
+
+    useEffect(() => {
+        if (!user) {
+            window.location.replace("/login");
+        }
+    }, [user]);
+    
     const [name, setName] = useState();
     const [category, setCategory] = useState();
     const [subcategory, setSubcategory] = useState();
