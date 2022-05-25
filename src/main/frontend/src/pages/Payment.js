@@ -1,7 +1,7 @@
 import styles from "./Payment.module.css";
 import formStyles from "../components/Forms.module.css"
 import AuthService from "../utils/AuthService";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { validateLocation } from "../utils/AddItemValidations";
 import { processPayment } from "../utils/PaymentService";
 import { CardCvcElement, CardExpiryElement, CardNumberElement, useElements, useStripe } from '@stripe/react-stripe-js';

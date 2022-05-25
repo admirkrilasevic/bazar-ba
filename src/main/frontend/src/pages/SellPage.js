@@ -1,5 +1,5 @@
 import styles from "./SellPage.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ItemInfo from "../components/sellPage/ItemInfo";
 import { SELL_PAGE_SECTIONS } from "../constants";
 import { FaCircle } from "react-icons/fa";
@@ -20,7 +20,7 @@ function SellPage(){
             window.location.replace("/login");
         }
     }, [user]);
-    
+
     const [name, setName] = useState();
     const [category, setCategory] = useState();
     const [subcategory, setSubcategory] = useState();

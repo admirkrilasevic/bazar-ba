@@ -1,9 +1,10 @@
 .orderDetailsTitle {
     font-size: 24px;
     font-weight: bold;
-    border-bottom: 1px solid #D8D8D8;
+    border-bottom: 1px solid #852400;
     margin-bottom: 20px;
     font-family: Texturina;
+    padding-bottom: 5px;
 }
 
 .orderDetailsContainer {
@@ -18,8 +19,9 @@
 
 .tableHeader {
     font-weight: bold;
-    background-color: #D8D8D8;
+    background-color: #FCFCFC;
     padding: 10px 0px;
+    border-bottom: 1px solid #DBAC24;
 }
 
 .tableContent {
