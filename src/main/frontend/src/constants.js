@@ -24,6 +24,13 @@ export const CLOUDINARY = {
     PRESET: "o1u6dtrg"
 }
 
+export const ACCOUNT_SECTIONS = {
+    PROFILE: "Profile",
+    SELLER: "Seller",
+    ORDERS: "Orders",
+    SETTINGS: "Settings"
+}
+
 export const countryCodes = [
     { "code": "AD", "name": "Andorra" },
     { "code": "AE", "name": "United Arab Emirates" },

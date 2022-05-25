@@ -31,18 +31,18 @@ function Header() {
                 <Cart />
                 {(noOfCartItems != 0) && <span>{noOfCartItems}</span>}
             </NavLink>
-            <NavLink to={loggedIn ? "/account" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? <Account /> : <SignIn />}</NavLink>
+            <NavLink to={loggedIn ? "/account/profile" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? <Account /> : <SignIn />}</NavLink>
         </div> :
         <div className={styles.headerMobile}>
             <Container>
             <Row className={styles.headerMobileTopSection}>
                 <Col><NavLink to={"/home"} className={styles.headerLinks} activeStyle={{color: '#852400'}}>Home</NavLink></Col>
-                <Col><NavLink to={"/shop"} className={styles.headerLinks} activeStyle={{color: '#852400'}}>Shop</NavLink></Col>
+                <Col><NavLink to={"/shop/0"} className={styles.headerLinks} activeStyle={{color: '#852400'}}>Shop</NavLink></Col>
                 <Col><NavLink to={"/cart"} className={styles.icons} activeStyle={{color: '#852400'}}>
                     <Cart />
                     {(noOfCartItems != 0) && <span>{noOfCartItems}</span>}
                 </NavLink></Col>
-                <Col><NavLink to={loggedIn ? "/account" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? <Account /> : <SignIn />}</NavLink></Col>
+                <Col><NavLink to={loggedIn ? "/account/profile" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? <Account /> : <SignIn />}</NavLink></Col>
             </Row>
             <Row className={styles.mobileSearchBar}>
                 <SearchBar id={'searchBar'} />

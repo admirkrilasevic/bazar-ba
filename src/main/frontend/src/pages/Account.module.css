@@ -1,0 +1,54 @@
+.accountContainer {
+    margin-top: 40px;
+}
+
+.sectionButtons {
+    display: flex;
+    align-items: flex-start;
+}
+
+.sectionButton {
+    text-decoration: none;
+    border: none;
+    font-size: 18px;
+    padding: 10px 40px;
+    background-color: inherit;
+    color: #000;
+    border: 1px solid #852400;
+}
+
+.sectionButtonActive {
+    text-decoration: none;
+    border: none;
+    font-size: 18px;
+    padding: 10px 40px;
+    background-color: #852400;
+    color: #FFF;
+    border: 1px solid #852400;
+}
+
+.sectionButton:hover {
+    background-color: #852400;
+    color: #FFF;
+}
+
+.sectionButtonActive:hover {
+    color: #FFF;
+}
+
+.logOutButton {
+    background-color: #DBAC24;
+    margin-left: auto;
+    margin-right: 0px;
+    padding: 10px 40px;
+    text-decoration: none;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.logOutButton:hover {
+    color: #FFF;
+    background-color: #852400;
+}
