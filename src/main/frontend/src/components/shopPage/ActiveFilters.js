@@ -35,7 +35,7 @@ function ActiveFilters({selectedCategories, selectedSubcategories, priceRange, c
                         <div className={styles.filterContainer}>
                             <p className={styles.filterTitle}>Price range</p>
                             <button className={styles.filter} onClick={() => onRemovePriceFilterClick()}>
-                                ${priceRange.min}-${priceRange.max} <span className={styles.removeIcon}>x</span> 
+                                {priceRange.min} KM - {priceRange.max} KM <span className={styles.removeIcon}>x</span> 
                             </button>
                         </div>
                     }

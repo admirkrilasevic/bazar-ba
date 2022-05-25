@@ -21,7 +21,7 @@ function CartPageItem({ id, photo, name, price, selectedQuantity }) {
         </Link> 
       </Col>
       <Col className={styles.price}>
-        ${price}
+        {price} KM
       </Col>
       <Col>
         <span className={styles.quantity}>{selectedQuantity}</span>

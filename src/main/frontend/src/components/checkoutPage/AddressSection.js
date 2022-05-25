@@ -4,6 +4,7 @@ import styles from "./AddressSection.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddress } from "../../utils/CartSlice";
+import { countryCodes } from "../../constants";
 
 function AddressSection() {
 
@@ -18,6 +19,12 @@ function AddressSection() {
 
     const dispatch = useDispatch();
     const selectedAddress = useSelector((state) => state.cart.addressId);
+
+    const getCountryNameFromCode = (country) => {
+        //get country name from country code
+        const countryName = countryCodes.find((countryCode) => countryCode.code === country);
+        return countryName.name;
+    }
     
     return (
         <div className={styles.addressSection}>
@@ -37,7 +44,7 @@ function AddressSection() {
                             <p>{street}</p>
                             <p>{city}</p>
                             <p>{zipCode}</p>
-                            <p>{country}</p>
+                            <p>{getCountryNameFromCode(country)}</p>
                             <p>{state}</p>
                         </Col>
                     </Row>    

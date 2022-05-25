@@ -37,7 +37,7 @@ const LocationAndShipping = ({setCurrentSection,
                 <p>Country</p>
                 <select className={formStyles.countrySelect} value={country} onChange={(e) => setCountry(e.target.value)}>
                     <option disabled selected hidden>Country</option>
-                    {countryCodes.map((country) => <option value={country.name}>{country.name}</option>)}
+                    {countryCodes.map((country) => <option value={country.code}>{country.name}</option>)}
                 </select>
             </div>
             <div className={formStyles.buttonsContainer}>

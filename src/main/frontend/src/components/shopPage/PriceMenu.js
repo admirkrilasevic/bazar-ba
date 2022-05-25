@@ -84,8 +84,8 @@ function PriceMenu({ priceRange, setPriceRange }) {
                     onChange={onSliderChange}
                 />
             </ThemeProvider>
-            <p className={styles.priceRange}>${priceRange.min}-${priceRange.max}</p>
-            <p className={styles.priceAverage}>The average price is ${avgPrice.toFixed(2)}</p>
+            <p className={styles.priceRange}>{priceRange.min} KM - {priceRange.max} KM</p>
+            <p className={styles.priceAverage}>The average price is <br></br>{avgPrice.toFixed(2)} KM</p>
         </div>
     )
 }
