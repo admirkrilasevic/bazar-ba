@@ -8,16 +8,20 @@ import Profile from "../components/accountPage/Profile";
 import Seller from "../components/accountPage/Seller";
 import Settings from "../components/accountPage/Settings";
 import Orders from "../components/accountPage/Orders";
+import PageLayout from "../components/PageLayout";
 
 function Account(){
 
     const { section } = useParams();
     const [selectedSection, setSelectedSection] = useState();
+
+    const [message, setMessage] = useState();
+    const [messageStyle, setMessageStyle] = useState();
     
     const displaySelection = (selection) => {
         switch (selection) {
             case ACCOUNT_SECTIONS.PROFILE :
-                return <Profile />
+                return <Profile setMessage={setMessage} setMessageStyle={setMessageStyle}/>
             case ACCOUNT_SECTIONS.SELLER :
                 return <Seller />
             case ACCOUNT_SECTIONS.ORDERS :
@@ -39,7 +43,7 @@ function Account(){
 
     return(
         loggedIn ? 
-        <div>
+        <PageLayout message={message} messageStyle={messageStyle}>
             <div className={styles.accountContainer}>
                 <div className={styles.sectionButtons}>
                     <Link to={"/account/profile"} className={(selectedSection == ACCOUNT_SECTIONS.PROFILE) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.PROFILE}</Link>
@@ -50,7 +54,7 @@ function Account(){
                 </div>
                 {displaySelection(selectedSection)}
             </div>
-        </div> :
+        </PageLayout> :
         <div>
             <h3>You are not logged in!</h3>
         </div>

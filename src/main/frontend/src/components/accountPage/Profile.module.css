@@ -1,0 +1,196 @@
+.profileContainer {
+    margin-top: 80px;
+}
+
+.sectionContainer {
+    width: 100%;
+    border: 1px solid #852400;
+    margin-bottom: 20px;
+}
+
+.sectionTitle {
+    background-color: #FCFCFC;
+    text-align: left;
+    padding: 16px 32px;
+    font-size: 24px;
+    font-family: Texturina;
+    font-weight: bold;
+}
+
+.buttonContainer {
+    text-align: right;
+    margin-bottom: 170px;
+}
+
+.saveButton {
+    text-decoration: none;
+    border: 3px solid #852400;
+    background-color: inherit;
+    padding: 10px 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.saveButton:hover {
+    text-decoration: none;
+    border: 3px solid #DBAC24;
+    background-color: inherit;
+    padding: 10px 50px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.photoSection {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photoContainer {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    border: 1px solid #852400;
+    background-color: #FCFCFC;
+    object-fit: cover;
+}
+
+.photoContainer span {
+    top: 50%;
+    position: relative;
+    font-weight: bold;
+}
+
+.uploadContainer {
+    margin-top: 30px;
+}
+
+.photoUpload {
+    border: 3px solid #852400;
+    font-size: 18px;
+    font-weight: bold;
+    width: 350px;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.photoUpload:hover {
+    border: 3px solid #DBAC24;
+    font-size: 18px;
+    font-weight: bold;
+    width: 350px;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.infoContainer {
+    text-align: left;
+    margin-top: 24px;
+}
+
+.inputField {
+    border: 1px solid #852400;
+    background-color: #FCFCFC;
+    width: 546px;
+    height: 63px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    color: #9B9B9B;
+}
+
+.inputField:hover {
+    border: 1px solid #DBAC24;
+    background-color: #FCFCFC;
+    width: 546px;
+    height: 63px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    color: #9B9B9B;
+}
+
+.sameRowContainer {
+    width: 546px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.smallInputField {
+    border: 1px solid #852400;
+    background-color: #FCFCFC;
+    width: 166px;
+    height: 63px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    color: #9B9B9B;
+}
+
+.smallInputField:hover {
+    border: 1px solid #DBAC24;
+    background-color: #FCFCFC;
+    width: 166px;
+    height: 63px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    color: #9B9B9B;
+}
+
+.rightAlignContainer {
+    margin-top: 24px;
+    margin-left: 51%;
+    text-align: left;
+}
+
+.mediumInputField {
+    border: 1px solid #852400;
+    background-color: #FCFCFC;
+    width: 263px;
+    height: 63px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    color: #9B9B9B;
+}
+
+.mediumInputField:hover {
+    border: 1px solid #DBAC24;
+    background-color: #FCFCFC;
+    width: 263px;
+    height: 63px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+    color: #9B9B9B;
+}
+
+.cityLabelsContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 345px;
+}
+
+.headerMessageSuccess {
+    color: #417505;
+    text-align: start;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #F0F3EE;
+    height: 60px;
+    width: 100%;
+    padding: 18px 160px;
+    margin-top: 10px;
+}
+
+.headerMessageError {
+    color: #AB944E;
+    text-align: start;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #F6F2E5;
+    height: 60px;
+    width: 100%;
+    padding: 18px 160px;
+    margin-top: 10px;
+}

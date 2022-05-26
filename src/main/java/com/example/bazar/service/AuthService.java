@@ -47,6 +47,10 @@ public class AuthService {
                 user.getName(),
                 user.getEmail(),
                 user.getPhoneNumber(),
+                user.getDateOfBirth(),
+                user.getGender(),
+                user.getPhoto(),
+                user.getDeactivated(),
                 user.getAddress());
         return response;
     }
@@ -61,7 +65,12 @@ public class AuthService {
         User user = new User(registerRequest.getName(),
                 registerRequest.getEmail(),
                 encoder.encode(registerRequest.getPassword()),
-                registerRequest.getPhoneNumber());
+                registerRequest.getPhoneNumber(),
+                registerRequest.getDateOfBirth(),
+                registerRequest.getGender(),
+                null,
+                false,
+                null);
 
         userRepository.save(user);
 
