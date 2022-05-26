@@ -26,5 +26,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
             "(lower(i.name) like %:search% or lower(i.description) like %:search%)")
     Page<Item> getFilteredItemsWithSearch(@Param("search") String search, @Param("categoryIds") Long[] categoryIds, @Param("subcategoryIds") long[] subcategoryIds, @Param("minPrice") double minPrice, @Param("maxPrice") double maxPrice, Pageable pageable);
 
+    @Query("select i from Item i where i.sellerId = :sellerId")
+    List<Item> getItemsBySellerId(@Param("sellerId") Long sellerId);
 
 }

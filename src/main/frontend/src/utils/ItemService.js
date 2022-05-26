@@ -32,6 +32,13 @@ export const getRecommendedProducts = async (categoryId, name) => {
   })
 };
 
+export const fetchItemsBySellerId = async (sellerId) => {
+  return axios.get(`${API_URL}/api/v1/items/user/${sellerId}`)
+  .then((res) => {
+    return res.data;
+  })
+};
+
 export const addItem = async (token, name, description, price, categoryId, subcategoryId, photos, quantity, sellerId, dateAdded, addressId, city, zipCode, state, country ) => {
   return axios.post(`${API_URL}/api/v1/items/add`, {
     name,

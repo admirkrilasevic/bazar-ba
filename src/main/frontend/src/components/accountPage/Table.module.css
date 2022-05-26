@@ -1,0 +1,73 @@
+.table {
+    text-align: left;
+    margin-bottom: 100px;
+}
+
+.headerRow {
+    background-color: #FCFCFC;
+    font-weight: normal;
+    padding: 20px;
+    border-bottom: 1px solid #852400;
+    font-weight: bold;
+}
+
+.contentRow {
+    padding: 20px;
+}
+
+.verticalCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nameLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nameLink:hover {
+    color: #8367D8;
+}
+
+.tableImages {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.highestBidCol {
+    color: #417505;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.notHighestBidCol {
+    color: #0066CC;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.viewItemLink {
+    text-decoration: none;
+    border: 1px solid #DBAC24;
+    background-color: inherit;
+    padding: 10px 0px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+}
+
+.viewItemLink:hover {
+    text-decoration: none;
+    border: 1px solid #852400;
+    background-color: inherit;
+    padding: 10px 0px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+}

@@ -131,4 +131,8 @@ public class ItemService {
         int distance = Levenshtein.distance(name.toLowerCase(), searchString.toLowerCase());
         return distance > 0 && distance < 2;
     }
+
+    public List<Item> getItemsBySellerId(Long sellerId) {
+        return itemRepository.getItemsBySellerId(sellerId);
+    }
 }

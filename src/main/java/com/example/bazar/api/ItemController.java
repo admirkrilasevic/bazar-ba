@@ -60,5 +60,9 @@ public class ItemController {
         return itemService.getSearchSuggestions(searchText);
     }
 
+    @GetMapping("/user/{sellerId}")
+    public List<Item> getItemsBySellerId(@PathVariable("sellerId") Long sellerId){
+        return itemService.getItemsBySellerId(sellerId);
+    }
 
 }

@@ -1,0 +1,52 @@
+.ordersContainer {
+    margin-top: 80px;
+}
+
+.buttonsContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
+.noOrdersContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 738px;
+    padding-bottom: 32px;
+    border: 1px solid #852400;
+    box-sizing: border-box;
+    margin: 16px auto;
+}
+
+.title {
+    padding: 23px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    height: 75px;
+    width: 100%;
+    background-color: #FCFCFC;
+    font-family: Texturina;
+}
+
+.startShoppingButton {
+    text-decoration: none;
+    border: 3px solid #852400;
+    background-color: inherit;
+    padding: 8px 50px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 75px;
+    color: #000;
+}
+
+.startShoppingButton:hover {
+    text-decoration: none;
+    border: 3px solid #DBAC24;
+    background-color: inherit;
+    padding: 8px 50px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 75px;
+    color: #000;
+}
