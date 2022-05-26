@@ -1,0 +1,47 @@
+.settingsContainer {
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.settingsSection {
+    border: 1px solid #852400;
+    text-align: left;
+    width: 550px;
+}
+
+.sectionHeader {
+    background-color: #FCFCFC;
+    padding: 16px 32px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Texturina;
+}
+
+.sectionContent {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.deactivateButton {
+    border: 3px solid #852400;
+    background-color: inherit;
+    padding: 12px 32px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    margin: 30px 0px;
+}
+
+.deactivateButton:hover {
+    border: 3px solid #DBAC24;
+    background-color: inherit;
+    padding: 12px 32px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #000;
+    text-align: center;
+    margin: 30px 0px;
+}
