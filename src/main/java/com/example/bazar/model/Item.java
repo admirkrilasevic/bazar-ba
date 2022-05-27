@@ -3,12 +3,14 @@ package com.example.bazar.model;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import org.hibernate.annotations.Formula;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Data
+@Where(clause = "deleted is false")
 public class Item {
 
     @Id
@@ -49,6 +51,9 @@ public class Item {
 
     @Column(name = "date_added")
     private LocalDate dateAdded;
+
+    @Column
+    private boolean deleted;
 
     @NotNull
     @Column(name = "address_id")

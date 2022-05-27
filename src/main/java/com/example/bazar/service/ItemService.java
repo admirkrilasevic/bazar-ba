@@ -6,6 +6,8 @@ import com.example.bazar.model.Category;
 import com.example.bazar.model.Item;
 import com.example.bazar.model.User;
 import com.example.bazar.payload.AddItemRequest;
+import com.example.bazar.payload.ItemUpdateRequest;
+import com.example.bazar.payload.UserUpdateRequest;
 import com.example.bazar.repository.AddressRepository;
 import com.example.bazar.repository.ItemRepository;
 import com.example.bazar.security.JwtUtils;
@@ -135,4 +137,19 @@ public class ItemService {
     public List<Item> getItemsBySellerId(Long sellerId) {
         return itemRepository.getItemsBySellerId(sellerId);
     }
+
+    public ResponseEntity<?> updateItem(ItemUpdateRequest itemUpdateRequest) {
+        Item item = itemRepository.getById(itemUpdateRequest.getId());
+        item.setPrice(itemUpdateRequest.getPrice());
+        item.setQuantity(itemUpdateRequest.getQuantity());
+        Item updatedItem = itemRepository.save(item);
+        return ResponseEntity.ok().body(updatedItem);
+    }
+    public ResponseEntity<?> deleteItem(Long id) {
+        Item item = itemRepository.getById(id);
+        item.setDeleted(true);
+        itemRepository.save(item);
+        return ResponseEntity.ok("Item deleted");
+    }
+
 }

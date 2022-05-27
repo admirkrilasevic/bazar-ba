@@ -81,3 +81,20 @@ export const getSearchSuggestions = async (searchText) => {
     return res.data;
   })
 };
+
+export const updateItem = async (id, price, quantity) => {
+  return axios.put(`${API_URL}/api/v1/items/update`, {
+    id,
+    price,
+    quantity})
+  .then((res) => {
+    return res.data;
+  })
+};
+
+export const deleteItem = async (itemId) => {
+  return axios.put(`${API_URL}/api/v1/items/delete/${itemId}`)
+  .then((res) => {
+    return res.data;
+  })
+};

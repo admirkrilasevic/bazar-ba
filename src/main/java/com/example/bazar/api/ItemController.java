@@ -3,6 +3,8 @@ package com.example.bazar.api;
 import com.example.bazar.enumeration.ItemSort;
 import com.example.bazar.model.Item;
 import com.example.bazar.payload.AddItemRequest;
+import com.example.bazar.payload.ItemUpdateRequest;
+import com.example.bazar.payload.UserUpdateRequest;
 import com.example.bazar.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -63,6 +65,16 @@ public class ItemController {
     @GetMapping("/user/{sellerId}")
     public List<Item> getItemsBySellerId(@PathVariable("sellerId") Long sellerId){
         return itemService.getItemsBySellerId(sellerId);
+    }
+
+    @PutMapping("/update")
+    public ResponseEntity<?> updateItem(@RequestBody ItemUpdateRequest itemUpdateRequest) {
+        return itemService.updateItem(itemUpdateRequest);
+    }
+
+    @PutMapping("/delete/{itemId}")
+    public ResponseEntity<?> deleteItem(@PathVariable("itemId") Long itemId) {
+        return itemService.deleteItem(itemId);
     }
 
 }
