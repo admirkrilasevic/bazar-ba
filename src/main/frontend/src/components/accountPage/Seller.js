@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import styles from "./Seller.module.css";
 import tableStyles from "./Table.module.css";
-import { deleteItem, fetchItemsBySellerId, updateItem } from "../../utils/ItemService";
+import { fetchItemsBySellerId } from "../../utils/ItemService";
 import AuthService from "../../utils/AuthService";
 import { FiShoppingCart } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import SellerTableItem from "./SellerTableItem";
 
 const Seller = () => {
 
@@ -17,7 +18,7 @@ const Seller = () => {
     useEffect(async () => {
         const userItems = await fetchItemsBySellerId(user.id);
         setItems(userItems);
-    }, []);
+    }, [items]);
 
     return (
         <div className={styles.sellerContainer}>
@@ -31,15 +32,15 @@ const Seller = () => {
                     <Col></Col>
                     <Col></Col>
                 </Row>
-                {items.map((item) => 
-                <Row className={tableStyles.contentRow}>
-                    <Col className={tableStyles.verticalCenter}><img src={item.photos.split(",")[0]} className={tableStyles.tableImages}/></Col>
-                    <Col className={tableStyles.verticalCenter}><Link to={`/items/${item.id}`} className={tableStyles.nameLink}>{item.name}</Link></Col>
-                    <Col className={tableStyles.verticalCenter}>{item.price} KM</Col>
-                    <Col className={tableStyles.verticalCenter}>{item.quantity}</Col>
-                    <Col className={tableStyles.verticalCenter}><button className={tableStyles.tableButton} onClick={() => updateItem(item.id, item.price, item.quantity)}>UPDATE</button></Col>
-                    <Col className={tableStyles.verticalCenter}><button className={tableStyles.tableButton} onClick={() => deleteItem(item.id)}>DELETE</button></Col>
-                </Row>
+                {items.sort((a, b) => a.name.localeCompare(b.name)).map((item) => 
+                <SellerTableItem 
+                    key={item.id}
+                    id={item.id} 
+                    name={item.name}
+                    photos={item.photos}
+                    price={item.price}
+                    quantity={item.quantity}
+                />
                 )}
             </Container> :
             <div className={styles.noItemsContainer}>
