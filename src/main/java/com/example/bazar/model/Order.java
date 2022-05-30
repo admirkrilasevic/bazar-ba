@@ -18,7 +18,7 @@ public class Order {
 
     @NonNull
     @Column(name = "buyer_id")
-    private int buyerId;
+    private Long buyerId;
 
     @NonNull
     @Column(name = "buyer_address_id")
@@ -40,11 +40,19 @@ public class Order {
     @Column(name = "payment_method")
     private String paymentMethod;
 
+    @OneToMany(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "order_id"
+    )
+    private List<OrderDetail> orderDetails;
+
     public Order() {
 
     }
 
-    public Order(int buyerId, int buyerAddressId, double totalAmount, @NonNull LocalDate date, @NonNull String status, @NonNull String paymentMethod) {
+    public Order(Long buyerId, int buyerAddressId, double totalAmount, @NonNull LocalDate date, @NonNull String status, @NonNull String paymentMethod) {
         this.buyerId = buyerId;
         this.buyerAddressId = buyerAddressId;
         this.totalAmount = totalAmount;

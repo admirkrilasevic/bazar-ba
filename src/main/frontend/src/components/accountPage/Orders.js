@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./Orders.module.css";
 import tableStyles from "./Table.module.css";
-//import { fetchOrdersByUserId } from "../../utils/ItemService";
 import AuthService from "../../utils/AuthService";
 import { FiShoppingCart } from "react-icons/fi";
 import { IconContext } from "react-icons";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { fetchOrdersByBuyerId } from "../../utils/OrderService";
 
 const Orders = () => {
 
@@ -15,8 +15,9 @@ const Orders = () => {
     const user = AuthService.getCurrentUser();
 
     useEffect(async () => {
-        const userOrders = [1]; //await fetchOrdersByUserId(user.id);
+        const userOrders = await fetchOrdersByBuyerId(user.token, user.id);
         setOrders(userOrders);
+        console.log(userOrders)
     }, []);
 
     return (
@@ -31,6 +32,15 @@ const Orders = () => {
                     <Col>Date ordered</Col>
                     <Col>Status</Col>
                 </Row>
+                {orders.sort((a, b) => a.id - b.id).map((order) =>
+                <Row className={tableStyles.contentRow} key={order.id}>
+                    <Col className={tableStyles.verticalCenter}>#{order.id}</Col>
+                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.itemName).join(", ")}</Col>
+                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.quantity).reduce((a, b) => a + b)}</Col>
+                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.price).reduce((a, b) => a + b)} KM</Col>
+                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.orderDate)[0]}</Col>
+                    <Col className={tableStyles.statusCol}>{order.status.toUpperCase()}</Col>
+                </Row>)}
             </Container> :
             <div className={styles.noOrdersContainer}>
                 <div className={styles.title}>

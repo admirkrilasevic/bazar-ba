@@ -63,3 +63,10 @@
     text-align: center;
     align-items: center;
 }
+
+.statusCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #DBAC24;
+}

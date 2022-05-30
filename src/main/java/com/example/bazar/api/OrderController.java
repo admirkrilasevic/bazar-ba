@@ -43,4 +43,9 @@ public class OrderController {
     public List<OrderDetail> getOrderDetailsByItemId(@PathVariable long id) {
         return orderDetailService.getOrderDetailsByItemId(id);
     }
+
+    @GetMapping("/getOrdersByBuyerId/{id}")
+    public List<Order> getOrdersByBuyerId(@PathVariable Long id) {
+        return orderService.getOrdersByBuyerId(id);
+    }
 }

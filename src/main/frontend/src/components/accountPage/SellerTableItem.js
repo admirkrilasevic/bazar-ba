@@ -10,7 +10,7 @@ const SellerTableItem = ({ id, name, photos, price, quantity }) => {
     const [itemQuantity, setItemQuantity] = useState(quantity);
 
     return(
-        <Row className={tableStyles.contentRow}>
+    <Row className={tableStyles.contentRow}>
         <Col className={tableStyles.verticalCenter}><img src={photos.split(",")[0]} className={tableStyles.tableImages}/></Col>
         <Col className={tableStyles.verticalCenter}><Link to={`/items/${id}`} className={tableStyles.nameLink}>{name}</Link></Col>
         <Col className={tableStyles.verticalCenter}><span><input className={tableStyles.input} value={itemPrice} onChange={(e) => setItemPrice(e.target.value)}></input>&ensp; KM</span></Col>

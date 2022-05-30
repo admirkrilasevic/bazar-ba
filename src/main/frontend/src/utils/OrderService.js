@@ -56,4 +56,15 @@ export const fetchOrderDetailsByItemId = async (token, itemId) => {
     return res.data;
   })
 };
+
+export const fetchOrdersByBuyerId = async (token, buyerId) => {
+  return axios.get(`${API_URL}/api/v1/orders/getOrdersByBuyerId/${buyerId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  })
+  .then((res) => {
+    return res.data;
+  })
+};
   

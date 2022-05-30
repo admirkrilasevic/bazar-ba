@@ -2,12 +2,12 @@ package com.example.bazar.payload;
 
 public class AddOrderRequest {
 
-    private int buyerId;
+    private Long buyerId;
     private int buyerAddressId;
     private double totalAmount;
     private String paymentMethod;
 
-    public AddOrderRequest(int buyerId, int buyerAddressId, double totalAmount, String paymentMethod) {
+    public AddOrderRequest(Long buyerId, int buyerAddressId, double totalAmount, String paymentMethod) {
         this.buyerId = buyerId;
         this.buyerAddressId = buyerAddressId;
         this.totalAmount = totalAmount;
@@ -17,11 +17,11 @@ public class AddOrderRequest {
     public AddOrderRequest() {
     }
 
-    public int getBuyerId() {
+    public Long getBuyerId() {
         return buyerId;
     }
 
-    public void setBuyerId(int buyerId) {
+    public void setBuyerId(Long buyerId) {
         this.buyerId = buyerId;
     }
 

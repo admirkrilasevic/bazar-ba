@@ -20,7 +20,7 @@ function ItemOrders({itemId}) {
     return(
         <div>
             <div className={styles.orderDetailsTitle}>Placed orders</div>
-            {orderDetails > 0 ? 
+            {(orderDetails && orderDetails.length > 0 ) ? 
             <Container>
                 <Row className={styles.orderDetailsContainer}>
                     <Row className={styles.tableHeader}>

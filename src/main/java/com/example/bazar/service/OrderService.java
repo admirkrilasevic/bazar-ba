@@ -39,4 +39,8 @@ public class OrderService {
         order.setStatus(status);
         orderRepository.save(order);
     }
+
+    public List<Order> getOrdersByBuyerId(Long buyerId) {
+        return orderRepository.getOrdersByBuyerId(buyerId);
+    }
 }
