@@ -27,7 +27,7 @@ function Account(){
             case ACCOUNT_SECTIONS.ORDERS :
                 return <Orders />
             case ACCOUNT_SECTIONS.SETTINGS :
-                return <Settings />
+                return <Settings setMessage={setMessage} setMessageStyle={setMessageStyle}/>
         }
     }
 

@@ -7,6 +7,7 @@
     border: 1px solid #852400;
     text-align: left;
     width: 550px;
+    margin-bottom: 50px;
 }
 
 .sectionHeader {
@@ -24,7 +25,7 @@
     align-items: flex-start;
 }
 
-.deactivateButton {
+.button {
     border: 3px solid #852400;
     background-color: inherit;
     padding: 12px 32px;
@@ -35,7 +36,7 @@
     margin: 30px 0px;
 }
 
-.deactivateButton:hover {
+.button:hover {
     border: 3px solid #DBAC24;
     background-color: inherit;
     padding: 12px 32px;
@@ -44,4 +45,28 @@
     color: #000;
     text-align: center;
     margin: 30px 0px;
+}
+
+.headerMessageSuccess {
+    color: #417505;
+    text-align: start;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #F0F3EE;
+    height: 60px;
+    width: 100%;
+    padding: 18px 160px;
+    margin-top: 10px;
+}
+
+.headerMessageError {
+    color: #AB944E;
+    text-align: start;
+    font-weight: bold;
+    font-size: 16px;
+    background-color: #F6F2E5;
+    height: 60px;
+    width: 100%;
+    padding: 18px 160px;
+    margin-top: 10px;
 }

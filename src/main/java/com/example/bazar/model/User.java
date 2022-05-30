@@ -1,6 +1,7 @@
 package com.example.bazar.model;
 
 import com.sun.istack.NotNull;
+import org.hibernate.annotations.Where;
 import org.springframework.lang.NonNull;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,6 +14,7 @@ import java.util.Collections;
 
 @Entity
 @Table(schema = "public")
+@Where(clause = "deactivated is false")
 public class User implements UserDetails {
 
     @Id

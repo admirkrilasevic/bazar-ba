@@ -3,6 +3,7 @@ package com.example.bazar.service;
 import com.example.bazar.model.User;
 import com.example.bazar.payload.AuthRequest;
 import com.example.bazar.payload.AuthResponse;
+import com.example.bazar.payload.ChangePasswordRequest;
 import com.example.bazar.payload.RegisterRequest;
 import com.example.bazar.repository.UserRepository;
 import com.example.bazar.security.JwtUtils;
@@ -75,5 +76,12 @@ public class AuthService {
         userRepository.save(user);
 
         return ResponseEntity.ok("User registered successfully!");
+    }
+
+    public ResponseEntity<?> changePassword(ChangePasswordRequest changePasswordRequest) {
+        User user = userRepository.getById(changePasswordRequest.getId());
+        user.setPassword(encoder.encode(changePasswordRequest.getNewPassword()));
+        userRepository.save(user);
+        return ResponseEntity.ok().body("Password changed successfully");
     }
 }

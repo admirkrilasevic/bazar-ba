@@ -31,6 +31,18 @@ const login = (email, password) => {
     });
 };
 
+const changePassword = (id, newPassword, confirmPassword, token) => {
+  return axios.put(API_URL + "change", {
+    id,
+    newPassword,
+    confirmPassword
+  }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+};
+
 const logout = () => {
   localStorage.clear();
   window.location.replace("/home");
@@ -47,5 +59,6 @@ export default {
   register,
   login,
   logout,
-  getCurrentUser
+  getCurrentUser,
+  changePassword
 };

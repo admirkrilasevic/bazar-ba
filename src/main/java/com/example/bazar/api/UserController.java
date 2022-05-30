@@ -1,5 +1,6 @@
 package com.example.bazar.api;
 
+import com.example.bazar.payload.ChangePasswordRequest;
 import com.example.bazar.payload.UserUpdateRequest;
 import com.example.bazar.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

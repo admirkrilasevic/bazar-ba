@@ -1,7 +1,10 @@
 package com.example.bazar.service;
 
 import com.example.bazar.model.Address;
+import com.example.bazar.model.Item;
 import com.example.bazar.model.User;
+import com.example.bazar.payload.ChangePasswordRequest;
+import com.example.bazar.payload.ItemUpdateRequest;
 import com.example.bazar.payload.UserUpdateRequest;
 import com.example.bazar.repository.UserRepository;
 import com.example.bazar.security.JwtUtils;
@@ -11,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
