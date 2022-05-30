@@ -14,6 +14,7 @@ function Header() {
     const noOfCartItems = useSelector((state) => state.cart.value);
 
     const loggedIn = !!AuthService.getCurrentUser();
+    const user = AuthService.getCurrentUser();
     
     const [width, setWidth] = useState(window.innerWidth);
 
@@ -31,7 +32,7 @@ function Header() {
                 <Cart />
                 {(noOfCartItems != 0) && <span>{noOfCartItems}</span>}
             </NavLink>
-            <NavLink to={loggedIn ? "/account/profile" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? <Account /> : <SignIn />}</NavLink>
+            <NavLink to={loggedIn ? "/account/profile" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? (user.photo ? <img src={user.photo} className={styles.userImage}></img> : <Account />) : <SignIn />}</NavLink>
         </div> :
         <div className={styles.headerMobile}>
             <Container>
@@ -42,7 +43,7 @@ function Header() {
                     <Cart />
                     {(noOfCartItems != 0) && <span>{noOfCartItems}</span>}
                 </NavLink></Col>
-                <Col><NavLink to={loggedIn ? "/account/profile" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? <Account /> : <SignIn />}</NavLink></Col>
+                <Col><NavLink to={loggedIn ? "/account/profile" : "/login"} className={styles.icons} activeStyle={{color: '#852400'}}>{loggedIn ? (user.photo ? <img src={user.photo} className={styles.userImage}></img> : <Account />) : <SignIn />}</NavLink></Col>
             </Row>
             <Row className={styles.mobileSearchBar}>
                 <SearchBar id={'searchBar'} />
