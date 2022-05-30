@@ -20,6 +20,7 @@ function ItemOrders({itemId}) {
     return(
         <div>
             <div className={styles.orderDetailsTitle}>Placed orders</div>
+            {orderDetails > 0 ? 
             <Container>
                 <Row className={styles.orderDetailsContainer}>
                     <Row className={styles.tableHeader}>
@@ -51,8 +52,9 @@ function ItemOrders({itemId}) {
                         );
                     })}
                 </Row>
-            </Container>
-        </div>
+            </Container> : 
+            <div className={styles.noOrders}>No orders placed so far</div>}
+        </div> 
     );
 }
 
