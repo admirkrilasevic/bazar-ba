@@ -26,12 +26,35 @@ import Payment from './pages/Payment';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { STRIPE } from './constants.js';
+import { useContext, useEffect } from 'react';
+import AuthService from './utils/AuthService';
 
 
 function App() {
 
   const stripePromise = loadStripe(STRIPE.PUBLIC_KEY);
 
+  const user = AuthService.getCurrentUser();
+
+  function parseJwt (token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
+  };
+
+  useEffect(() => {
+    if (user) {
+      const userData = parseJwt(user.token);
+      if (userData.exp < Date.now() / 1000) {
+        AuthService.logout();
+      }
+    }
+  }, [user]);
+    
   return (
     <Elements stripe={stripePromise}>
       <Provider store={store}>
