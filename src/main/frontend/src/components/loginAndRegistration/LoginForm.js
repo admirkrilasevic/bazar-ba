@@ -48,9 +48,16 @@ function LoginForm() {
               error.response.data.message) ||
             error.message ||
             error.toString();
-
+          if (resMessage.includes("Network Error")) {
+            setMessage("Network Error");
+          } else if (resMessage.includes("400")) {
+            setMessage("Invalid Credentials");
+          } else if (resMessage.includes("401")) {
+            setMessage("Invalid Credentials");
+          } else {
+            setMessage(resMessage);
+          }
           setLoading(false);
-          setMessage(resMessage);
         }
       );
     } else {
