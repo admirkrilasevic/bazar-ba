@@ -26,7 +26,7 @@ import Payment from './pages/Payment';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { STRIPE } from './constants.js';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 import AuthService from './utils/AuthService';
 
 

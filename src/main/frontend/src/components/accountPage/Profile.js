@@ -84,7 +84,7 @@ const Profile = ({setMessage, setMessageStyle}) => {
         <Row>
           <Col className={styles.photoSection}>
             <div className={styles.photoContainer}>
-              {(photo.length > 0) ? <img className={styles.photoContainer} src={photo}></img> : <span>Photo</span>}
+              {(photo.length > 0) ? <img src={photo}></img> : <span>Photo</span>}
             </div>
             <div className={styles.uploadContainer}>
               <label className={styles.photoUpload}>

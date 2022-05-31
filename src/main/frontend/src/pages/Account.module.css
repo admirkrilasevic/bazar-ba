@@ -7,11 +7,15 @@
     align-items: flex-start;
 }
 
+.padded {
+    padding: 0px 40px;
+}
+
 .sectionButton {
     text-decoration: none;
     border: none;
     font-size: 18px;
-    padding: 10px 40px;
+    padding: 1% 4%;
     background-color: inherit;
     color: #000;
     border: 1px solid #852400;
@@ -21,7 +25,7 @@
     text-decoration: none;
     border: none;
     font-size: 18px;
-    padding: 10px 40px;
+    padding: 1% 4%;
     background-color: #852400;
     color: #FFF;
     border: 1px solid #852400;
@@ -40,7 +44,7 @@
     background-color: #DBAC24;
     margin-left: auto;
     margin-right: 0px;
-    padding: 10px 40px;
+    padding: 1% 4%;
     text-decoration: none;
     border: none;
     color: #FFF;
@@ -51,4 +55,10 @@
 .logOutButton:hover {
     color: #FFF;
     background-color: #852400;
+}
+
+@media screen and (max-width: 768px) {
+    .sectionButtons {
+        align-items: center;
+    }
 }

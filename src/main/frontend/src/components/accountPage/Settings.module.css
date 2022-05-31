@@ -6,7 +6,7 @@
 .settingsSection {
     border: 1px solid #852400;
     text-align: left;
-    width: 550px;
+    width: 40%;
     margin-bottom: 50px;
 }
 
@@ -69,4 +69,13 @@
     width: 100%;
     padding: 18px 160px;
     margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .settingsContainer {
+        padding: 0px 30px;
+    }
+    .settingsSection {
+        width: 100%;
+    }
 }

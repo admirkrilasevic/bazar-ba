@@ -9,8 +9,15 @@ import Seller from "../components/accountPage/Seller";
 import Settings from "../components/accountPage/Settings";
 import Orders from "../components/accountPage/Orders";
 import PageLayout from "../components/PageLayout";
+import { Container, Row } from "react-bootstrap";
 
 function Account(){
+
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        window.addEventListener('resize', () => setWidth(window.innerWidth));
+    }, []);
 
     const { section } = useParams();
     const [selectedSection, setSelectedSection] = useState();
@@ -45,13 +52,24 @@ function Account(){
         loggedIn ? 
         <PageLayout message={message} messageStyle={messageStyle}>
             <div className={styles.accountContainer}>
+                {width >= 768 ? 
                 <div className={styles.sectionButtons}>
                     <Link to={"/account/profile"} className={(selectedSection == ACCOUNT_SECTIONS.PROFILE) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.PROFILE}</Link>
                     <Link to={"/account/seller"} className={(selectedSection == ACCOUNT_SECTIONS.SELLER) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.SELLER}</Link>
                     <Link to={"/account/orders"} className={(selectedSection == ACCOUNT_SECTIONS.ORDERS) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.ORDERS}</Link>
                     <Link to={"/account/settings"} className={(selectedSection == ACCOUNT_SECTIONS.SETTINGS) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.SETTINGS}</Link>
                     <button className={styles.logOutButton} onClick={() => AuthService.logout()}>LOG OUT</button>
-                </div>
+                </div> :
+                <Container className={styles.padded}>
+                    <Row><button className={styles.logOutButton} onClick={() => AuthService.logout()}>LOG OUT</button></Row>
+                    <br></br>
+                    <Row className={styles.sectionButtons}>
+                        <Link to={"/account/profile"} className={(selectedSection == ACCOUNT_SECTIONS.PROFILE) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.PROFILE}</Link>
+                        <Link to={"/account/seller"} className={(selectedSection == ACCOUNT_SECTIONS.SELLER) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.SELLER}</Link>
+                        <Link to={"/account/orders"} className={(selectedSection == ACCOUNT_SECTIONS.ORDERS) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.ORDERS}</Link>
+                        <Link to={"/account/settings"} className={(selectedSection == ACCOUNT_SECTIONS.SETTINGS) ? styles.sectionButtonActive : styles.sectionButton}>{ACCOUNT_SECTIONS.SETTINGS}</Link>
+                    </Row>
+                </Container>}
                 {displaySelection(selectedSection)}
             </div>
         </PageLayout> :
