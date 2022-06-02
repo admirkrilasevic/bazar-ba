@@ -17,7 +17,6 @@ const Orders = () => {
     useEffect(async () => {
         const userOrders = await fetchOrdersByBuyerId(user.token, user.id);
         setOrders(userOrders);
-        console.log(userOrders)
     }, []);
 
     return (

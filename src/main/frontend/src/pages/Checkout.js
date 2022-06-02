@@ -37,7 +37,6 @@ function Checkout() {
         dispatch(setOrderId(response));
         cartItems.forEach(async (item) => {
             const detailResponse = await addOrderDetail(user.token, response, item.id, item.price, item.selectedQuantity);
-            console.log(detailResponse);
         });
     }
 
