@@ -18,7 +18,9 @@ public class UserUpdateRequest {
     private String state;
     private String country;
 
-    public UserUpdateRequest(Long id, String name, String email, String gender, LocalDate dateOfBirth, String phoneNumber, String photo, Long addressId, String street, String city, String zipCode, String state, String country) {
+    private String token;
+
+    public UserUpdateRequest(Long id, String name, String email, String gender, LocalDate dateOfBirth, String phoneNumber, String photo, Long addressId, String street, String city, String zipCode, String state, String country, String token) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -32,6 +34,7 @@ public class UserUpdateRequest {
         this.zipCode = zipCode;
         this.state = state;
         this.country = country;
+        this.token = token;
     }
 
     public Long getId() {
@@ -136,5 +139,13 @@ public class UserUpdateRequest {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

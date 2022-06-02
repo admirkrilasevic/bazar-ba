@@ -47,7 +47,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (user) {
+    if (!!user) {
       const userData = parseJwt(user.token);
       if (userData.exp < Date.now() / 1000) {
         AuthService.logout();

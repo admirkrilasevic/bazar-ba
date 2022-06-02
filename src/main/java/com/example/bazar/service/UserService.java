@@ -3,9 +3,11 @@ package com.example.bazar.service;
 import com.example.bazar.model.Address;
 import com.example.bazar.model.Item;
 import com.example.bazar.model.User;
+import com.example.bazar.payload.AuthResponse;
 import com.example.bazar.payload.ChangePasswordRequest;
 import com.example.bazar.payload.ItemUpdateRequest;
 import com.example.bazar.payload.UserUpdateRequest;
+import com.example.bazar.repository.ItemRepository;
 import com.example.bazar.repository.UserRepository;
 import com.example.bazar.security.JwtUtils;
 import lombok.AllArgsConstructor;
@@ -18,6 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -28,6 +31,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     JwtUtils jwtUtils;
+
+    @Autowired
+    ItemRepository itemRepository;
 
     /*UserDetailsService interface requires implementation of loadUserByUsername,
     although users are loaded by email, so there is a separate loadUserByEmail method*/
@@ -67,7 +73,17 @@ public class UserService implements UserDetailsService {
             user.setAddress(address);
         }
         User updatedUser = userRepository.save(user);
-        return ResponseEntity.ok().body(updatedUser);
+        AuthResponse response = new AuthResponse(userUpdateRequest.getToken(),
+                updatedUser.getId(),
+                updatedUser.getName(),
+                updatedUser.getEmail(),
+                updatedUser.getPhoneNumber(),
+                updatedUser.getDateOfBirth(),
+                updatedUser.getGender(),
+                updatedUser.getPhoto(),
+                updatedUser.getDeactivated(),
+                updatedUser.getAddress());
+        return ResponseEntity.ok().body(response);
     }
 
     public ResponseEntity<?> deactivateAccount(HttpServletRequest httpServletRequest) {
@@ -75,6 +91,11 @@ public class UserService implements UserDetailsService {
         User user = (User) loadUserByEmail(jwtUtils.getEmailFromJwtToken(token));
         user.setDeactivated(true);
         userRepository.save(user);
+        List<Item> deactivatedUserItems = itemRepository.getItemsBySellerId(user.getId());
+        for (Item item : deactivatedUserItems){
+            item.setDeleted(true);
+            itemRepository.save(item);
+        }
         return ResponseEntity.ok("User account deactivated");
     }
 

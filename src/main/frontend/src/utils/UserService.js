@@ -22,7 +22,8 @@ const update = (id, name, email, gender, dateOfBirth, phoneNumber, photo, addres
       city,
       zipCode,
       state,
-      country
+      country,
+      token
     }, {
       headers: {
         Authorization: `Bearer ${token}`

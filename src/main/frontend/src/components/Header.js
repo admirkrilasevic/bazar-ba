@@ -14,13 +14,17 @@ function Header() {
     const noOfCartItems = useSelector((state) => state.cart.value);
 
     const loggedIn = !!AuthService.getCurrentUser();
-    const user = AuthService.getCurrentUser();
+    let user = AuthService.getCurrentUser();
     
     const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         window.addEventListener('resize', () => setWidth(window.innerWidth));
     }, []);
+
+    useEffect(() => {
+        user = AuthService.getCurrentUser();
+    }, [user]);
 
     return(
         width >= 768 ?
