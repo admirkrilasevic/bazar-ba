@@ -139,7 +139,7 @@
 }
 
 .photoUpload:hover {
-    width: 70%;
+    width: 80%;
     height: 392px;
     background-color: #FCFCFC;
     border: 1px solid #DBAC24;
@@ -370,5 +370,11 @@ input[type="file"] {
         width: 50%;
         height: 50%;
         object-fit: contain;
+    }
+    .photoUpload {
+        width: 90%;
+    }
+    .photoUpload:hover {
+        width: 90%;
     }
 }
