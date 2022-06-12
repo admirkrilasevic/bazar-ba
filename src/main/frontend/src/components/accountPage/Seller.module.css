@@ -11,7 +11,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 738px;
+    width: 85%;
     padding-bottom: 32px;
     border: 1px solid #852400;
     box-sizing: border-box;
@@ -33,7 +33,7 @@
     text-decoration: none;
     border: 3px solid #852400;
     background-color: inherit;
-    padding: 8px 50px;
+    padding: 2% 10%;
     font-weight: bold;
     font-size: 18px;
     margin-top: 75px;
@@ -44,7 +44,7 @@
     text-decoration: none;
     border: 3px solid #DBAC24;
     background-color: inherit;
-    padding: 8px 50px;
+    padding: 2% 10%;
     font-weight: bold;
     font-size: 18px;
     margin-top: 75px;

@@ -47,7 +47,9 @@ const Seller = () => {
                 <div className={styles.title}>
                     SELL
                 </div>
-                <IconContext.Provider value={{className: "cart-icon", size: "100px"}}>
+                <br></br>
+                <br></br>
+                <IconContext.Provider value={{className: "cart-icon", size: "10%"}}>
                     <FiShoppingCart/>
                 </IconContext.Provider>
                 You do not have any items for sale.
