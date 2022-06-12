@@ -8,6 +8,14 @@
     padding: 10px;
 }
 
+.addAddress {
+    color: #DBAC24;
+}
+
+.addAddress:hover {
+    color: #852400;
+}
+
 .selectAddress p {
     font-weight: bold;
     font-size: 24px;

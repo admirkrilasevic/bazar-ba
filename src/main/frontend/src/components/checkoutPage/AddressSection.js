@@ -5,6 +5,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setAddress } from "../../utils/CartSlice";
 import { countryCodes } from "../../constants";
+import { Link } from "react-router-dom";
 
 function AddressSection() {
 
@@ -32,6 +33,9 @@ function AddressSection() {
                 <p>Select shipping address:</p>
             </div>
             <div className={styles.addressContainer}>
+                {user && !user.address ? <Container className={styles.address}>
+                    You need to add an address to <Link to={`/account/profile`} className={styles.addAddress}>your profile</Link> before completing your order. 
+                </Container> :
                 <Container className={styles.address}>
                     <Row className={styles.addressTitle}>
                         <p>Address 1</p>
@@ -48,7 +52,7 @@ function AddressSection() {
                             <p>{state}</p>
                         </Col>
                     </Row>    
-                </Container>
+                </Container>}
             </div>
         </div>
     );

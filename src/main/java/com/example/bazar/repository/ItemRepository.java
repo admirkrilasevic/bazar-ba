@@ -16,8 +16,8 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     @Query("select i from Item i")
     Page<Item> getItems(Pageable pageable);
 
-    @Query(value = "select * from item i where i.category_id = :categoryId and i.name != :name limit 3", nativeQuery = true)
-    List<Item> getRecommendedProducts(@Param("categoryId") Long categoryId, @Param("name") String name);
+    @Query("select i from Item i where i.categoryId = :categoryId")
+    List<Item> getRecommendedProducts(@Param("categoryId") Long categoryId);
 
     @Query("select i from Item i where (i.categoryId in :categoryIds or i.subcategoryId in :subcategoryIds) and i.price between :minPrice and :maxPrice")
     Page<Item> getFilteredItems(@Param("categoryIds") Long[] categoryIds, @Param("subcategoryIds") long[] subcategoryIds, @Param("minPrice") double minPrice, @Param("maxPrice") double maxPrice, Pageable pageable);

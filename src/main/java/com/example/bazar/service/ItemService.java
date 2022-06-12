@@ -88,7 +88,8 @@ public class ItemService {
     }
 
     public List<Item> getRecommendedProducts(Long categoryId, String name) {
-        return itemRepository.getRecommendedProducts(categoryId, name);
+        List<Item> recommended = itemRepository.getRecommendedProducts(categoryId);
+        return recommended.subList(0, Math.min(recommended.size(), 3));
     }
 
     private Long[] getCategoryIds() {
