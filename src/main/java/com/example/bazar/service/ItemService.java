@@ -152,4 +152,13 @@ public class ItemService {
         return ResponseEntity.ok("Item deleted");
     }
 
+    public boolean checkForQuantity(Long id, int quantity) {
+        Item item = itemRepository.getById(id);
+        if (item.getQuantity() >= quantity) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

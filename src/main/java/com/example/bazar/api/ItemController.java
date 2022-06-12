@@ -77,4 +77,8 @@ public class ItemController {
         return itemService.deleteItem(itemId);
     }
 
+    @GetMapping("/quantity/{itemId}/{quantity}")
+    public boolean checkForQuantity(@PathVariable("itemId") Long itemId, @PathVariable("quantity") int quantity) {
+        return itemService.checkForQuantity(itemId, quantity);
+    }
 }

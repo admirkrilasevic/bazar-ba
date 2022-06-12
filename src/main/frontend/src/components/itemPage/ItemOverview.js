@@ -87,7 +87,7 @@ function ItemOverview({...item}) {
                         </div>
                         <p className={styles.quantity}>{tempQuantity} remaining</p>
                         <div className={styles.addToCart}>
-                            <button onClick={() => handleAddToCart(selectedQuantity)}>ADD TO CART</button>
+                            <button disabled={selectedQuantity > tempQuantity} onClick={() => handleAddToCart(selectedQuantity)}>ADD TO CART</button>
                         </div>
                     </div> : <p className={styles.outOfStock}>Out of Stock</p>}
                 </Col>

@@ -87,7 +87,8 @@ function Payment() {
     }
 
     const onUnderstandClick = () => {
-        window.location.replace("/");
+        setMessage("Your order has been placed!");
+        setMessageStyle(messageStyles.headerMessageSuccess);
     }
 
     return (

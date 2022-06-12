@@ -27,7 +27,7 @@ function CartPageItem({ id, photo, name, price, selectedQuantity }) {
         <span className={styles.quantity}>{selectedQuantity}</span>
       </Col>
       <Col>
-        <span className={styles.removeButton} onClick={() => dispatch(remove(id))}>REMOVE</span>
+        <span className={styles.removeButton} onClick={() => dispatch(remove(parseInt(id)))}>REMOVE</span>
       </Col>
     </Row>
   );

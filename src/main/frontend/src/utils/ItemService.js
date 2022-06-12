@@ -98,3 +98,14 @@ export const deleteItem = async (itemId) => {
     return res.data;
   })
 };
+
+export const checkForQuantity = async (token, itemId, quantity) => {
+  return axios.get(`${API_URL}/api/v1/items/quantity/${itemId}/${quantity}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  })
+  .then((res) => {
+    return res.data;
+  })
+}

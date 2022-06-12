@@ -30,8 +30,9 @@ export const cartSlice = createSlice({
       state.items[action.payload.index].selectedQuantity += action.payload.value
     },
     remove: (state, action) => {
-      state.items.splice(action.payload, 1)
-      state.value -= 1
+      const itemToRemove = state.items.find((item) => item.id === action.payload)
+      state.items = state.items.filter((item) => item.id !== action.payload)
+      state.value = state.value - itemToRemove.selectedQuantity
     },
     setAddress: (state, action) => {
       state.addressId = action.payload
