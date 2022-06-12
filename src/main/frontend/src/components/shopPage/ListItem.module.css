@@ -51,4 +51,15 @@
 .viewButton:hover {
     color: #DBAC24;
 }
+
+@media screen and (max-width: 768px) {
+    .itemContainer {
+        height: auto;
+        margin: 20px 0px;
+    }
+    .photo {
+        width: 120px;
+        height: 150px;
+    }
+}
   
