@@ -67,4 +67,18 @@ export const fetchOrdersByBuyerId = async (token, buyerId) => {
     return res.data;
   })
 };
+
+export const updateOrderStatus = async (token, orderId, status) => {
+  return axios.put(`${API_URL}/api/v1/orders/updateOrderStatus/${orderId}/${status}`, {}, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  })
+  .then((res) => {
+    return res.data;
+  })
+  .catch((error) => {
+    return error.response;
+  });
+}
   

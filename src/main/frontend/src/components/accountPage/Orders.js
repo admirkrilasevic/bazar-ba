@@ -7,6 +7,7 @@ import { IconContext } from "react-icons";
 import { Container, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { fetchOrdersByBuyerId } from "../../utils/OrderService";
+import OrdersTableItem from "./OrdersTableItem";
 
 const Orders = () => {
 
@@ -32,14 +33,14 @@ const Orders = () => {
                     <Col>Status</Col>
                 </Row>
                 {orders.sort((a, b) => a.id - b.id).map((order) =>
-                <Row className={tableStyles.contentRow} key={order.id}>
-                    <Col className={tableStyles.verticalCenter}>#{order.id}</Col>
-                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.itemName).join(", ")}</Col>
-                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.quantity).reduce((a, b) => a + b)}</Col>
-                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.price).reduce((a, b) => a + b)} KM</Col>
-                    <Col className={tableStyles.verticalCenter}>{order.orderDetails.map((orderDetail) => orderDetail.orderDate)[0]}</Col>
-                    <Col className={tableStyles.statusCol}>{order.status.toUpperCase()}</Col>
-                </Row>)}
+                <OrdersTableItem
+                    key={order.id}
+                    id={order.id}
+                    orderDetails={order.orderDetails}
+                    status={order.status}
+                    orders={orders}
+                    setOrders={setOrders}
+                />)}
             </Container> :
             <div className={styles.noOrdersContainer}>
                 <div className={styles.title}>

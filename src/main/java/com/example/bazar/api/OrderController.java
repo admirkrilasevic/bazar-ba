@@ -48,4 +48,9 @@ public class OrderController {
     public List<Order> getOrdersByBuyerId(@PathVariable Long id) {
         return orderService.getOrdersByBuyerId(id);
     }
+
+    @PutMapping("/updateOrderStatus/{id}/{status}")
+    public Order updateOrderStatus(@PathVariable Long id, @PathVariable String status) {
+        return orderService.updateOrderStatus(id, status);
+    }
 }
