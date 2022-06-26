@@ -132,7 +132,7 @@ public class ItemService {
 
     private boolean isSimilarName(String name, String searchString) {
         int distance = Levenshtein.distance(name.toLowerCase(), searchString.toLowerCase());
-        return distance > 0 && distance < 2;
+        return distance > 0 && distance < 3;
     }
 
     public List<Item> getItemsBySellerId(Long sellerId) {
