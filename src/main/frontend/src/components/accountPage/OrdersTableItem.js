@@ -29,9 +29,9 @@ const OrdersTableItem = ({ id, orderDetails, status, orders, setOrders }) => {
         <Col className={tableStyles.verticalCenter}>{orderDetails.map((orderDetail) => orderDetail.orderDate)[0]}</Col>
         <Col className={tableStyles.statusCol}>
             {status.toUpperCase()}
-            <IconContext.Provider value={{className: "package", size: "40px"}}>
+            {status != "received" && <IconContext.Provider value={{className: "package", size: "40px"}}>
                 <GoPackage onClick={() => markAsReceived(id)}/>
-            </IconContext.Provider>
+            </IconContext.Provider>}
         </Col>
     </Row>
     );

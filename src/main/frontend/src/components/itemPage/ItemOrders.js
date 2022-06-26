@@ -33,6 +33,9 @@ function ItemOrders({itemId}) {
                         <Col>
                             Date Ordered
                         </Col>
+                        <Col>
+                            Status
+                        </Col>
                     </Row>
                     {orderDetails.map((order) => {
                         return (
@@ -46,6 +49,9 @@ function ItemOrders({itemId}) {
                                     </Col>
                                     <Col className={styles.tableCol}>
                                         {order.orderDate}
+                                    </Col>
+                                    <Col className={styles.tableCol}>
+                                        {order.status.toUpperCase()}
                                     </Col>
                                 </Row>
                             </Container>

@@ -39,6 +39,9 @@ public class OrderDetail implements Serializable {
     @Formula(value = "(select u.name from public.user u where u.id = (select o.buyer_id from public.order o where o.id = order_id))")
     private String userName;
 
+    @Formula(value = "(select o.status from public.order o where o.id = order_id)")
+    private String status;
+
     public OrderDetail() {
 
     }
