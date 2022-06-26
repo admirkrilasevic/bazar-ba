@@ -16,7 +16,7 @@ const Seller = () => {
     const user = AuthService.getCurrentUser();
 
     useEffect(async () => {
-        const userItems = await fetchItemsBySellerId(user.id);
+        const userItems = await fetchItemsBySellerId(user.token, user.id);
         setItems(userItems);
     }, []);
 

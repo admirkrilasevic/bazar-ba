@@ -24,17 +24,17 @@ public class ItemController {
     @Autowired
     ItemService itemService;
 
-    @GetMapping("/search")
+    @GetMapping("/auth/search")
     public Page<Item> getItems(@RequestParam("page") int page, @RequestParam("size") int size, @RequestParam("sort") ItemSort sort, @RequestParam("direction") Sort.Direction direction) {
         return itemService.getItems(page, size, sort, direction);
     }
 
-    @GetMapping("/{itemId}")
+    @GetMapping("/auth/{itemId}")
     public Item getItemById(@PathVariable("itemId") long itemId){
         return itemService.getItemById(itemId).get();
     }
 
-    @GetMapping("/recommended/{categoryId}/{name}")
+    @GetMapping("/auth/recommended/{categoryId}/{name}")
     public List<Item> getRecommendedProducts(@PathVariable("categoryId") Long categoryId, @PathVariable("name") String name) {
         return itemService.getRecommendedProducts(categoryId, name);
     }
@@ -44,7 +44,7 @@ public class ItemController {
         return itemService.addItem(httpServletRequest, addItemRequest);
     }
 
-    @GetMapping("/filtered")
+    @GetMapping("/auth/filtered")
     public Page<Item> getFilteredItems(
             @RequestParam("search") String search,
             @RequestParam("page") int page,
@@ -57,7 +57,7 @@ public class ItemController {
             @RequestParam("maxPrice") double maxPrice){
         return itemService.getFilteredItems(search, page, size, sort, direction, categoryIds, subcategoryIds, minPrice, maxPrice);
     }
-    @GetMapping("/suggestions/{searchText}")
+    @GetMapping("/auth/suggestions/{searchText}")
     public Set<String> getSearchSuggestions(@PathVariable("searchText") String searchText){
         return itemService.getSearchSuggestions(searchText);
     }
@@ -77,7 +77,7 @@ public class ItemController {
         return itemService.deleteItem(itemId);
     }
 
-    @GetMapping("/quantity/{itemId}/{quantity}")
+    @GetMapping("/auth/quantity/{itemId}/{quantity}")
     public boolean checkForQuantity(@PathVariable("itemId") Long itemId, @PathVariable("quantity") int quantity) {
         return itemService.checkForQuantity(itemId, quantity);
     }

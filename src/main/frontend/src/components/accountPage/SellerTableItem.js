@@ -3,14 +3,17 @@ import tableStyles from "./Table.module.css";
 import { Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import AuthService from "../../utils/AuthService";
 
 const SellerTableItem = ({ id, name, photos, price, quantity, items, setItems }) => {
 
     const [itemPrice, setItemPrice] = useState(price);
     const [itemQuantity, setItemQuantity] = useState(quantity);
 
+    const user = AuthService.getCurrentUser();
+
     const handleUpdateItem = async () => {
-        const response = await updateItem(id, itemPrice, itemQuantity);
+        const response = await updateItem(user.token, id, itemPrice, itemQuantity);
         const updatedItems = items.map((item) => {
             if (item.id === response.id) {
                 item.price = itemPrice;
@@ -22,7 +25,7 @@ const SellerTableItem = ({ id, name, photos, price, quantity, items, setItems })
     }
 
     const handleDeleteItem = async () => {
-        const response = await deleteItem(id);
+        const response = await deleteItem(user.token, id);
         const updatedItems = items.filter((item) => item.id !== id);
         setItems(updatedItems);
     }

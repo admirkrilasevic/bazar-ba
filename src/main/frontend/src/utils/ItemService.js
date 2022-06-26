@@ -9,31 +9,35 @@ if (process.env.REACT_APP_API_URL) {
 }
 
 export const fetchItems = async (page, size, sort, direction) => {
-  const items = await fetch(`${API_URL}/api/v1/items/search?page=${page}&size=${size}&sort=${sort}&direction=${direction}`);
+  const items = await fetch(`${API_URL}/api/v1/items/auth/search?page=${page}&size=${size}&sort=${sort}&direction=${direction}`);
   return items.json();
 };
 
 export const fetchFilteredItems = async (search, page, size, sort, direction, categoryIds, subcategoryIds, minPrice, maxPrice) => {
-  const items = await fetch(`${API_URL}/api/v1/items/filtered?search=${search}&page=${page}&size=${size}&sort=${sort}&direction=${direction}&categoryIds=${categoryIds}&subcategoryIds=${subcategoryIds}&minPrice=${minPrice}&maxPrice=${maxPrice}`);
+  const items = await fetch(`${API_URL}/api/v1/items/auth/filtered?search=${search}&page=${page}&size=${size}&sort=${sort}&direction=${direction}&categoryIds=${categoryIds}&subcategoryIds=${subcategoryIds}&minPrice=${minPrice}&maxPrice=${maxPrice}`);
   return items.json();
 };
 
 export const fetchItemById = async (itemId) => {
-  return axios.get(`${API_URL}/api/v1/items/${itemId}`)
+  return axios.get(`${API_URL}/api/v1/items/auth/${itemId}`)
   .then((res) => {
     return res.data;
   })
 };
 
 export const getRecommendedProducts = async (categoryId, name) => {
-  return axios.get(`${API_URL}/api/v1/items/recommended/${categoryId}/${name}`)
+  return axios.get(`${API_URL}/api/v1/items/auth/recommended/${categoryId}/${name}`)
   .then((res) => {
     return res.data;
   })
 };
 
-export const fetchItemsBySellerId = async (sellerId) => {
-  return axios.get(`${API_URL}/api/v1/items/user/${sellerId}`)
+export const fetchItemsBySellerId = async (token, sellerId) => {
+  return axios.get(`${API_URL}/api/v1/items/user/${sellerId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
   .then((res) => {
     return res.data;
   })
@@ -76,31 +80,39 @@ export const fetchAllCategories = async () => {
 };
 
 export const getSearchSuggestions = async (searchText) => {
-  return axios.get(`${API_URL}/api/v1/items/suggestions/${searchText}`)
+  return axios.get(`${API_URL}/api/v1/items/auth/suggestions/${searchText}`)
   .then((res) => {
     return res.data;
   })
 };
 
-export const updateItem = async (id, price, quantity) => {
+export const updateItem = async (token, id, price, quantity) => {
   return axios.put(`${API_URL}/api/v1/items/update`, {
     id,
     price,
-    quantity})
+    quantity}, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
   .then((res) => {
     return res.data;
   })
 };
 
-export const deleteItem = async (itemId) => {
-  return axios.put(`${API_URL}/api/v1/items/delete/${itemId}`)
+export const deleteItem = async (token, itemId) => {
+  return axios.put(`${API_URL}/api/v1/items/delete/${itemId}`, {}, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  })
   .then((res) => {
     return res.data;
   })
 };
 
 export const checkForQuantity = async (token, itemId, quantity) => {
-  return axios.get(`${API_URL}/api/v1/items/quantity/${itemId}/${quantity}`, {
+  return axios.get(`${API_URL}/api/v1/items/auth/quantity/${itemId}/${quantity}`, {
     headers: {
       Authorization: `Bearer ${token}`
     },
