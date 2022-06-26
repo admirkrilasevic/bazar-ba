@@ -18,7 +18,7 @@ const Seller = () => {
     useEffect(async () => {
         const userItems = await fetchItemsBySellerId(user.id);
         setItems(userItems);
-    }, [items]);
+    }, []);
 
     return (
         <div className={styles.sellerContainer}>
@@ -40,6 +40,8 @@ const Seller = () => {
                     photos={item.photos}
                     price={item.price}
                     quantity={item.quantity}
+                    items={items}
+                    setItems={setItems}
                 />
                 )}
             </Container> :
