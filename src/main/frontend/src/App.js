@@ -11,7 +11,6 @@ import Cart from './pages/Cart';
 import Account from './pages/Account';
 import Footer from './components/Footer';
 import AboutUs from './pages/footer/AboutUs';
-import Contact from './pages/footer/Contact';
 import Impressum from './pages/footer/Impressum';
 import PrivacyPolicy from './pages/footer/PrivacyPolicy';
 import TermsAndConditions from './pages/footer/TermsAndConditions';
@@ -95,11 +94,6 @@ function App() {
                 <Route path="/about">
                   <PageLayout title="About Us">
                     <AboutUs />
-                  </PageLayout>
-                </Route>
-                <Route path="/contact">
-                  <PageLayout title="Contact">
-                    <Contact />
                   </PageLayout>
                 </Route>
                 <Route path="/impressum">

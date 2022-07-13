@@ -26,7 +26,7 @@ function Footer() {
           <Col>
             <div className={styles.footerColumn}>
               <p><Link to="/about">About Us</Link></p>
-              <p><Link to="/contact">Contact</Link></p>
+              <p><a href="mailto:bazar.ba@gmail.com">Contact</a></p>
               <p><Link to="/impressum">Impressum</Link></p>
             </div>
           </Col>
@@ -46,7 +46,7 @@ function Footer() {
           <p>{new Date().getFullYear()} &ensp; © Bazar.ba</p>
           <p><Link to="/home"><img src="https://i.ibb.co/D9YW3Kw/Logo-icon-2.png" alt="Logo" className={styles.logoIcon}></img></Link></p>
           <p><Link to="/about">About Us</Link></p>
-          <p><Link to="/contact">Contact</Link></p>
+          <p><a href="mailto:bazar.ba@gmail.com">Contact</a></p>
           <p><Link to="/impressum">Impressum</Link></p>
           <p><Link to="/privacy">Privacy Policy</Link></p>
           <p><Link to="/terms">Terms and Conditions</Link></p>
