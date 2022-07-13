@@ -94,9 +94,9 @@ const Profile = ({setMessage, setMessageStyle}) => {
             </div>
           </Col>
           <Col className={styles.infoContainer}>
-            <p>First Name</p>
+            <p>Name</p>
             <input className={styles.inputField} placeholder="First Name" value={name} onChange={e => onChangeInput(e, setName)}/>
-            <p>I Am</p>
+            <p>Gender</p>
             <select className={styles.inputField} onChange={e => onChangeInput(e, setGender)} value={gender}>
               <option disabled selected hidden>Gender</option>
               <option>{GENDER.MALE}</option>
@@ -151,7 +151,7 @@ const Profile = ({setMessage, setMessageStyle}) => {
       </div>
 
       <div className={styles.buttonContainer}>
-        <button className={styles.saveButton} onClick={updateUserInfo}>SAVE INFO</button>
+        <button className={styles.saveButton} onClick={updateUserInfo}>SAVE CHANGES</button>
       </div>
 
     </div>
