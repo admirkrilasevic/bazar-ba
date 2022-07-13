@@ -111,7 +111,7 @@ function Payment() {
                         <CardExpiryElement className={styles.cardComponent}/>
                 </div>
                 <div className={formStyles.formSection}>
-                        <p>CVC/CV</p>
+                        <p>CVC/CVV</p>
                         <CardCvcElement className={styles.cardComponent}/>
                 </div>
                 <div>
