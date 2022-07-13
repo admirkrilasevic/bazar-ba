@@ -22,7 +22,6 @@ function AddressSection() {
     const selectedAddress = useSelector((state) => state.cart.addressId);
 
     const getCountryNameFromCode = (country) => {
-        //get country name from country code
         const countryName = countryCodes.find((countryCode) => countryCode.code === country);
         return countryName.name;
     }

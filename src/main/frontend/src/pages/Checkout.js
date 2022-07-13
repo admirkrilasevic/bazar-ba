@@ -44,7 +44,6 @@ function Checkout() {
     }, [cartItems]);
 
     const handlePlaceOrder = async () => {
-        console.log(quantityChecks);
          if (quantityChecks.every((check) => check == true)) {
             const response = await addOrder(user.token, user.id, selectedAddress, total, selectedPaymentMethod);
             dispatch(setOrderId(response));
@@ -57,6 +56,14 @@ function Checkout() {
         } 
     }
 
+    const isSelected = () => {
+        if (selectedAddress && selectedPaymentMethod) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     return (
         <div className={styles.checkoutContainer}>
             <AddressSection />
@@ -65,7 +72,7 @@ function Checkout() {
                 <div className={styles.total}>
                     <span>Total: </span>{total} KM
                 </div>
-                <Link to={"/payment"} onClick={() => handlePlaceOrder()}> PLACE ORDER </Link>
+                {isSelected() && <Link to={"/payment"} onClick={() => handlePlaceOrder()}> PLACE ORDER </Link>}
             </div>
         </div>
     );
