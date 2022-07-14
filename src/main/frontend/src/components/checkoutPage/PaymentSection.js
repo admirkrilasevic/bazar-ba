@@ -16,7 +16,7 @@ function PaymentSection() {
                 <input checked={selectedPaymentMethod === "cash"} type="radio" value="cash" name="cash" onChange={() => dispatch(setPaymentMethod("cash"))}/> &ensp; Cash on delivery
             </div>
             <div className={styles.radioButton}>
-                <input checked={selectedPaymentMethod === "card"} type="radio" value="card" name="card" onChange={() => dispatch(setPaymentMethod("card"))}/> &ensp; Credit card
+                <input checked={selectedPaymentMethod === "card"} type="radio" value="card" name="card" onChange={() => dispatch(setPaymentMethod("card"))}/> &ensp; Card (online)
             </div>
         </div>
     );
