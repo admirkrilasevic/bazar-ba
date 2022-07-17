@@ -21,7 +21,8 @@ const ItemInfo = ({setCurrentSection,
     }, [])
 
     const categories = allCategories && allCategories.filter((category) => category.parentCategoryId === null);
-    const subcategories = allCategories && allCategories.filter((subcategory) => subcategory.parentCategoryId !== null); 
+    let subcategories = allCategories && allCategories.filter((subcategory) => subcategory.parentCategoryId !== null); 
+    subcategories = subcategories && subcategories.filter((subcategory) => subcategory.parentCategoryId == category);
 
     const onNextClick = () => {
         if (validateItemInfo(name, category, subcategory, description, photos, setMessage, setMessageStyle)) {
