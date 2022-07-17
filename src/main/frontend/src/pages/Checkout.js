@@ -31,7 +31,7 @@ function Checkout() {
             total: item.price * item.selectedQuantity
         }
     });
-    const total = itemTotals.reduce((previous, item) => previous + item.total, 0);
+    const total = itemTotals.reduce((previous, item) => previous + item.total, 0) + 10;
 
     const dispatch = useDispatch();
 

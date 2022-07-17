@@ -47,7 +47,7 @@ function Payment() {
             total: item.price * item.selectedQuantity
         }
     });
-    const total = itemTotals.reduce((previous, item) => previous + item.total, 0);
+    const total = itemTotals.reduce((previous, item) => previous + item.total, 0) + 10;
 
     const onDoneClick = async () => {
         if(validateLocation(city, zipCode, state, country, setMessage, setMessageStyle) && name) {
