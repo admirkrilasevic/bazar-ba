@@ -2,5 +2,5 @@ Bazar.ba is envisioned as an e-commerce web application, that provides a platfor
 
 This application is a part of my Bachelor graduation project and will be developed using Spring Boot and React, with a PostgreSQL database.
 
-Live version is available [here](https://bazar-ba.herokuapp.com) <br>
+Live version is available [here](http://bazar-ba.herokuapp.com) <br>
 API documentation is available [here](https://bazar-ba-server.herokuapp.com/swagger-ui.html) 

@@ -22,6 +22,12 @@ const Settings = ({setMessage, setMessageStyle}) => {
     }
 
     const changePassword = async () => {
+        if (newPassword.length < 5 || newPassword.length > 20 || confirmPassword.length < 5 || confirmPassword.length > 20) {
+            setMessage("Password must be between 8 and 20 characters long.");
+            setMessageStyle(styles.headerMessageError);
+            window.scrollTo(0, 0);
+            return;
+        }
         if (newPassword !== confirmPassword) {
             setMessage("Passwords do not match");
             setMessageStyle(styles.headerMessageError);
@@ -33,6 +39,7 @@ const Settings = ({setMessage, setMessageStyle}) => {
             setMessage("Password changed successfully");
             setMessageStyle(styles.headerMessageSuccess);
             window.scrollTo(0, 0);
+            return;
         }
     }
 
